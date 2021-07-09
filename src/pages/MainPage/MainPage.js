@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import Header from "../../components/Header/Header";
-
+// 커밋이 지은 브랜치에 되는지 확인용 수정
 const Background = styled.div`
   background-color: #C7DEFF ;
   background-repeat: no-repeat;
