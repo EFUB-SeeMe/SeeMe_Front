@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import Header from "../../components/Header/Header";
-
+import Footer from "../../components/Footer/Footer";
 const Background = styled.div`
   background-color: #C7DEFF ;
   background-repeat: no-repeat;
@@ -154,32 +154,34 @@ height:400px;
 
 
 function MainPage() {
-    return (
-        <>
-            <Header></Header>
-            <Background>
-                <Wrapper1>
-                    <Box1></Box1>
-                    <Box2></Box2>
-                    <Box2></Box2>
+  return (
+    <>
+      <Header></Header>
+      <Background>
+        <Wrapper1>
+          <Box1></Box1>
+          <Box2></Box2>
+          <Box2></Box2>
 
-                </Wrapper1>
-                <Wrapper2>
-                    <Box3></Box3>
-                    <Box4></Box4>
-                </Wrapper2>
+        </Wrapper1>
+        <Wrapper2>
+          <Box3></Box3>
+          <Box4></Box4>
+        </Wrapper2>
 
-                <Wrapper3>
-                    <Box1></Box1>
-                    <Box2></Box2>
-                    <Box2></Box2>
-                    <Box3></Box3>
-                    <Box4></Box4>
-                </Wrapper3>
-            </Background>
+        <Wrapper3>
+          <Box1></Box1>
+          <Box2></Box2>
+          <Box2></Box2>
+          <Box3></Box3>
+          <Box4></Box4>
+        </Wrapper3>
+      </Background>
+      <Footer />
 
-        </>
-    );
+
+    </>
+  );
 }
 
 

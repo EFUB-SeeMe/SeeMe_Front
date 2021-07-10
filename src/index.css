@@ -8,3 +8,13 @@ body{
 body::-webkit-scrollbar {
   display: none;
 }
+
+@font-face {
+  font-family: "NotoSans";        
+  src: url("./fonts/NotoSansKR-Regular.otf"); 
+}
+
+@font-face {
+  font-family: "NotoSansBold";        
+  src: url("./fonts/NotoSansKR-Bold.otf"); 
+}
