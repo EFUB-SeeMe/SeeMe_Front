@@ -40,6 +40,7 @@ const Box1 = styled.div`
   @media (max-width: 375px) {
     // iphone
     width: 90%;
+    height: 138px;
     margin-top: 15px;
   }
 `
@@ -65,6 +66,7 @@ const Box2 = styled.div`
   @media (max-width: 375px) {
     // iphone
     width: 90%;
+    height: 314px;
     margin-top: 15px;
   }
 `
@@ -90,7 +92,8 @@ const Box3 = styled.div`
   @media (max-width: 375px) {
     // iphone
     width: 90%;
-    margin-top: 15px;
+    margin-top: 17px;
+    height: 254px;
   }
 `
 function CovidPage() {
