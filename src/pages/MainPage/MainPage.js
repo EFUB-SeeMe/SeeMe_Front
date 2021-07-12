@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 const Background = styled.div`
-  background-color: #C7DEFF ;
+  background-color: #ECF4FF ;
   background-repeat: no-repeat;
   background-position: center top;
   min-height:95vh;
@@ -82,7 +82,7 @@ const Box2 = styled.div`
 background: white;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 16px;
-margin-top: 18px;
+
 margin-bottom: 20px;
 @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -107,7 +107,7 @@ background: white;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 16px;
 margin-top: 18px;
-margin-bottom: 20px;
+margin-bottom: 10px;
 @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width:90%;
@@ -142,7 +142,7 @@ margin-bottom: 20px;
 @media (min-width: 1440px) {
 //desktop
 width:90%;
-height:400px;
+height:370px;
 
   }
 @media (max-width: 375px) {
