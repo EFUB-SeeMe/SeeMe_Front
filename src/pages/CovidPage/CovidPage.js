@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from "../../components/Footer/Footer";
-
+import LocationText from "../../components/LocationText";
 const Background = styled.div`
   background-color: #e5e5e5;
   background-repeat: no-repeat;
@@ -103,6 +103,7 @@ function CovidPage() {
       <Header></Header>
       <Background>
         <Wrapper1>
+          <LocationText />
           <Box1></Box1>
           <Box2></Box2>
           <Box3></Box3>
