@@ -66,17 +66,17 @@ margin-top: 10px;
     
   }
 
-@media (min-width: 1440px) {
-//desktop
-width:90%;
-height:280px;
+  @media (min-width: 1440px) {
+  //desktop
+  width:90%;
+  height:280px;
 
-  }
-@media (max-width: 375px) {
-    //iphone
-    width:90%;
-    margin-top: 15px;
-  }
+    }
+  @media (max-width: 375px) {
+      //iphone
+      width:90%;
+      margin-top: 15px;
+    }
 `
 const Box2 = styled.div`
 background: white;
