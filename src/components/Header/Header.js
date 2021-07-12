@@ -105,7 +105,7 @@ const Button = styled.button`
   color:black;
   background: white;
   
-  font-family: 'NotoSansCJKKR';
+  font-family: 'NotoSans';
   outline:none;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
