@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import Header from "../../components/Header/Header"
+import Footer from "../../components/Footer/Footer";
 
 const Background = styled.div`
   background-color: #E9E7FF;
@@ -169,6 +170,7 @@ function DustPage() {
                     <Box4></Box4>
                 </Wrapper3>
             </Background>
+            <Footer />
 
         </>
     );

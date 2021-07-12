@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
+import Footer from "../../components/Footer/Footer";
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -107,6 +108,7 @@ function CovidPage() {
           <Box3></Box3>
         </Wrapper1>
       </Background>
+      <Footer />
     </div>
   )
 }
