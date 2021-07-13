@@ -8,6 +8,7 @@ import dust from '../../assets/Dust_dust.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
+import Dustgraph from './Dustgraph'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -86,6 +87,7 @@ const Box1 = styled.div`
     margin-top: 15px;
   }
 `
+
 const Location = styled.image`
   // 마스크로고
   display: flex;
@@ -121,6 +123,70 @@ const Box2 = styled.div`
     width: 90%;
   }
 `
+
+const Box2_sub1 = styled.div` // 현재위치 박스
+  display: flex;
+  align-items: left;
+  height:25%;
+`
+
+const Box2_sub2 = styled.div` // 현재위치 박스
+  display: flex;
+  flex-direction: row; // 가로 정렬
+  //align-items: left;
+  height:55%;
+  background-color: yellow;
+`
+
+const Box2_sub3 = styled.div` // 현재위치 박스
+  display: flex;
+  flex-direction: row; // 가로 정렬
+  height:10%;
+`
+const Box2_sub4 = styled.div` // 현재위치 박스
+  display: flex;
+  flex-direction: row; // 가로 정렬
+  height:10%;
+`
+
+const 요일별추이 = styled.button`
+  align-items: left;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  outline: none;
+`
+const 날짜 = styled.button`
+  align-items: left;
+  margin-left: 12%;
+  font-size: 10px;
+  background: white;
+  border: none;
+  outline: none;
+`
+
+const 오늘날짜 = styled.button`
+  align-items: left;
+  margin-left: 12%;
+  font-size: 10px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  outline: none;
+`
+const 오늘 = styled.button`
+  align-items: left;
+  margin-left: 32%;
+  font-size: 10px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  outline: none;
+`
+
 const Box3 = styled.div`
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -225,7 +291,28 @@ function DustPage() {
         <Wrapper1>
           <Box1></Box1>
           <Box2></Box2>
-          <Box2></Box2>
+          <Box2>
+            <Box2_sub1>
+            <요일별추이> 요일별 추이 </요일별추이>
+            </Box2_sub1>
+            <Box2_sub2>
+            <Dustgraph height="70" color="#D9D4FF" />
+            <Dustgraph height="50" color="#D9D4FF" />
+            <Dustgraph height="70" color="#D9D4FF" />
+            <Dustgraph height="50" color="#D9D4FF" />
+
+            </Box2_sub2>
+            <Box2_sub3>
+              <날짜>06.27</날짜>
+              <오늘날짜>06.28</오늘날짜>
+              <날짜>06.29</날짜>
+              <날짜>06.30</날짜>
+              <날짜>06.31</날짜>
+            </Box2_sub3>
+            <Box2_sub4>
+            <오늘>오늘</오늘>
+            </Box2_sub4>
+          </Box2>
         </Wrapper1>
         <Wrapper2>
           <Box3>
@@ -243,7 +330,9 @@ function DustPage() {
               <div> 환기 시간 입니다 </div>
             </알림3>
           </Box3>
-          <Box4></Box4>
+          <Box4>
+
+          </Box4>
         </Wrapper2>
 
         <Wrapper3>
