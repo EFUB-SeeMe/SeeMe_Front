@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header'
 
 // load image
 import mask from '../../assets/Dust_mask.svg'
-import dust from '../../assets/Dust_dust.svg'
+import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
@@ -86,14 +86,72 @@ const Box1 = styled.div`
     margin-top: 15px;
   }
 `
+const Box1_sub1 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  // justify-content: center; //센터정렬
+  align-items: center;
+  width: 40%;
+  background-color: pink;
+`
+
+const Box1_sub2 = styled.div`
+  // 현재위치 오른쪽 박스 통칭
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  width: 60%;
+  background-color: blue;
+`
+const Box1_sub3 = styled.div`
+  // 오른쪽 박스의 위 박스
+  display: row;
+  flex-direction: row; // 가로 정렬
+  background-color: gray;
+  height: 55%;
+`
+const Box1_sub4 = styled.div`
+  // 오른쪽 박스의 아래 박스
+  display: flex;
+  flex-direction: column; // 세로정렬
+  height: 45%;
+`
+const Box1_sub5 = styled.div`
+  // 미세먼지 농도 초미세농도
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`
 const Location = styled.image`
-  // 마스크로고
+  // 위치 아이콘
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0px;
+  margin-top: 11px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const Dust = styled.image`
+  // 더스트이미지
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 0px;
-  margin-top: 11px;
-  background: white;
+  margin-top: 0px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const Standard = styled.image`
+  // 더스트기준
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  margin-right: 0px;
+  margin-top: 0px;
+  background: none;
   border: none;
   outline: none;
 `
@@ -204,6 +262,50 @@ const 알림3 = styled.button`
   border: none;
   outline: none;
 `
+const 지금위치 = styled.button`
+  align-items: center;
+  margin-top: 0px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const 미세먼지상태 = styled.button`
+  align-items: center;
+  margin-top: 0px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const 미세먼지농도 = styled.button`
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 80px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const 초미세먼지농도 = styled.button`
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 50px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  outline: none;
+`
+const 농도수치 = styled.button`
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 90px;
+  margin-right: -9px;
+  font-size: 65px;
+  background: none;
+  border: none;
+  outline: none;
+`
 
 const Mask = styled.image`
   // 마스크로고
@@ -223,7 +325,34 @@ function DustPage() {
       <Header></Header>
       <Background>
         <Wrapper1>
-          <Box1></Box1>
+          <Box1>
+            <Box1_sub1>
+              <div>
+                <Location>
+                  <img src={location} />
+                </Location>
+                <지금위치>현재 위치(00구 00동)</지금위치>
+                <Dust>
+                  <img src={dust} />
+                </Dust>
+                <미세먼지상태>좋음</미세먼지상태>
+              </div>
+            </Box1_sub1>
+            <Box1_sub2>
+              <Box1_sub3>
+                <미세먼지농도> 미세먼지 농도</미세먼지농도>
+                <초미세먼지농도> 초미세먼지 농도 </초미세먼지농도>
+                <농도수치> 23 </농도수치>
+                <농도수치> 15 </농도수치>
+                <Box1_sub5>
+                  <Standard>
+                    <img src={standard} />
+                  </Standard>
+                </Box1_sub5>
+              </Box1_sub3>
+              <Box1_sub4></Box1_sub4>
+            </Box1_sub2>
+          </Box1>
           <Box2></Box2>
           <Box2></Box2>
         </Wrapper1>
