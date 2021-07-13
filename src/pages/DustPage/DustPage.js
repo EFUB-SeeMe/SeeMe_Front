@@ -203,7 +203,7 @@ const dailydust = styled.button`
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 10px;
   background: white;
   border: none;
   outline: none;
