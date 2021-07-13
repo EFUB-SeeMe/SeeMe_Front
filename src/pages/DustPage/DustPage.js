@@ -4,7 +4,10 @@ import Header from "../../components/Header/Header"
 
 // load image
 import mask from "../../assets/Dust_mask.svg";
-
+import dust from "../../assets/Dust_dust.svg";
+import location from "../../assets/Dust_location.svg";
+import blue from "../../assets/Dust_blue.svg";
+import standard from "../../assets/Dust_standard.svg";
 const Background = styled.div`
   background-color: #E9E7FF;
   background-repeat: no-repeat;
@@ -62,6 +65,9 @@ border-radius: 16px;
 margin-bottom: 10px;
 margin-top: 0px;
 
+display: flex;
+flex-direction: column;
+
 @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width:90%;
@@ -81,6 +87,13 @@ height:300px;
     margin-top: 15px;
   }
 `
+
+const Box1_sub = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+
 const Box2 = styled.div`
 background: white;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -155,30 +168,40 @@ const Box4 = styled.div`
   }
 `
 
-
-const explaindust1 = styled.button`
- font-size: 14px;
- font-weight: bold;
- margin-left:60px;
- margin-top:10px;
- background: white;
- border: none;
- outline:none;
- `
-
-
-const explaindust2 = styled.button`
- font-weight: bold;
- align-items:center;
- margin-top: 0px;
-  font-size: 24px;
+const 알림1 = styled.button`
+align-items:center;
+margin-top: 30px;
+font-size: 20px;
+background: white;
+border: none;
+outline:none;
+`
+const 알림1_bold = styled.button`
+align-items:center;
+font-weight: bold;
+margin-top: 30px;
+font-size: 20px;
+background: white;
+border: none;
+outline:none;
 `
 
-const explaindust3 = styled.button`
-  font-weight: bold;
- align-items:center;
- margin-top: 0px;
-  font-size: 30px;
+const 알림2 = styled.button`
+align-items:center;
+margin-top: 0px;
+font-size: 24px;
+background: white;
+border: none;
+outline:none;
+`
+
+const 알림3 = styled.button`
+align-items:center;
+margin-top: 0px;
+font-size: 35px;
+background: white;
+border: none;
+outline:none;
 `
 
 const Mask = styled.image` // 마스크로고
@@ -205,10 +228,14 @@ function DustPage() {
                 </Wrapper1>
                 <Wrapper2>
                     <Box3>
-                       <explaindust1> <div> 미세먼지 좋아요~ 덴탈마스크 추천 </div> </explaindust1>
-                       <explaindust2> <div> 14시 30분 ~ 15시 30분 </div> </explaindust2>
+                      <div>
+                       <알림1> 미세먼지 좋아요~</알림1>
+                       <알림1_bold> 덴탈마스크 </알림1_bold>
+                       <알림1>추천 </알림1>
+                      </div>
                        <Mask><img src={mask} /></Mask>
-                       <explaindust3> <div> 환기 시간 입니다 </div></explaindust3>
+                       <알림2> 14시 30분 ~ 15시 30분  </알림2>
+                       <알림3> <div> 환기 시간 입니다 </div></알림3>
                     </Box3>
                     <Box4></Box4>
                 </Wrapper2>
