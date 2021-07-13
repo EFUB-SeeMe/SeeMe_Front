@@ -91,19 +91,22 @@ height:300px;
 const Box1_sub1 = styled.div` // 현재위치 박스
   display: flex;
   flex-direction: column; // 세로 정렬
-  justify-content: center; //센터정렬
+  // justify-content: center; //센터정렬
   align-items: center;
   width:40%;
+  background-color: pink;
 `
 
 const Box1_sub2 = styled.div` // 현재위치 오른쪽 박스 통칭
   display: flex;
   flex-direction: column; // 세로 정렬
   width:60%;
+  background-color: blue;
 `
 const Box1_sub3 = styled.div` // 오른쪽 박스의 위 박스
   display: flex;
   flex-direction: row; // 가로 정렬
+  background-color: gray;
   height:55%;
 `
 const Box1_sub4 = styled.div` // 오른쪽 박스의 아래 박스
@@ -115,6 +118,16 @@ const Box1_sub5 = styled.div` // 미세먼지 농도 초미세농도
   display: flex;
   flex-direction: column;
   width:50%;
+`
+const Location = styled.image` // 마스크로고
+display: flex;
+flex-direction: column;
+align-items:center;
+margin-right:0px;
+margin-top: 11px;
+background: white;
+border: none;
+outline:none;
 `
 
 const Box2 = styled.div`
@@ -245,6 +258,10 @@ function DustPage() {
                 <Wrapper1>
                     <Box1>
                       <Box1_sub1>
+                        <div>
+                        <Location><img src={location} /></Location>
+                        </div> 
+                        
 
                       </Box1_sub1>
                       <Box1_sub2>
