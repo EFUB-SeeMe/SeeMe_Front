@@ -66,7 +66,7 @@ margin-bottom: 10px;
 margin-top: 0px;
 
 display: flex;
-flex-direction: column;
+flex-direction: row;
 
 @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -88,11 +88,34 @@ height:300px;
   }
 `
 
-const Box1_sub = styled.div`
+const Box1_sub1 = styled.div` // 현재위치 박스
   display: flex;
-  flex-direction: column;
+  flex-direction: column; // 세로 정렬
+  justify-content: center; //센터정렬
+  align-items: center;
+  width:40%;
 `
 
+const Box1_sub2 = styled.div` // 현재위치 오른쪽 박스 통칭
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  width:60%;
+`
+const Box1_sub3 = styled.div` // 오른쪽 박스의 위 박스
+  display: flex;
+  flex-direction: row; // 가로 정렬
+  height:55%;
+`
+const Box1_sub4 = styled.div` // 오른쪽 박스의 아래 박스
+  display: flex;
+  flex-direction: column; // 세로정렬
+  height:45%;
+`
+const Box1_sub5 = styled.div` // 미세먼지 농도 초미세농도
+  display: flex;
+  flex-direction: column;
+  width:50%;
+`
 
 const Box2 = styled.div`
 background: white;
@@ -128,7 +151,6 @@ const Box3 = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -221,7 +243,24 @@ function DustPage() {
             <Header></Header>
             <Background>
                 <Wrapper1>
-                    <Box1></Box1>
+                    <Box1>
+                      <Box1_sub1>
+
+                      </Box1_sub1>
+                      <Box1_sub2>
+                       <Box1_sub3>
+                         <Box1_sub5>
+
+                         </Box1_sub5>
+                         <Box1_sub5>
+
+                         </Box1_sub5>
+                       </Box1_sub3>
+                       <Box1_sub4>
+
+                       </Box1_sub4>
+                      </Box1_sub2>
+                    </Box1>
                     <Box2></Box2>
                     <Box2></Box2>
 
