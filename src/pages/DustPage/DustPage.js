@@ -132,7 +132,8 @@ const Box2_sub1 = styled.div` // 현재위치 박스
 
 const Box2_sub2 = styled.div` // 현재위치 박스
   display: flex;
-  flex-direction: row; // 가로 정렬
+  flex-direction: row;
+  align-items: flex-end; // 가로 정렬
   //align-items: left;
   height:45%;
 `
@@ -205,7 +206,7 @@ const 오전 = styled.button`
 `
 const 오후 = styled.button`
   align-items: left;
-  margin-left: 5%;
+  margin-left: 3%;
   font-size: 5px;
   font-weight: bold;
   background: white;
@@ -216,11 +217,12 @@ const 오후 = styled.button`
 
 const Bar1 = styled.div` 
 display: flex;
-margin-left: 20px;
+margin-left: 6%;
 `
 const Bar2 = styled.div`
 display: flex;
 margin-left: 1px;
+opacity: 0.6;
 `
 const Bar3 = styled.div` 
 display: flex;
@@ -229,6 +231,7 @@ margin-left: 10px;
 const Bar4 = styled.div`
 display: flex;
 margin-left: 1px;
+opacity: 0.6;
 `
 
 
@@ -342,30 +345,30 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
 
-            <Bar1><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar1>
-            <Bar2><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar2>
-            <Bar3><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar3>
-            <Bar4><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar4>
+            <Bar1><Dustgraph height="70" color="#85BFEF" /></Bar1>
+            <Bar2><Dustgraph height="50" color="#85BFEF" /></Bar2>
+            <Bar3><Dustgraph height="70" color="#85BFEF" /></Bar3>
+            <Bar4><Dustgraph height="50" color="#85BFEF" /></Bar4>
 
-            <Bar1><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar1>
-            <Bar2><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar2>
-            <Bar3><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar3>
-            <Bar4><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar4>
+            <Bar1><Dustgraph height="70" color="#85BFEF" /></Bar1>
+            <Bar2><Dustgraph height="50" color="#85BFEF" /></Bar2>
+            <Bar3><Dustgraph height="70" color="#85BFEF" /></Bar3>
+            <Bar4><Dustgraph height="50" color="#85BFEF" /></Bar4>
 
-            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
-            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
-            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
-            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
+            <Bar1><Dustgraph height="70" color="#87EF85" /></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" /></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" /></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" /></Bar4>
 
-            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
-            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
-            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
-            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
+            <Bar1><Dustgraph height="70" color="#87EF85" /></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" /></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" /></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" /></Bar4>
 
-            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
-            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
-            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
-            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
+            <Bar1><Dustgraph height="70" color="#87EF85" /></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" /></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" /></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" /></Bar4>
 
             </Box2_sub2>
 
