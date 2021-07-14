@@ -283,53 +283,6 @@ const Box4 = styled.div`
   }
 `
 
-const 알림1 = styled.button`
-  align-items: center;
-  margin-top: 30px;
-  font-size: 20px;
-  background: white;
-  border: none;
-  outline: none;
-`
-const 알림1_bold = styled.button`
-  align-items: center;
-  font-weight: bold;
-  margin-top: 30px;
-  font-size: 20px;
-  background: white;
-  border: none;
-  outline: none;
-`
-
-const 알림2 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 24px;
-  background: white;
-  border: none;
-  outline: none;
-`
-
-const 알림3 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 35px;
-  background: white;
-  border: none;
-  outline: none;
-`
-
-const Mask = styled.image`
-  // 마스크로고
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 10px;
-  margin-top: 0px;
-  background: white;
-  border: none;
-  outline: none;
-`
 
 function DustPage() {
   return (
@@ -395,21 +348,7 @@ function DustPage() {
           </Box2>
         </Wrapper1>
         <Wrapper2>
-          <Box3>
-            <div>
-              <알림1> 미세먼지 좋아요~</알림1>
-              <알림1_bold> 덴탈마스크 </알림1_bold>
-              <알림1>추천 </알림1>
-            </div>
-            <Mask>
-              <img src={mask} />
-            </Mask>
-            <알림2> 14시 30분 ~ 15시 30분 </알림2>
-            <알림3>
-              {' '}
-              <div> 환기 시간 입니다 </div>
-            </알림3>
-          </Box3>
+          
           <Box4>
 
           </Box4>
