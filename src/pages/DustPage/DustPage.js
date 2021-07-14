@@ -134,16 +134,22 @@ const Box2_sub2 = styled.div` // 현재위치 박스
   display: flex;
   flex-direction: row; // 가로 정렬
   //align-items: left;
-  height:55%;
-  background-color: yellow;
+  height:45%;
 `
 
 const Box2_sub3 = styled.div` // 현재위치 박스
   display: flex;
   flex-direction: row; // 가로 정렬
+  //align-items: left;
   height:10%;
 `
+
 const Box2_sub4 = styled.div` // 현재위치 박스
+  display: flex;
+  flex-direction: row; // 가로 정렬
+  height:10%;
+`
+const Box2_sub5 = styled.div` // 현재위치 박스
   display: flex;
   flex-direction: row; // 가로 정렬
   height:10%;
@@ -186,6 +192,45 @@ const 오늘 = styled.button`
   border: none;
   outline: none;
 `
+
+const 오전 = styled.button`
+  align-items: left;
+  margin-left: 5%;
+  font-size: 5px;
+  font-weight: bold;
+  background: white;
+  color: #B2B2B2;
+  border: none;
+  outline: none;
+`
+const 오후 = styled.button`
+  align-items: left;
+  margin-left: 5%;
+  font-size: 5px;
+  font-weight: bold;
+  background: white;
+  color: #B2B2B2;
+  border: none;
+  outline: none;
+`
+
+const Bar1 = styled.div` 
+display: flex;
+margin-left: 20px;
+`
+const Bar2 = styled.div`
+display: flex;
+margin-left: 1px;
+`
+const Bar3 = styled.div` 
+display: flex;
+margin-left: 10px;
+`
+const Bar4 = styled.div`
+display: flex;
+margin-left: 1px;
+`
+
 
 const Box3 = styled.div`
   background: white;
@@ -296,22 +341,54 @@ function DustPage() {
             <요일별추이> 요일별 추이 </요일별추이>
             </Box2_sub1>
             <Box2_sub2>
-            <Dustgraph height="70" color="#D9D4FF" />
-            <Dustgraph height="50" color="#D9D4FF" />
-            <Dustgraph height="70" color="#D9D4FF" />
-            <Dustgraph height="50" color="#D9D4FF" />
+
+            <Bar1><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar1>
+            <Bar2><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar2>
+            <Bar3><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar3>
+            <Bar4><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar4>
+
+            <Bar1><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar1>
+            <Bar2><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar2>
+            <Bar3><Dustgraph height="70" color="#85BFEF" margin-top="100"/></Bar3>
+            <Bar4><Dustgraph height="50" color="#85BFEF" margin-top="100"/></Bar4>
+
+            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
+
+            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
+
+            <Bar1><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar1>
+            <Bar2><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar2>
+            <Bar3><Dustgraph height="70" color="#87EF85" margin-top="100"/></Bar3>
+            <Bar4><Dustgraph height="50" color="#87EF85" margin-top="100"/></Bar4>
 
             </Box2_sub2>
+
             <Box2_sub3>
+              <오전>AM</오전><오후>PM</오후>
+              <오전>AM</오전><오후>PM</오후>
+              <오전>AM</오전><오후>PM</오후>
+              <오전>AM</오전><오후>PM</오후>
+              <오전>AM</오전><오후>PM</오후>
+            </Box2_sub3>
+
+            <Box2_sub4>
               <날짜>06.27</날짜>
               <오늘날짜>06.28</오늘날짜>
               <날짜>06.29</날짜>
               <날짜>06.30</날짜>
               <날짜>06.31</날짜>
-            </Box2_sub3>
-            <Box2_sub4>
-            <오늘>오늘</오늘>
             </Box2_sub4>
+
+            <Box2_sub5>
+            <오늘>오늘</오늘>
+            </Box2_sub5>
+
           </Box2>
         </Wrapper1>
         <Wrapper2>
