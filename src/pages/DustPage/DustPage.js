@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 // load image
 import mask from '../../assets/Dust_mask.svg'
@@ -128,7 +129,7 @@ const Location = styled.image`
   flex-direction: row;
   align-items: center;
   margin-right: 0px;
-  margin-top: 11px;
+  margin-top: 15px;
   background: none;
   border: none;
   outline: none;
@@ -138,7 +139,7 @@ const Dust = styled.image`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 0px;
+  margin-right: -40px;
   margin-top: 0px;
   background: none;
   border: none;
@@ -230,6 +231,7 @@ const Box4 = styled.div`
 const 알림1 = styled.button`
   align-items: center;
   margin-top: 30px;
+  margin-left: 130px;
   font-size: 20px;
   background: white;
   border: none;
@@ -239,6 +241,7 @@ const 알림1_bold = styled.button`
   align-items: center;
   font-weight: bold;
   margin-top: 30px;
+  margin-left: 5px;
   font-size: 20px;
   background: white;
   border: none;
@@ -258,6 +261,15 @@ const 알림3 = styled.button`
   align-items: center;
   margin-top: 0px;
   font-size: 35px;
+  background: white;
+  border: none;
+  outline: none;
+`
+const 추천 = styled.button`
+  align-items: center;
+  margin-top: 0px;
+  margin-left: 5px;
+  font-size: 20px;
   background: white;
   border: none;
   outline: none;
@@ -308,7 +320,7 @@ const 농도수치 = styled.button`
 `
 const 활동알림 = styled.button`
   align-items: center;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 25%;
   margin-right: -60%;
   font-size: 22px;
@@ -338,14 +350,35 @@ function DustPage() {
           <Box1>
             <Box1_sub1>
               <div>
-                <Location>
-                  <img src={location} />
-                </Location>
-                <지금위치>현재 위치(00구 00동)</지금위치>
-                <Dust>
-                  <img src={dust} />
-                </Dust>
-                <미세먼지상태>좋음</미세먼지상태>
+                <img
+                  style={{ marginTop: '20px', marginLeft: '37px' }}
+                  src={location}
+                />
+                <a
+                  style={{
+                    marginTop: '15px',
+                    marginLeft: '10px',
+                    fontSize: '22px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  현재 위치(00구 00동)
+                </a>
+
+                <img
+                  style={{ marginTop: '0px', marginLeft: '60px' }}
+                  src={dust}
+                />
+                <a
+                  style={{
+                    marginTop: '20px',
+                    marginLeft: '133px',
+                    fontSize: '22px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  좋음
+                </a>
               </div>
             </Box1_sub1>
             <Box1_sub2>
@@ -372,7 +405,7 @@ function DustPage() {
             <div>
               <알림1> 미세먼지 좋아요~</알림1>
               <알림1_bold> 덴탈마스크 </알림1_bold>
-              <알림1>추천 </알림1>
+              <추천>추천 </추천>
             </div>
             <Mask>
               <img src={mask} />
@@ -394,6 +427,7 @@ function DustPage() {
           <Box4></Box4>
         </Wrapper3>
       </Background>
+      <Footer />
     </>
   )
 }
