@@ -93,7 +93,7 @@ const Box1_sub1 = styled.div`
   // justify-content: center; //센터정렬
   align-items: center;
   width: 40%;
-  background-color: pink;
+  background-color: none;
 `
 
 const Box1_sub2 = styled.div`
@@ -101,13 +101,13 @@ const Box1_sub2 = styled.div`
   display: flex;
   flex-direction: column; // 세로 정렬
   width: 60%;
-  background-color: blue;
+  background-color: none;
 `
 const Box1_sub3 = styled.div`
   // 오른쪽 박스의 위 박스
   display: row;
   flex-direction: row; // 가로 정렬
-  background-color: gray;
+  background-color: none;
   height: 55%;
 `
 const Box1_sub4 = styled.div`
@@ -149,8 +149,8 @@ const Standard = styled.image`
   display: flex;
   flex-direction: center;
   align-items: center;
-  margin-right: 0px;
-  margin-top: 0px;
+  margin-left: 45%;
+  margin-top: 10px;
   background: none;
   border: none;
   outline: none;
@@ -306,6 +306,16 @@ const 농도수치 = styled.button`
   border: none;
   outline: none;
 `
+const 활동알림 = styled.button`
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 25%;
+  margin-right: -60%;
+  font-size: 22px;
+  background: none;
+  border: none;
+  outline: none;
+`
 
 const Mask = styled.image`
   // 마스크로고
@@ -348,6 +358,7 @@ function DustPage() {
                   <Standard>
                     <img src={standard} />
                   </Standard>
+                  <활동알림>야외 활동을 즐겨보세요!</활동알림>
                 </Box1_sub5>
               </Box1_sub3>
               <Box1_sub4></Box1_sub4>
