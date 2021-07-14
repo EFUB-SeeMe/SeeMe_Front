@@ -29,12 +29,13 @@ const Box1 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-bottom: 8px;
-  margin-top: 20px;
+  margin-top: 14px;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     // between
+    margin-top: 40px;
     width: 70%;
-    height: 273px;
+    height: 200px;
   }
 
   @media (min-width: 1440px) {
@@ -53,13 +54,16 @@ const Box1 = styled.div`
 const Wrap1 = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
 `
 const Wrap2 = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    height: 28px;
+  }
   @media (max-width: 375px) {
     //iphone
     display: none;
@@ -75,6 +79,11 @@ const Loc_Icon = styled.button`
   margin-left: 37px;
   margin-top: 21px;
   background: white;
+
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    margin-top: 10px;
+  }
 `
 const Text1 = styled.a`
   width: 195px;
@@ -88,70 +97,93 @@ const Text1 = styled.a`
   font-size: 22px;
   line-height: 32px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 375px) and (max-width: 1024px) {
+    //ipad
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 22px;
   }
 `
+// 오늘의 확진자 수 & 우리지역 확진자 수
 const Text2 = styled.div`
-  width: 200px;
-  height: 34px;
-  left: 376px;
-  top: 161px;
-  margin-left: 152px;
-
+  margin-left: 165px;
   font-family: 'NotoSans';
   font-style: normal;
   font-weight: normal;
   font-size: 25px;
-  line-height: 34px;
   color: #000000;
 
   @media (max-width: 375px) {
     //iphone
-    display: none;
+    width: 125px;
+    background: lavenderblush;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 375px) and (max-width: 1024px) {
+    //ipad
+    margin-left: 100px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    font-size: 22px;
-    margin-left: 130px;
+    font-size: 19px;
+    margin-left: 180px;
+    margin-top: 00px;
   }
 `
 const Wrap2a = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  //justify-content: center;
 `
+// 명수
 const Text3 = styled.div`
-  width: 185px;
-  height: 95px;
   left: 375px;
   top: 196px;
-  margin-left: 152px;
+  margin-left: 167px;
 
   font-family: 'NotoSans';
   font-style: normal;
   font-weight: normal;
   font-size: 70px;
-  line-height: 95px;
   color: #000000;
 
   @media (max-width: 375px) {
     //iphone
-    display: none;
+    width: 120px;
+    height: 40px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 40px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 376px) and (max-width: 1024px) {
+    //ipad
+    margin-left: 110px;
+    font-size: 40px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    font-size: 60px;
-    margin-left: 140px;
+    font-size: 40px;
+    margin-left: 160px;
   }
 `
 const Wrap3 = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  //background: lavender;
+
+  @media (max-width: 375px) {
+    //iphone
+    width: 150px;
+  }
 `
 const Line = styled.div`
   width: 0px;
@@ -159,20 +191,26 @@ const Line = styled.div`
   left: 718px;
   top: 150.5px;
   border: 1.5px solid #d9d9d9;
-
   margin-left: 158px;
   margin-top: 15px;
+
   @media (max-width: 375px) {
     //iphone
-    width: 0px;
-    height: 106px;
-    left: 187px;
-    top: 120px;
-    border: 1.5px solid #d9d9d9;
+    margin-left: 20px;
+    height: 100px;
+    border: 1px solid #d9d9d9;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 376px) and (max-width: 1024px) {
+    //ipad pro
+    margin-left: 140px;
+    height: 150px;
+    border: 1px solid #d9d9d9;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    margin-left: 95px;
+    margin-left: 140px;
+    height: 150px;
+    border: 1px solid #d9d9d9;
   }
 `
 const Ascent = styled.image`
@@ -181,14 +219,20 @@ const Ascent = styled.image`
   left: 410px;
   top: 302px;
   margin-top: 11px;
-  margin-left: 150px;
+  margin-left: 160px;
 
   @media (max-width: 375px) {
     //iphone
+    width: 200px;
+    height: 13px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 376px) and (max-width: 1024px) {
+    //ipad pro
+    margin-left: 110px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    margin-left: 100px;
+    margin-left: 160px;
   }
 `
 const Descent = styled.image`
@@ -197,19 +241,20 @@ const Descent = styled.image`
   left: 925px;
   top: 302px;
   margin-top: 11px;
-  margin-left: 150px;
+  margin-left: 160px;
 
   @media (max-width: 375px) {
     //iphone
-    width: 0px;
-    height: 106px;
-    left: 187px;
-    top: 120px;
-    border: 1.5px solid #d9d9d9;
+    width: 30px;
+    height: 20px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 376px) and (max-width: 1024px) {
+    //ipad pro
+    margin-left: 90px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
-    margin-left: 100px;
+    margin-left: 160px;
   }
 `
 const Box2 = styled.div`
@@ -222,7 +267,8 @@ const Box2 = styled.div`
   @media (min-width: 375px) and (max-width: 1440px) {
     // between
     width: 70%;
-    height: 310px;
+    height: 230px;
+    margin-top: 8px;
   }
 
   @media (min-width: 1440px) {
@@ -248,7 +294,8 @@ const Box3 = styled.div`
   @media (min-width: 375px) and (max-width: 1440px) {
     // between
     width: 70%;
-    height: 254px;
+    height: 210px;
+    margin-top: 8px;
   }
 
   @media (min-width: 1440px) {
