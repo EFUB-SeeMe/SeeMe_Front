@@ -386,10 +386,27 @@ const 요일별추이 = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    font-size: 7px;
+  }
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    font-size: 10px;
+  }
 `
-const 날짜 = styled.button`
+const 날짜1 = styled.button`
   align-items: left;
-  margin-left: 12%;
+  padding-left: 9.5%;
+  font-size: 10px;
+  background: white;
+  border: none;
+  outline: none;
+`
+
+const 날짜2 = styled.button`
+  align-items: left;
+  padding-left: 14.5%;
   font-size: 10px;
   background: white;
   border: none;
@@ -398,7 +415,7 @@ const 날짜 = styled.button`
 
 const 오늘날짜 = styled.button`
   align-items: left;
-  margin-left: 12%;
+  padding-left: 14.5%;
   font-size: 10px;
   font-weight: bold;
   background: white;
@@ -407,7 +424,7 @@ const 오늘날짜 = styled.button`
 `
 const 오늘 = styled.button`
   align-items: left;
-  margin-left: 32%;
+  margin-left: 28.5%;
   font-size: 10px;
   font-weight: bold;
   background: white;
@@ -415,9 +432,9 @@ const 오늘 = styled.button`
   outline: none;
 `
 
-const 오전 = styled.button`
+const 오전1 = styled.button`
   align-items: left;
-  margin-left: 5%;
+  margin-left: 6.5%;
   font-size: 5px;
   font-weight: bold;
   background: white;
@@ -427,7 +444,7 @@ const 오전 = styled.button`
 `
 const 오후 = styled.button`
   align-items: left;
-  margin-left: 3%;
+  margin-left: 4.5%;
   font-size: 5px;
   font-weight: bold;
   background: white;
@@ -435,23 +452,81 @@ const 오후 = styled.button`
   border: none;
   outline: none;
 `
+const 오전2 = styled.button`
+  align-items: left;
+  margin-left: 7.6%;
+  font-size: 5px;
+  font-weight: bold;
+  background: white;
+  color: #b2b2b2;
+  border: none;
+  outline: none;
+`
+
 const Bar1 = styled.div`
   display: flex;
   margin-left: 6%;
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    margin-left: 4%;
+  }
+  @media (max-width: 375px) {
+    //iphone
+    margin-left: 2%;
+  }
 `
 const Bar2 = styled.div`
   display: flex;
-  margin-left: 1px;
+  margin-left: 0.2%;
   opacity: 0.6;
 `
 const Bar3 = styled.div`
   display: flex;
-  margin-left: 10px;
+  margin-left: 3%;
 `
 const Bar4 = styled.div`
   display: flex;
-  margin-left: 1px;
+  margin-left: 0.2%;
   opacity: 0.6;
+`
+
+const Bar1_dis = styled.div`
+  display: flex;
+  margin-left: 6%;
+
+  @media (max-width: 375px) {
+    //iphone
+    display: none;
+  }
+`
+const Bar2_dis = styled.div`
+  display: flex;
+  margin-left: 0.2%;
+  opacity: 0.6;
+
+  @media (max-width: 375px) {
+    //iphone
+    display: none;
+  }
+`
+const Bar3_dis = styled.div`
+  display: flex;
+  margin-left: 3%;
+
+  @media (max-width: 375px) {
+    //iphone
+    display: none;
+  }
+`
+const Bar4_dis = styled.div`
+  display: flex;
+  margin-left: 0.2%;
+  opacity: 0.6;
+
+  @media (max-width: 375px) {
+    //iphone
+    display: none;
+  }
 `
 
 function DustPage() {
@@ -516,90 +591,50 @@ function DustPage() {
               <요일별추이> 요일별 추이 </요일별추이>
             </Box2_sub1>
             <Box2_sub2>
-              <Bar1>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar4>
+              <Bar1> <Dustgraph height="70" color="#85BFEF" /> </Bar1>
+              <Bar2> <Dustgraph height="50" color="#85BFEF" /> </Bar2>
+              <Bar3> <Dustgraph height="70" color="#85BFEF" /> </Bar3>
+              <Bar4> <Dustgraph height="30" color="#85BFEF" /> </Bar4>
 
-              <Bar1>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar4>
+              <Bar1> <Dustgraph height="70" color="#85BFEF" /> </Bar1>
+              <Bar2> <Dustgraph height="50" color="#85BFEF" /> </Bar2>
+              <Bar3> <Dustgraph height="70" color="#85BFEF" /> </Bar3>
+              <Bar4> <Dustgraph height="30" color="#85BFEF" /> </Bar4>
 
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
+              <Bar1> <Dustgraph height="70" color="#87EF85" /> </Bar1>
+              <Bar2> <Dustgraph height="50" color="#87EF85" /> </Bar2>
+              <Bar3> <Dustgraph height="70" color="#87EF85" /> </Bar3>
+              <Bar4> <Dustgraph height="30" color="#87EF85" /> </Bar4>
 
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
+              <Bar1_dis> <Dustgraph height="70" color="#87EF85" /> </Bar1_dis>
+              <Bar2_dis> <Dustgraph height="50" color="#87EF85" /> </Bar2_dis>
+              <Bar3_dis> <Dustgraph height="70" color="#87EF85" /> </Bar3_dis>
+              <Bar4_dis> <Dustgraph height="30" color="#87EF85" /> </Bar4_dis>
 
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
+              <Bar1_dis> <Dustgraph height="70" color="#87EF85" /> </Bar1_dis>
+              <Bar2_dis> <Dustgraph height="50" color="#87EF85" /> </Bar2_dis>
+              <Bar3_dis> <Dustgraph height="70" color="#87EF85" /> </Bar3_dis>
+              <Bar4_dis> <Dustgraph height="30" color="#87EF85" /> </Bar4_dis>
             </Box2_sub2>
             <Box2_sub3>
-              <오전>AM</오전>
+              <오전1>AM</오전1>
               <오후>PM</오후>
-              <오전>AM</오전>
+              <오전2>AM</오전2>
               <오후>PM</오후>
-              <오전>AM</오전>
+              <오전2>AM</오전2>
               <오후>PM</오후>
-              <오전>AM</오전>
+              <오전2>AM</오전2>
               <오후>PM</오후>
-              <오전>AM</오전>
+              <오전2>AM</오전2>
               <오후>PM</오후>
             </Box2_sub3>
 
             <Box2_sub4>
-              <날짜>06.27</날짜>
+              <날짜1>06.27</날짜1>
               <오늘날짜>06.28</오늘날짜>
-              <날짜>06.29</날짜>
-              <날짜>06.30</날짜>
-              <날짜>06.31</날짜>
+              <날짜2>06.29</날짜2>
+              <날짜2>06.30</날짜2>
+              <날짜2>06.31</날짜2>
             </Box2_sub4>
 
             <Box2_sub5>
