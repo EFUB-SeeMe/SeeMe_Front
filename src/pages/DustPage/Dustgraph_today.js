@@ -52,10 +52,13 @@ const Bar1 = styled.div`
  height: ${props => props.height1 || 50}px;
  width:15px;
  margin-left: 20px;
- 
  filter: drop-ShadowRoot(0px 4px 4px rgba(0,0,0,0.25)); 
  display: flex;
  flex-direction: row;
+  @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar2 = styled.div`
  background:${props => props.color || "black"};
@@ -67,6 +70,10 @@ const Bar2 = styled.div`
 
  display: flex;
  flex-direction: row;
+ @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar3 = styled.div`
  background: ${props => props.color || "black"};
@@ -77,6 +84,10 @@ const Bar3 = styled.div`
 
  display: flex;
  flex-direction: row;
+ @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar4 = styled.div`
  background:${props => props.color || "black"};
@@ -88,6 +99,7 @@ const Bar4 = styled.div`
 
  display: flex;
  flex-direction: row;
+ 
 `
 // 그래프 4개 그리기 끝
 
@@ -99,29 +111,6 @@ const day = styled.button`
   border: none;
   outline: none;
 `
-/*const day = styled.a`
-  width: 195px;
-  height: 32px;
-  left: 296.01px;
-  top: 105px;
-  margin-top: 15px;
-  font-family: 'NotoSans';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 10px;
-  line-height: 32px;
-  @media (min-width: 375px) and (max-width: 1024px) {
-    //ipad
-    font-size: 16px;
-    line-height: 22px;
-  }
-  @media (min-width: 1025px) and (max-width: 1440px) {
-    //between
-    font-size: 16px;
-    line-height: 22px;
-  }
-`
-*/
 
 const 오늘날짜 = styled.button`
   align-items: left;

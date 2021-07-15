@@ -371,11 +371,13 @@ const 요일별추이 = styled.button`
   outline: none;
   @media (max-width: 375px) {
     //iphone
-    font-size: 7px;
+    font-size: 10px;
+    margin-left: 20px;
   }
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
-    font-size: 10px;
+    font-size: 15px;
+    margin-left: 20px;
   }
 `
 
@@ -471,7 +473,16 @@ function DustPage() {
         <Wrapper3>
           <Box1></Box1>
           <Box2></Box2>
-          <Box2></Box2>
+          <Box2>
+          <Box2_sub1>
+              <요일별추이> 요일별 추이 </요일별추이>
+            </Box2_sub1>
+            <Box2_sub2>
+              <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
+              <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
+              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
+            </Box2_sub2>
+          </Box2>
           <Box3></Box3>
           <Box4></Box4>
         </Wrapper3>

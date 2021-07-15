@@ -53,10 +53,13 @@ const Bar1 = styled.div`
  height: ${props => props.height1 || 50}px;
  width:15px;
  margin-left: 20px;
- 
  filter: drop-ShadowRoot(0px 4px 4px rgba(0,0,0,0.25)); 
  display: flex;
  flex-direction: row;
+  @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar2 = styled.div`
  background:${props => props.color || "black"};
@@ -68,6 +71,10 @@ const Bar2 = styled.div`
 
  display: flex;
  flex-direction: row;
+ @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar3 = styled.div`
  background: ${props => props.color || "black"};
@@ -78,6 +85,10 @@ const Bar3 = styled.div`
 
  display: flex;
  flex-direction: row;
+ @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+  }
 `
 const Bar4 = styled.div`
  background:${props => props.color || "black"};
@@ -89,6 +100,7 @@ const Bar4 = styled.div`
 
  display: flex;
  flex-direction: row;
+ 
 `
 // 그래프 4개 그리기 끝
 
