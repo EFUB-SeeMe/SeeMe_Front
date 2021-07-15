@@ -451,8 +451,55 @@ function DustPage() {
       <Header></Header>
       <Background>
         <Wrapper1>
-          <Box1>
-            
+        <Box1>
+            <Box1_sub1>
+              <div>
+                <img
+                  style={{ marginTop: '20px', marginLeft: '37px' }}
+                  src={location}
+                />
+                <a
+                  style={{
+                    marginTop: '15px',
+                    marginLeft: '10px',
+                    fontSize: '22px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  현재 위치(00구 00동)
+                </a>
+
+                <img
+                  style={{ marginTop: '0px', marginLeft: '60px' }}
+                  src={dust}
+                />
+                <a
+                  style={{
+                    marginTop: '20px',
+                    marginLeft: '133px',
+                    fontSize: '22px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  좋음
+                </a>
+              </div>
+            </Box1_sub1>
+            <Box1_sub2>
+              <Box1_sub3>
+                <미세먼지농도> 미세먼지 농도</미세먼지농도>
+                <초미세먼지농도> 초미세먼지 농도 </초미세먼지농도>
+                <농도수치> 23 </농도수치>
+                <농도수치> 15 </농도수치>
+                <Box1_sub5>
+                  <Standard>
+                    <img src={standard} />
+                  </Standard>
+                  <활동알림>야외 활동을 즐겨보세요!</활동알림>
+                </Box1_sub5>
+              </Box1_sub3>
+              <Box1_sub4></Box1_sub4>
+            </Box1_sub2>
           </Box1>
           <Box2></Box2>
           <Box2>
@@ -469,8 +516,20 @@ function DustPage() {
           </Box2>
         </Wrapper1>
         <Wrapper2>
-          <Box3>
-          
+        <Box3>
+            <div>
+              <알림1> 미세먼지 좋아요~</알림1>
+              <알림1_bold> 덴탈마스크 </알림1_bold>
+              <추천>추천 </추천>
+            </div>
+            <Mask>
+              <img src={mask} />
+            </Mask>
+            <알림2> 14시 30분 ~ 15시 30분 </알림2>
+            <알림3>
+              {' '}
+              <div> 환기 시간 입니다 </div>
+            </알림3>
           </Box3>
           <Box4>
           <Text> 지역별 농도 </Text>
