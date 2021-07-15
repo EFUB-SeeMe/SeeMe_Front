@@ -397,8 +397,6 @@ const Map = styled.image`
   outline: none;
   @media (min-width: 1440px) {
     //desktop
-    width: 330px
-    height: 300px;
   }
 `
 
