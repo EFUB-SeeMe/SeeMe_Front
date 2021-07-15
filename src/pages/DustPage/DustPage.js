@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import LocationText from '../../components/LocationText'
 
 // load image
 import mask from '../../assets/Dust_mask.svg'
@@ -91,6 +92,7 @@ const Box1 = styled.div`
   @media (max-width: 375px) {
     //iphone
     width: 90%;
+    height: 350px;
     margin-top: 15px;
   }
 `
@@ -227,6 +229,7 @@ const Box3 = styled.div`
   @media (max-width: 375px) {
     //iphone
     width: 90%;
+    height: 330px;
   }
 `
 const Box4 = styled.div`
@@ -261,6 +264,13 @@ const 알림1 = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    display: center;
+    margin-top: 30px;
+    margin-left: 52px;
+    font-size: 14px;
+  }
 `
 const 알림1_bold = styled.button`
   align-items: center;
@@ -271,6 +281,13 @@ const 알림1_bold = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    display: center;
+    margin-top: 30px;
+    margin-left: 5px;
+    font-size: 14px;
+  }
 `
 
 const 알림2 = styled.button`
@@ -280,6 +297,13 @@ const 알림2 = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    display: center;
+    margin-top: -30px;
+    margin-left: 61px;
+    font-size: 20px;
+  }
 `
 
 const 알림3 = styled.button`
@@ -289,6 +313,13 @@ const 알림3 = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    display: center;
+    margin-top: -0px;
+    margin-left: 60px;
+    font-size: 30px;
+  }
 `
 const 추천 = styled.button`
   align-items: center;
@@ -298,6 +329,13 @@ const 추천 = styled.button`
   background: white;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    display: center;
+    margin-top: 30px;
+    margin-left: -5px;
+    font-size: 14px;
+  }
 `
 const 지금위치 = styled.button`
   align-items: center;
@@ -342,6 +380,13 @@ const 농도수치 = styled.button`
   background: none;
   border: none;
   outline: none;
+  @media (max-width: 375px) {
+    //iphone
+    color: #42a0f0;
+    margin-left: 67px;
+    margin-right: -30px;
+    display: center;
+  }
 `
 const 활동알림 = styled.button`
   align-items: center;
@@ -434,7 +479,33 @@ function DustPage() {
         </Wrapper2>
 
         <Wrapper3>
-          <Box1> </Box1>
+        <LocationText />
+        <Box1>
+            <div>
+              <img
+                style={{ marginTop: '0px', marginLeft: '75px' }}
+                src={dust}
+              />
+
+              <a
+                style={{
+                  marginTop: '16px',
+                  marginLeft: '60px',
+                  fontSize: '16px',
+                  fontFamily: 'NotoSans',
+                }}
+              >
+                미세먼지 농도 &ensp;&emsp; 초미세먼지 농도
+              </a>
+
+              <농도수치> 23 </농도수치>
+              <농도수치> 15 </농도수치>
+              <img
+                style={{ marginTop: '5px', marginLeft: '50px' }}
+                src={standard}
+              />
+            </div>
+          </Box1>
           <Box2></Box2>
           <Box2>
           <Box2_sub1>
@@ -446,11 +517,29 @@ function DustPage() {
               <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
             </Box2_sub2>
           </Box2>
-          <Box3> </Box3>
+         
+          <Box3>
+            <div>
+              <알림1> 미세먼지 좋아요~</알림1>
+              <알림1_bold> 덴탈마스크 </알림1_bold>
+              <추천>추천 !</추천>
+              <img
+                style={{ marginTop: '0px', marginLeft: '67px' }}
+                src={mask}
+              />
+              <알림2> 14시 30분 ~ 15시 30분 </알림2>
+              <알림3>
+                {' '}
+                <div> 환기 시간 입니다 </div>
+              </알림3>
+            </div>
+          </Box3>
+
           <Box4>
             <Text> 지역별 농도 </Text>
             <Map> <img src={map} /> </Map>
           </Box4>
+          <Box4></Box4>
         </Wrapper3>
       </Background>
       <Footer />
