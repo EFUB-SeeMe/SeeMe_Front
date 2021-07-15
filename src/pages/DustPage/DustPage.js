@@ -434,7 +434,6 @@ function DustPage() {
         </Wrapper2>
 
         <Wrapper3>
-          <Box1></Box1>
           <Box2></Box2>
           <Box2>
           <Box2_sub1>
@@ -446,7 +445,7 @@ function DustPage() {
               <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
             </Box2_sub2>
           </Box2>
-          <Box3></Box3>
+          
           <Box4>
             <Text> 지역별 농도 </Text>
             <Map> <img src={map} /> </Map>
