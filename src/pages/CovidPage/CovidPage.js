@@ -81,7 +81,7 @@ const Box3 = styled.div`
   @media (min-width: 1440px) {
     // desktop
     width: 70%;
-    height: 266px;
+    height: 323px;
   }
 
   @media (min-width: 375px) and (max-width: 1440px) {
@@ -121,7 +121,7 @@ const Wrap2 = styled.div`
 const Text1 = styled.a`
   width: 195px;
   height: 32px;
-  margin-top: 15px;
+  margin-top: 18px;
   font-family: 'NotoSans';
   font-style: normal;
   font-weight: normal;
@@ -132,6 +132,7 @@ const Text1 = styled.a`
     //between
     font-size: 16px;
     line-height: 22px;
+    margin-top: 23px;
   }
 `
 const Loc_Icon = styled.button`
@@ -143,7 +144,7 @@ const Loc_Icon = styled.button`
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
-    margin-top: 10px;
+    margin-top: 20px;
   }
 `
 const Wrap2a = styled.div`
@@ -281,6 +282,121 @@ const Descent = styled.img`
 Descent.defaultProps = {
   src: descent_dif,
 }
+// Box2 & 3
+const Wrap4 = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 375px) {
+    //iphone
+    display: none;
+  }
+`
+const Wrap5 = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  // background: ivory;
+
+  @media (min-width: 375px) and (max-width: 843px) {
+    //between
+    width: 30%;
+  }
+`
+const Wrap6 = styled.div`
+  display: flex;
+  align-items: center;
+  width: 75%;
+  // background: lavenderblush;
+
+  @media (min-width: 375px) and (max-width: 843px) {
+    //between
+    width: 70%;
+  }
+`
+const Wrap7 = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+// 전국 확진자 추이 & 우리지역 확진자 추이
+const Text4 = styled.div`
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+
+  @media (min-width: 843px) and (max-width: 1440px) {
+    //between
+    font-size: 17px;
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  @media (min-width: 375px) and (max-width: 843px) {
+    // ipad
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    height: 30px;
+  }
+  @media (max-width: 375px) {
+    //iphone
+  }
+`
+// 신규 / 누적
+const Text5 = styled.div`
+  color: ${props => props.color || '#818494'};
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 40px;
+  margin-bottom: 8px;
+
+  @media (min-width: 843px) and (max-width: 1440px) {
+    //between
+    font-size: 14px;
+    margin-left: 30px;
+    margin-bottom: 0px;
+    height: 30px;
+  }
+  @media (min-width: 375px) and (max-width: 843px) {
+    // ipad
+    font-size: 13px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    height: 20px;
+  }
+  @media (max-width: 375px) {
+    //iphone
+  }
+`
+const BoldText1 = styled.div`
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 40px;
+
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    font-size: 14px;
+    margin-left: 30px;
+    margin-bottom: 0px;
+    height: 30px;
+  }
+  @media (max-width: 375px) {
+    //iphone
+  }
+`
 function CovidPage() {
   return (
     <div>
@@ -310,8 +426,38 @@ function CovidPage() {
             </Wrap2a>
           </Wrap1>
         </Box1>
-        <Box2></Box2>
-        <Box3></Box3>
+        <Box2>
+          <Wrap4>
+            <Wrap5>
+              <Text4>전국 확진자 추이</Text4>
+              <Wrap7>
+                <Text5>신규</Text5>
+                <BoldText1>567명</BoldText1>
+              </Wrap7>
+              <Wrap7>
+                <Text5>누적</Text5>
+                <Text5 color={'black'}>157,723명</Text5>
+              </Wrap7>
+            </Wrap5>
+            <Wrap6></Wrap6>
+          </Wrap4>
+        </Box2>
+        <Box3>
+          <Wrap4>
+            <Wrap5>
+              <Text4>우리지역 확진자 추이</Text4>
+              <Wrap7>
+                <Text5>신규</Text5>
+                <BoldText1>334명</BoldText1>
+              </Wrap7>
+              <Wrap7>
+                <Text5>누적</Text5>
+                <Text5 color={'black'}>50,321명</Text5>
+              </Wrap7>
+            </Wrap5>
+            <Wrap6></Wrap6>
+          </Wrap4>
+        </Box3>
       </Background>
       <Footer />
     </div>
