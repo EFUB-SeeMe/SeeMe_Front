@@ -9,8 +9,12 @@ import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
+import map from '../../assets/Dust_map.svg'
+
+
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
+
 
 
 const Background = styled.div`
@@ -360,7 +364,7 @@ const Mask = styled.image`
   border: none;
   outline: none;
 `
-const 요일별추이 = styled.button`
+const Text = styled.button`
   align-items: left;
   margin-top: 20px;
   margin-left: 30px;
@@ -378,6 +382,22 @@ const 요일별추이 = styled.button`
     //between
     font-size: 15px;
     margin-left: 20px;
+  }
+`
+
+const Map = styled.image`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 0%;
+  background: white;
+  border: none;
+  outline: none;
+  @media (min-width: 1440px) {
+    //desktop
+    width: 330px
+    height: 300px;
   }
 `
 
@@ -440,7 +460,7 @@ function DustPage() {
           <Box2></Box2>
           <Box2>
             <Box2_sub1>
-              <요일별추이> 요일별 추이 </요일별추이>
+              <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
               <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
@@ -458,16 +478,17 @@ function DustPage() {
               <알림1_bold> 덴탈마스크 </알림1_bold>
               <추천>추천 </추천>
             </div>
-            <Mask>
-              <img src={mask} />
-            </Mask>
+            <Mask> <img src={mask} /> </Mask>
             <알림2> 14시 30분 ~ 15시 30분 </알림2>
             <알림3>
               {' '}
               <div> 환기 시간 입니다 </div>
             </알림3>
           </Box3>
-          <Box4></Box4>
+          <Box4>
+          <Text> 지역별 농도 </Text>
+          <Map> <img src={map} /> </Map>
+          </Box4>
         </Wrapper2>
 
         <Wrapper3>
@@ -475,7 +496,7 @@ function DustPage() {
           <Box2></Box2>
           <Box2>
           <Box2_sub1>
-              <요일별추이> 요일별 추이 </요일별추이>
+              <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
               <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
@@ -484,7 +505,10 @@ function DustPage() {
             </Box2_sub2>
           </Box2>
           <Box3></Box3>
-          <Box4></Box4>
+          <Box4>
+            <Text> 지역별 농도 </Text>
+            <Map> <img src={map} /> </Map>
+          </Box4>
         </Wrapper3>
       </Background>
       <Footer />
