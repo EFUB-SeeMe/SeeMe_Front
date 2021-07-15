@@ -6,15 +6,14 @@ const Wrapper1 = styled.div`
   flex-direction: column; // 세로정렬
   margin-top: 25%;
   width: 100%;
-  height: 100%;
-  align-items: center;
+  height: 75%;
 `
 
 const Box1 = styled.div` // 그래프 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:70%;
+  height:85%;
   margin-left: 10%;
   margin-bottom: 10%;
 
@@ -26,7 +25,7 @@ const Box2 = styled.div` // AMPM 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:10%;
+  height:7.5%;
   margin-left: 5%;
 
   display: flex;
@@ -36,7 +35,7 @@ const Box3 = styled.div` // 날짜 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:10%;
+  height:7.5%;
   margin-left: 5%;
 
   display: flex;
@@ -45,7 +44,7 @@ const Box3 = styled.div` // 날짜 박스
 const Box4 = styled.div` // 오늘 박스
   display: flex;
   flex-direction: row; 
-  height:10%;
+  height: 10%;
 `
 // 그래프 4개 그리기 시작
 const Bar1 = styled.div`
@@ -92,14 +91,56 @@ const Bar4 = styled.div`
 `
 // 그래프 4개 그리기 끝
 
-const 날짜 = styled.button`
+const day = styled.button`
   align-items: left;
-  margin-left: 38px;
-  font-size: 15px;
+  margin-left: 28.5%;
+  font-size: 10px;
   background: white;
   border: none;
   outline: none;
-  margin-bottom: 33%;
+`
+/*const day = styled.a`
+  width: 195px;
+  height: 32px;
+  left: 296.01px;
+  top: 105px;
+  margin-top: 15px;
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 32px;
+  @media (min-width: 375px) and (max-width: 1024px) {
+    //ipad
+    font-size: 16px;
+    line-height: 22px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    //between
+    font-size: 16px;
+    line-height: 22px;
+  }
+`
+*/
+
+const 오늘날짜 = styled.button`
+  align-items: left;
+  margin-left: 38px;
+  font-size: 15px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  outline: none;
+`
+const 오늘 = styled.button`
+  align-items: left;
+  margin-left: 47px;
+  font-size: 15px;
+  font-weight: bold;
+  background: white;
+  border: none;
+  outline: none;
+  margin-bottom: 10%;
 `
 
 const AM = styled.button`
@@ -123,7 +164,7 @@ const PM = styled.button`
   outline: none;
 `
 
-function Dustgraph_day({color, height1, height2, height3, height4, day}) {
+function Dustgraph_today({color, height1, height2, height3, height4, day}) {
     return(
         <div>
             <Wrapper1>
@@ -137,13 +178,11 @@ function Dustgraph_day({color, height1, height2, height3, height4, day}) {
                 <AM>AM</AM> <PM>PM</PM>
             </Box2>
             <Box3>
-                <날짜>{day}</날짜>
+                <오늘날짜>{day}</오늘날짜>
             </Box3>
-            <Box4>
-            </Box4>
-
+            <Box4> <오늘> 오늘 </오늘> </Box4>
             </Wrapper1>
         </div>
     )
 }
-export default Dustgraph_day;
+export default Dustgraph_today;

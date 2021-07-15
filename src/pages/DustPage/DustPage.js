@@ -10,6 +10,7 @@ import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
 import Dustgraph_day from './Dustgraph_day'
+import Dustgraph_today from './Dustgraph_today'
 
 
 const Background = styled.div`
@@ -196,7 +197,7 @@ const Box2_sub2 = styled.div`
   flex-direction: row;
   align-items: flex-end; // 가로 정렬
   //align-items: left;
-  height: 45%;
+  height: 75%;
 `
 
 const Box3 = styled.div`
@@ -361,9 +362,9 @@ const Mask = styled.image`
 `
 const 요일별추이 = styled.button`
   align-items: left;
-  margin-top: 10px;
-  margin-left: 20px;
-  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-size: 20px;
   font-weight: bold;
   background: white;
   border: none;
@@ -440,11 +441,11 @@ function DustPage() {
               <요일별추이> 요일별 추이 </요일별추이>
             </Box2_sub1>
             <Box2_sub2>
-              <Dustgraph_day color="#85BFEF" height1="70" height2="60" height3="80" height4="30" /> 
-              <Dustgraph_day color="#85BFEF" height1="70" height2="60" height3="80" height4="30" /> 
-              <Dustgraph_day color="#87EF85" height1="70" height2="60" height3="80" height4="30" /> 
-              <Dustgraph_day color="#87EF85" height1="70" height2="60" height3="80" height4="30" />
-              <Dustgraph_day color="#87EF85" height1="70" height2="60" height3="80" height4="30" />
+              <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
+              <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
+              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
+              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.30" />
+              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.31" />
             </Box2_sub2>
           </Box2>
         </Wrapper1>
