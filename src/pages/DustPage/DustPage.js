@@ -215,6 +215,7 @@ const Box3 = styled.div`
 
   display: flex;
   flex-direction: column;
+  overflow:hidden;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -254,6 +255,22 @@ const Box4 = styled.div`
     //iphone
     width: 90%;
   }
+`
+
+const Box4_sub1 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  height: 15%;
+  background-color: none;
+`
+const Box4_sub2 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  // justify-content: center; //센터정렬
+  align-items: center;
+  height: 90%;
+  background-color: none;
 `
 
 const 알림1 = styled.button`
@@ -319,6 +336,10 @@ const 알림3 = styled.button`
     margin-top: -0px;
     margin-left: 60px;
     font-size: 30px;
+  }
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    font-size:25px;
   }
 `
 const 추천 = styled.button`
@@ -419,11 +440,6 @@ const Text = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
-    //iphone
-    font-size: 10px;
-    margin-left: 20px;
-  }
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     font-size: 15px;
@@ -440,9 +456,8 @@ const Map = styled.image`
   background: white;
   border: none;
   outline: none;
-  @media (min-width: 1440px) {
-    //desktop
-  }
+  height: 100%;
+  width: 100%;
 `
 
 function DustPage() {
@@ -532,8 +547,8 @@ function DustPage() {
             </알림3>
           </Box3>
           <Box4>
-          <Text> 지역별 농도 </Text>
-          <Map> <img src={map} /> </Map>
+            <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
+            <Box4_sub2> <Map> <img src={map} /> </Map></Box4_sub2>
           </Box4>
         </Wrapper2>
 
@@ -595,10 +610,9 @@ function DustPage() {
           </Box3>
 
           <Box4>
-            <Text> 지역별 농도 </Text>
-            <Map> <img src={map} /> </Map>
+            <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
+            <Box4_sub2> <Map> <img src={map} /> </Map></Box4_sub2>
           </Box4>
-          <Box4></Box4>
         </Wrapper3>
       </Background>
       <Footer />
