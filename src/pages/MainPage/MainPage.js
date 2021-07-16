@@ -29,7 +29,7 @@ const Wrapper1 = styled.div`
   align-items: center;
   flex-direction: column;
   width: 55%;
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     display: none;
   }
@@ -41,7 +41,7 @@ const Wrapper2 = styled.div`
   justify-content: center;
   align-items: center;
   width: 45%;
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     display: none;
   }
@@ -53,7 +53,7 @@ const Wrapper3 = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 376px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     display: none;
   }
@@ -75,7 +75,7 @@ const Box1 = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 280px;
@@ -87,7 +87,7 @@ const Box1 = styled.div`
   height:300px;
 
     }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
       //iphone
       width:90%;
       margin-top: 15px;
@@ -128,7 +128,7 @@ background: white;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 16px;
 margin-bottom: 20px;
-@media (min-width: 375px) and (max-width: 1440px) {
+@media (min-width: 390px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 245px;
@@ -139,7 +139,7 @@ margin-bottom: 20px;
     width: 90%;
     height: 245px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     width: 90%;
     height:230px
@@ -153,7 +153,7 @@ margin-top: 18px;
 margin-bottom: 10px;
 display:flex;
 justify-content:center;
-@media (min-width: 375px) and (max-width: 1440px) {
+@media (min-width: 390px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 300px;
@@ -164,7 +164,7 @@ justify-content:center;
     width: 90%;
     height: 360px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     width: 90%;
   }
@@ -176,7 +176,7 @@ const Box4 = styled.div`
   margin-top: 15px;
   margin-bottom: 20px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 350px;
@@ -188,7 +188,7 @@ width:90%;
 height:400px;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     width: 90%;
   }

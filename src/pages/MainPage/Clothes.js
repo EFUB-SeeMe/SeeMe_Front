@@ -31,7 +31,7 @@ const Text=styled.div`
     margin-top: 15px;
     margin-right: 60px;
 
-   @media (min-width: 375px) and (max-width: 1440px) {
+   @media (min-width: 390px) and (max-width: 1440px) {
     //between
     margin-left: 20px;
     font-size:  ${props => props.size-3 || 16}px;
@@ -74,10 +74,15 @@ const Button = styled.button`
 `
 
 const Image=styled.img`
-@media (min-width: 375px) and (max-width: 1440px) {
+@media (min-width: 390px) and (max-width: 1440px) {
     //between
     width:70px;
     height:70px;
+  }
+  @media (max-width: 390px) {
+    //iphone
+    width:60px;
+    height:60px;
   }
 `
 

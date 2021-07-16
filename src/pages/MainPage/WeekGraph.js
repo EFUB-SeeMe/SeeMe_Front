@@ -10,7 +10,7 @@ const Wrapper=styled.div`
     align-items: center;
    
     height:40px;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 390px) and (max-width: 1440px) {
     //between
     margin-left: 0px;
     margin-right: 0px;
@@ -26,7 +26,7 @@ const Wrapper=styled.div`
     justify-content: space-between;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     margin-left: 10px;
     margin-right: 10px;

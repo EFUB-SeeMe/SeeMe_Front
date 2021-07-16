@@ -7,7 +7,7 @@ import Vector from "../../assets/Vector.svg"
 
 const MyIcon = styled.img`
 margin-top: 8px;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     width: 127px;
     margin-right: 20px;
@@ -22,7 +22,7 @@ margin-top: 8px;
     margin-left: 76px;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     width: 84px;
     display: center;
@@ -47,7 +47,7 @@ const Line = styled.div`
   width: 0px;
   margin-top:19px;
   border: 1px solid #A3A3A3;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     margin-left: 22px;
     margin-right: 22px;
@@ -62,7 +62,7 @@ const Line = styled.div`
     height:26px;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     display: none;
   }
@@ -81,7 +81,7 @@ const Input = styled.input`
     
     margin-top:11px;
     border-radius: 10px;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 390px) and (max-width: 1440px) {
     //between
     width:150px;
     margin-left: 45px;
@@ -93,7 +93,7 @@ const Input = styled.input`
     margin-left: 85px;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     display: none;
   }
@@ -107,7 +107,7 @@ const Button = styled.button`
   
   font-family: 'NotoSans';
   outline:none;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     width:70px;
     font-size:14px;
@@ -119,7 +119,7 @@ const Button = styled.button`
     font-size:  17px;
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     display: none;
 
@@ -133,7 +133,7 @@ const SearchButton = styled.button`
   width: 40px;
   height: 37px;
   margin-top: 11px;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     margin-right: 10px;
     margin-left: 10px;
@@ -149,7 +149,7 @@ const SearchButton = styled.button`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   }
-  @media (max-width: 375px) {
+  @media (max-width: 390px) {
     //iphone
     background-color: white;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
@@ -166,7 +166,7 @@ const ToggleButton = styled.button`
   width: 40px;
   height: 37px;
   margin-top: 11px;
-  @media (min-width: 376px) and (max-width: 1440px) {
+  @media (min-width: 390px) and (max-width: 1440px) {
     //between
     display: none;
   }

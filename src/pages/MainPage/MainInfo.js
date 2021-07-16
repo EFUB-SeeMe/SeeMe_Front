@@ -10,7 +10,7 @@ const Wrapper=styled.div`
     width:280px;
     height:280px;
     margin-top: 15px;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 390px) and (max-width: 1440px) {
     //between
     margin-top: 40px;
   }
@@ -20,7 +20,7 @@ const Row=styled.div`
     flex-direction: row;
     justify-content: space-between;
     width:100%;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 390px) and (max-width: 1440px) {
     //between
     justify-content: space-evenly;
   }
@@ -47,7 +47,7 @@ const Text=styled.div`
     font-family: 'NotoSans';
     margin-right: 5px;
     text-align: center;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 390px) and (max-width: 1440px) {
     //between
     font-size:  ${props => props.size-5 || 18}px;
   }
