@@ -10,6 +10,7 @@ const Wrapper=styled.div`
     width:280px;
     height:330px;
 
+
 `
 const CenterRow=styled.div`
     display:flex;
@@ -29,7 +30,7 @@ const Column=styled.div`
     justify-content: center;
     width:130px;
     height:60px;
-    margin-top: 10px;
+    margin-top: 15px;
 `
 const Styled = styled.div`
   background: ${props => props.color || "black"};
@@ -61,10 +62,10 @@ function MainInfo2({color,height,num,time}) {
         <Row>
         <Text size="65">26°</Text>
         <Column>
-        <Text size="24">체감 온도 28℃ </Text>
+        <Text size="26">체감 온도 28℃ </Text>
         <CenterRow>
-        <Text size="18" color="#EF8787">최고 29℃ &nbsp;&nbsp;</Text>
-            <Text size="18" color="#6CB8F8">최저 20℃ </Text></CenterRow>
+        <Text size="23" color="#EF8787">최고 29℃ &nbsp;&nbsp;</Text>
+            <Text size="23" color="#6CB8F8">최저 20℃ </Text></CenterRow>
         </Column>
         </Row>
         </Wrapper>
