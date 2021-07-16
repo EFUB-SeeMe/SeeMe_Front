@@ -285,14 +285,17 @@ const Descent = styled.img`
 Descent.defaultProps = {
   src: descent_dif,
 }
-// Box2 & 3
+
+//////////////////////////////////////////////////////
+// Box2 & 3 Start
+
 const Wrap4 = styled.div`
   display: flex;
   flex-direction: row;
 
   @media (max-width: 375px) {
     //iphone
-    display: none;
+    flex-direction: column;
   }
 `
 const Wrap5 = styled.div`
@@ -306,11 +309,16 @@ const Wrap5 = styled.div`
     //between
     width: 30%;
   }
+  @media (max-width: 375px) {
+    //iphone
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+  }
 `
 // Graph Wrapper
 const Wrap6 = styled.div`
   display: flex;
-  justify-content: space-around, center;
   width: 75%;
   //background: lavenderblush;
   margin-top: 30px;
@@ -321,6 +329,12 @@ const Wrap6 = styled.div`
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 70%;
+    justify-content: space-around, center;
+    margin-top: 00px;
+  }
+  @media (max-width: 375px) {
+    //iphone
+    width: 90%;
     margin-top: 00px;
   }
 `
@@ -339,10 +353,19 @@ const Wrap6a = styled.div`
     width: 70%;
     margin-top: 20px;
   }
+  @media (max-width: 375px) {
+    //iphone
+    width: 90%;
+    margin-top: 00px;
+  }
 `
 const Wrap7 = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 376px) {
+    flex-direction: column;
+  }
 `
 // 전국 확진자 추이 & 우리지역 확진자 추이
 const Text4 = styled.div`
@@ -373,6 +396,11 @@ const Text4 = styled.div`
   }
   @media (max-width: 375px) {
     //iphone
+    font-size: 14px;
+    height: 14px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 100px;
   }
 `
 // 신규 / 누적
@@ -402,6 +430,8 @@ const Text5 = styled.div`
   }
   @media (max-width: 375px) {
     //iphone
+    font-size: 12px;
+    margin-left: 10px;
   }
 `
 const BoldText1 = styled.div`
@@ -409,7 +439,7 @@ const BoldText1 = styled.div`
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 20px;
   margin-left: 40px;
 
   @media (min-width: 375px) and (max-width: 1440px) {
@@ -421,6 +451,8 @@ const BoldText1 = styled.div`
   }
   @media (max-width: 375px) {
     //iphone
+    font-size: 12px;
+    margin-left: 10px;
   }
 `
 function CovidPage() {
