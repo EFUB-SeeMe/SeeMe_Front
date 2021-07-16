@@ -532,17 +532,22 @@ function DustPage() {
               <Box1_sub4></Box1_sub4>
             </Box1_sub2>
           </Box1>
-          <Box2></Box2>
+          <Box2>
+          </Box2>
+
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
+
               <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
               <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
               <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
               <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.30" />
               <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.31" />
+
+              
             </Box2_sub2>
           </Box2>
         </Wrapper1>
