@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
+import { AlwaysScrollSection } from './AlwaysScrollSection'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
@@ -298,7 +299,8 @@ const Wrap5 = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  // background: ivory;
+  height: 200px;
+  //background: ivory;
 
   @media (min-width: 375px) and (max-width: 843px) {
     //between
@@ -310,14 +312,16 @@ const Wrap6 = styled.div`
   display: flex;
   justify-content: space-around, center;
   width: 75%;
-  // background: lavenderblush;
-  margin-top: 20px;
+  //background: lavenderblush;
+  margin-top: 30px;
   margin-bottom: 20px;
   margin-right: 14px;
+  margin-left: 20px;
 
-  @media (min-width: 375px) and (max-width: 843px) {
+  @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 70%;
+    margin-top: 00px;
   }
 `
 const Wrap6a = styled.div`
@@ -325,13 +329,15 @@ const Wrap6a = styled.div`
   flex-direction: row;
   justify-content: space-around, center;
   width: 75%;
-  // background: lavender;
+  //background: lavender;
   margin-right: 14px;
+  margin-left: 20px;
   margin-top: 70px;
 
-  @media (min-width: 375px) and (max-width: 843px) {
+  @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 70%;
+    margin-top: 20px;
   }
 `
 const Wrap7 = styled.div`
@@ -460,12 +466,14 @@ function CovidPage() {
               </Wrap7>
             </Wrap5>
             <Wrap6>
-              <Graph height="161" num="623" month="06" date="23"></Graph>
-              <Graph height="178" num="634" month="06" date="24"></Graph>
-              <Graph height="203" num="668" month="06" date="25"></Graph>
-              <Graph height="156" num="614" month="06" date="26"></Graph>
-              <Graph height="117" num="501" month="06" date="27"></Graph>
-              <Graph height="139" num="567" month="06" date="28"></Graph>
+              <AlwaysScrollSection>
+                <Graph height="121" num="623" month="06" date="23"></Graph>
+                <Graph height="138" num="634" month="06" date="24"></Graph>
+                <Graph height="163" num="668" month="06" date="25"></Graph>
+                <Graph height="116" num="614" month="06" date="26"></Graph>
+                <Graph height="77" num="501" month="06" date="27"></Graph>
+                <Graph height="99" num="567" month="06" date="28"></Graph>
+              </AlwaysScrollSection>
             </Wrap6>
           </Wrap4>
         </Box2>
@@ -483,42 +491,44 @@ function CovidPage() {
               </Wrap7>
             </Wrap5>
             <Wrap6a>
-              <Graph_Local
-                height="89"
-                num="269"
-                month="06"
-                date="23"
-              ></Graph_Local>
-              <Graph_Local
-                height="87"
-                num="263"
-                month="06"
-                date="24"
-              ></Graph_Local>
-              <Graph_Local
-                height="80"
-                num="242"
-                month="06"
-                date="25"
-              ></Graph_Local>
-              <Graph_Local
-                height="61.6"
-                num="185"
-                month="06"
-                date="26"
-              ></Graph_Local>
-              <Graph_Local
-                height="68.3"
-                num="205"
-                month="06"
-                date="27"
-              ></Graph_Local>
-              <Graph_Local
-                height="113.3"
-                num="334"
-                month="06"
-                date="28"
-              ></Graph_Local>
+              <AlwaysScrollSection>
+                <Graph_Local
+                  height="69"
+                  num="269"
+                  month="06"
+                  date="23"
+                ></Graph_Local>
+                <Graph_Local
+                  height="67"
+                  num="263"
+                  month="06"
+                  date="24"
+                ></Graph_Local>
+                <Graph_Local
+                  height="60"
+                  num="242"
+                  month="06"
+                  date="25"
+                ></Graph_Local>
+                <Graph_Local
+                  height="41.6"
+                  num="185"
+                  month="06"
+                  date="26"
+                ></Graph_Local>
+                <Graph_Local
+                  height="48.3"
+                  num="205"
+                  month="06"
+                  date="27"
+                ></Graph_Local>
+                <Graph_Local
+                  height="93.3"
+                  num="334"
+                  month="06"
+                  date="28"
+                ></Graph_Local>
+              </AlwaysScrollSection>
             </Wrap6a>
           </Wrap4>
         </Box3>
