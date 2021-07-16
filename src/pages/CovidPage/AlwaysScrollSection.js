@@ -12,12 +12,11 @@ const StyledAlwaysScrollSection = styled.div`
 
   &::-webkit-scrollbar {
     /* 세로 스크롤 넓이 */
-    width: 8px;
+    width: 1px;
 
     /* 가로 스크롤 높이 */
-    height: 8px;
-
-    border-radius: 6px;
+    height: 2px;
+    border-radius: 3px;
     background: rgba(255, 255, 255, 0.4);
   }
   &::-webkit-scrollbar-thumb {
