@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { useDispatch } from 'react-redux';
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import LocationText from "../../components/LocationText";
+import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+import LocationText from '../../components/LocationText'
 
 const Background = styled.div`
-  background-color: #ECF4FF ;
+  background-color: #ecf4ff;
   background-repeat: no-repeat;
   background-position: center top;
   min-height: 95vh;
@@ -68,24 +68,23 @@ const Box1 = styled.div`
   }
 
   @media (min-width: 1440px) {
-  //desktop
-  width:90%;
-  height:300px;
-
-    }
+    //desktop
+    width: 90%;
+    height: 300px;
+  }
   @media (max-width: 375px) {
-      //iphone
-      width:90%;
-      margin-top: 15px;
-    }
+    //iphone
+    width: 90%;
+    margin-top: 15px;
+  }
 `
 const Box2 = styled.div`
-background: white;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
 
-margin-bottom: 20px;
-@media (min-width: 375px) and (max-width: 1440px) {
+  margin-bottom: 20px;
+  @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 185px;
@@ -102,12 +101,12 @@ margin-bottom: 20px;
   }
 `
 const Box3 = styled.div`
-background: white;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
-margin-top: 18px;
-margin-bottom: 10px;
-@media (min-width: 375px) and (max-width: 1440px) {
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 265px;
@@ -135,11 +134,10 @@ const Box4 = styled.div`
     height: 350px;
   }
 
-@media (min-width: 1440px) {
-//desktop
-width:90%;
-height:400px;
-
+  @media (min-width: 1440px) {
+    //desktop
+    width: 90%;
+    height: 400px;
   }
   @media (max-width: 375px) {
     //iphone
@@ -152,7 +150,7 @@ function MainPage() {
     <>
       <Header></Header>
       <Background>
-        <Wrapper1>    
+        <Wrapper1>
           <Box1></Box1>
           <Box2></Box2>
           <Box2></Box2>
@@ -163,7 +161,7 @@ function MainPage() {
         </Wrapper2>
 
         <Wrapper3>
-        <LocationText />
+          <LocationText />
           <Box1></Box1>
           <Box2></Box2>
           <Box2></Box2>
@@ -172,10 +170,8 @@ function MainPage() {
         </Wrapper3>
       </Background>
       <Footer />
-
-
     </>
-  );
+  )
 }
 
 export default MainPage
