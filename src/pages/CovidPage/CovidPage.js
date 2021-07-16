@@ -35,14 +35,14 @@ const Box1 = styled.div`
     height: 280px;
   }
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     // between
     //margin-top: 40px;
     width: 70%;
     height: 200px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     // iphone
     width: 90%;
     height: 138px;
@@ -60,14 +60,14 @@ const Box2 = styled.div`
     height: 323px;
   }
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
     height: 230px;
     // margin-top: 8px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     // iphone
     width: 90%;
     height: 314px;
@@ -87,14 +87,14 @@ const Box3 = styled.div`
     height: 293px;
   }
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
     height: 210px;
     margin-top: 18px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     // iphone
     width: 90%;
     margin-top: 17px;
@@ -111,11 +111,11 @@ const Wrap2 = styled.div`
   align-content: center;
   align-items: center;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     height: 28px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: none;
   }
@@ -131,7 +131,7 @@ const Text1 = styled.a`
   font-size: 22px;
   line-height: 32px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 16px;
     line-height: 22px;
@@ -145,7 +145,7 @@ const Loc_Icon = styled.button`
   margin-top: 21px;
   background: white;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-top: 20px;
   }
@@ -162,7 +162,7 @@ const Wrap3 = styled.div`
   align-items: center;
   //justify-content: center;
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 150px;
   }
@@ -172,22 +172,21 @@ const Text2 = styled.div`
   margin-left: 7px;
   margin-top: 15px;
   font-family: 'NotoSans';
-  font-style: normal;
-  font-weight: normal;
   font-size: 25px;
-  color: #000000;
+  width: 200px;
 
   @media (min-width: 1055px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
+    margin-left: 60px;
+    font-size: 20px;
+    width: 170px;
+  }
+  @media (min-width: 420x) and (max-width: 1055px) {
+    //ipad & ipad pro
     font-size: 17px;
   }
-  @media (min-width: 375px) and (max-width: 1055px) {
-    //ipad & ipad pro
-    font-size: 16px;
-    line-height: 30px;
-  }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     margin-top: 10px;
     margin-left: 15px;
@@ -195,7 +194,7 @@ const Text2 = styled.div`
     font-size: 15px;
   }
 `
-// Number
+// NUM of Positive results
 const Text3 = styled.div`
   font-family: 'NotoSans';
   font-style: normal;
@@ -204,12 +203,12 @@ const Text3 = styled.div`
   color: #000000;
   margin-left: 20px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     font-size: 50px;
     margin-left: 10px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 40px;
   }
@@ -228,14 +227,15 @@ const Line = styled.div`
     height: 150px;
     border: 1px solid #d9d9d9;
   }
-  @media (min-width: 376px) and (max-width: 1024px) {
+  @media (min-width: 420px) and (max-width: 1024px) {
     //ipad pro
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+    height: 130px;
     border: 1px solid #d9d9d9;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     margin-left: 8px;
     margin-right: 8px;
@@ -248,13 +248,13 @@ const Ascent = styled.img`
   width: 99px;
   height: 37px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-left: 10px;
     width: 89px;
     height: 30px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     margin-top: 5px;
     width: 50px;
@@ -269,13 +269,13 @@ const Descent = styled.img`
   width: 99px;
   height: 37px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-left: 10px;
     width: 89px;
     height: 30px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     margin-top: 5px;
     width: 50px;
@@ -287,13 +287,13 @@ Descent.defaultProps = {
 }
 
 //////////////////////////////////////////////////////
-// Box2 & 3 Start
+///////////////// Box2 & 3 Start /////////////////////
 
 const Wrap4 = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     flex-direction: column;
   }
@@ -303,13 +303,12 @@ const Wrap5 = styled.div`
   flex-direction: column;
   width: 25%;
   height: 200px;
-  //background: ivory;
 
-  @media (min-width: 375px) and (max-width: 843px) {
+  @media (min-width: 420px) and (max-width: 843px) {
     //between
     width: 30%;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     flex-direction: row;
     width: 100%;
@@ -326,13 +325,13 @@ const Wrap6 = styled.div`
   margin-right: 14px;
   margin-left: 20px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 70%;
     justify-content: space-around, center;
     margin-top: 00px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
     margin-top: 00px;
@@ -348,12 +347,12 @@ const Wrap6a = styled.div`
   margin-left: 20px;
   margin-top: 70px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 70%;
     margin-top: 20px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
     margin-top: 00px;
@@ -363,7 +362,7 @@ const Wrap7 = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 376px) {
+  @media (max-width: 420px) {
     flex-direction: column;
   }
 `
@@ -386,7 +385,7 @@ const Text4 = styled.div`
     margin-bottom: 20px;
     height: 30px;
   }
-  @media (min-width: 375px) and (max-width: 843px) {
+  @media (min-width: 420px) and (max-width: 843px) {
     // ipad
     font-size: 16px;
     margin-top: 15px;
@@ -394,7 +393,7 @@ const Text4 = styled.div`
     margin-bottom: 10px;
     height: 30px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     font-size: 14px;
     height: 14px;
@@ -407,8 +406,6 @@ const Text4 = styled.div`
 const Text5 = styled.div`
   color: ${props => props.color || '#818494'};
   font-family: 'NotoSans';
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
   line-height: 22px;
   margin-left: 40px;
@@ -421,38 +418,39 @@ const Text5 = styled.div`
     margin-bottom: 0px;
     height: 30px;
   }
-  @media (min-width: 375px) and (max-width: 843px) {
+  @media (min-width: 420px) and (max-width: 843px) {
     // ipad
     font-size: 13px;
     margin-left: 20px;
     margin-bottom: 0px;
     height: 20px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     font-size: 12px;
-    margin-left: 10px;
+    margin-right: 12px;
+    margin-left: 5px;
   }
 `
 const BoldText1 = styled.div`
   font-family: 'NotoSans';
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
   margin-left: 40px;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 14px;
     margin-left: 30px;
     margin-bottom: 0px;
     height: 30px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     font-size: 12px;
-    margin-left: 10px;
+    margin-right: 3px;
+    margin-left: 5px;
   }
 `
 function CovidPage() {
