@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Rain from '../../assets/Rain.svg'
+import dust from '../../assets/Group 336.svg'
+import standard from '../../assets/Dust_standard.svg'
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,7 +15,8 @@ const Wrapper = styled.div`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin-top: 12px;
   width: 100%;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -48,37 +50,40 @@ const Text = styled.div`
     font-size: ${props => props.size - 10 || 18}px;
   }
 `
+const Image = styled.img`
+  width: '236px';
+  height: '35px';
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    width: '136px';
+    height: '35px';
+  }
+`
 
-function MainInfo({ color, height, num, time }) {
+function Dustinfo({ color, height, num, time }) {
   return (
     <Wrapper>
       <Row>
-        <Text>현재온도</Text>
-        <Text>체감온도</Text>
+        <Text size="25"> 미세먼지 </Text>
+        <Text size="25">초미세먼지 </Text>
       </Row>
       <Row>
-        <Text size="70">26</Text>
-        <Text size="70">28</Text>
-      </Row>
-      <CenterRow>
-        <Text size="16" color="#EF8787">
-          최고 29℃ &nbsp;&nbsp;
+        <Text size="60" color="#42A0F0">
+          23
         </Text>
-        <Text size="16" color="#6CB8F8">
-          최저 20℃{' '}
-        </Text>
-      </CenterRow>
-      <Row>
-        <Text size="16" color="#222222">
-          오늘은 오후 6시에 소나기가 내려요 !{' '}
+        <Text size="60" color="#42A0F0">
+          15
         </Text>
       </Row>
       <Row>
-        <Text size="16" color="#222222">
-          어제보다 2℃ 낮아요{' '}
+        <Image src={standard} />
+      </Row>
+      <Row>
+        <Text size="22" color="#222222">
+          야외 활동을 즐겨보세요 !{' '}
         </Text>
       </Row>
     </Wrapper>
   )
 }
-export default MainInfo
+export default Dustinfo

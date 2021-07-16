@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-
+import Dustinfo from './Dustinfo'
 // load image
 import mask from '../../assets/Dust_mask.svg'
 import dust from '../../assets/Group 336.svg'
@@ -78,7 +78,7 @@ const Box1 = styled.div`
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 220px;
+    height: 250px;
   }
 
   @media (min-width: 1440px) {
@@ -456,6 +456,21 @@ const Map = styled.image`
   height: 100%;
   width: 100%;
 `
+const MainBox = styled.div`
+  height: 220px;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 15px;
+`
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+`
 
 function DustPage() {
   return (
@@ -464,54 +479,27 @@ function DustPage() {
       <Background>
         <Wrapper1>
           <Box1>
-            <Box1_sub1>
-              <div>
+            <MainBox>
+              <Row>
+                <img style={{ height: '35px', width: '22px' }} src={location} />
+                <p style={{ marginTop: '10px' }}>&ensp; 성동구 성수1동</p>
+              </Row>
+              <Row>
                 <img
-                  style={{ marginTop: '20px', marginLeft: '37px' }}
-                  src={location}
-                />
-                <a
                   style={{
-                    marginTop: '15px',
-                    marginLeft: '10px',
-                    fontSize: '22px',
-                    fontFamily: 'NotoSans',
+                    width: '160px',
+                    height: '150px',
+                    marginBottom: '50px',
                   }}
-                >
-                  현재 위치(00구 00동)
-                </a>
-
-                <img
-                  style={{ marginTop: '0px', marginLeft: '60px' }}
                   src={dust}
                 />
-                <a
-                  style={{
-                    marginTop: '20px',
-                    marginLeft: '133px',
-                    fontSize: '22px',
-                    fontFamily: 'NotoSans',
-                  }}
-                >
-                  좋음
-                </a>
-              </div>
-            </Box1_sub1>
-            <Box1_sub2>
-              <Box1_sub3>
-                <미세먼지농도> 미세먼지 농도</미세먼지농도>
-                <초미세먼지농도> 초미세먼지 농도 </초미세먼지농도>
-                <농도수치> 23 </농도수치>
-                <농도수치> 15 </농도수치>
-                <Box1_sub5>
-                  <Standard>
-                    <img src={standard} />
-                  </Standard>
-                  <활동알림>야외 활동을 즐겨보세요!</활동알림>
-                </Box1_sub5>
-              </Box1_sub3>
-              <Box1_sub4></Box1_sub4>
-            </Box1_sub2>
+              </Row>
+              <Row>
+                {' '}
+                <p style={{ marginTop: '20px' }}>좋음</p>
+              </Row>
+            </MainBox>
+            <Dustinfo />
           </Box1>
           <Box2></Box2>
           <Box2>

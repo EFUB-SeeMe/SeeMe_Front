@@ -8,25 +8,25 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 280px;
-  height: 280px;
-  margin-top: 15px;
-`
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  @media (min-width: 375px) and (max-width: 1440px) {
-    //between
-    justify-content: space-evenly;
-  }
+  height: 330px;
 `
 const CenterRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+`
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 130px;
+  height: 60px;
+  margin-top: 10px;
 `
 const Styled = styled.div`
   background: ${props => props.color || 'black'};
@@ -43,42 +43,31 @@ const Text = styled.div`
   font-family: 'NotoSans';
   margin-right: 5px;
   text-align: center;
+  margin-top: 3px;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     font-size: ${props => props.size - 10 || 18}px;
   }
 `
 
-function MainInfo({ color, height, num, time }) {
+function Dustinfo({ color, height, num, time }) {
   return (
     <Wrapper>
       <Row>
-        <Text>현재온도</Text>
-        <Text>체감온도</Text>
-      </Row>
-      <Row>
-        <Text size="70">26</Text>
-        <Text size="70">28</Text>
-      </Row>
-      <CenterRow>
-        <Text size="16" color="#EF8787">
-          최고 29℃ &nbsp;&nbsp;
-        </Text>
-        <Text size="16" color="#6CB8F8">
-          최저 20℃{' '}
-        </Text>
-      </CenterRow>
-      <Row>
-        <Text size="16" color="#222222">
-          오늘은 오후 6시에 소나기가 내려요 !{' '}
-        </Text>
-      </Row>
-      <Row>
-        <Text size="16" color="#222222">
-          어제보다 2℃ 낮아요{' '}
-        </Text>
+        <Text size="65">26°</Text>
+        <Column>
+          <Text size="24">체감 온도 28℃ </Text>
+          <CenterRow>
+            <Text size="18" color="#EF8787">
+              최고 29℃ &nbsp;&nbsp;
+            </Text>
+            <Text size="18" color="#6CB8F8">
+              최저 20℃{' '}
+            </Text>
+          </CenterRow>
+        </Column>
       </Row>
     </Wrapper>
   )
 }
-export default MainInfo
+export default Dustinfo
