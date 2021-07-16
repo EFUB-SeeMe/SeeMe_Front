@@ -50,13 +50,13 @@ const Text = styled.div`
     font-size: ${props => props.size - 10 || 18}px;
   }
 `
-const Image = styled.img`
-  width: '236px';
-  height: '35px';
+const DustImage = styled.img`
+  width: 206px;
+  height: 35px;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
-    width: '136px';
-    height: '35px';
+    width: 156px;
+    height: 35px;
   }
 `
 
@@ -76,7 +76,7 @@ function Dustinfo({ color, height, num, time }) {
         </Text>
       </Row>
       <Row>
-        <Image src={standard} />
+        <DustImage src={standard} />
       </Row>
       <Row>
         <Text size="22" color="#222222">
