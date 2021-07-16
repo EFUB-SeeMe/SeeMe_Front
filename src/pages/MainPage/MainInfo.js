@@ -10,6 +10,10 @@ const Wrapper=styled.div`
     width:280px;
     height:280px;
     margin-top: 15px;
+    @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    margin-top: 40px;
+  }
 `
 const Row=styled.div`
     display:flex;
@@ -45,7 +49,7 @@ const Text=styled.div`
     text-align: center;
     @media (min-width: 375px) and (max-width: 1440px) {
     //between
-    font-size:  ${props => props.size-10 || 18}px;
+    font-size:  ${props => props.size-5 || 18}px;
   }
     
 `

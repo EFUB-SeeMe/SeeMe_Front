@@ -10,7 +10,7 @@ const Wrapper=styled.div`
     width:55px;
     height:170px;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
 `
 const Styled = styled.div`
   background: ${props => props.color || "black"};
@@ -26,6 +26,7 @@ const Text=styled.div`
     font-size:  16px;
     font-family: 'NotoSans';
     text-align: center;
+    width:40px;
     
 `
 

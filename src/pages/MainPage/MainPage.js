@@ -12,6 +12,7 @@ import MainInfo from './MainInfo'
 import MainInfo2 from './MainInfo2'
 import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
+import Clothes from './Clothes'
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -72,11 +73,12 @@ const Box1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 250px;
+    height: 280px;
   }
 
   @media (min-width: 1440px) {
@@ -91,6 +93,7 @@ const Box1 = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 250px;
   }
 `
 const MainBox = styled.div`
@@ -146,10 +149,12 @@ const Box3 = styled.div`
   border-radius: 16px;
   margin-top: 18px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 265px;
+    height: 300px;
   }
 
   @media (min-width: 1440px) {
@@ -245,17 +250,19 @@ function MainPage() {
           </Box2>
         </Wrapper1>
         <Wrapper2>
-          <Box3></Box3>
+          <Box3>
+            <Clothes />
+          </Box3>
           <Box4>
             <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
             <Column>
               <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
+              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
+              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
             </Column>
           </Box4>
         </Wrapper2>
@@ -303,17 +310,19 @@ function MainPage() {
               <RainGraph height="0" num="0" time="4" />
             </AlwaysScrollSection>
           </Box2>
-          <Box3></Box3>
+          <Box3>
+            <Clothes />
+          </Box3>
           <Box4>
             <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
             <Column>
               <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
+              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
+              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
+              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
             </Column>
           </Box4>
         </Wrapper3>
