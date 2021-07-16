@@ -10,7 +10,10 @@ import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
-import Dustgraph from './Dustgraph'
+import map from '../../assets/Dust_map.svg'
+
+import Dustgraph_day from './Dustgraph_day'
+import Dustgraph_today from './Dustgraph_today'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -167,6 +170,7 @@ const Box2 = styled.div`
   border-radius: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow: hidden;
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
     width: 90%;
@@ -183,6 +187,22 @@ const Box2 = styled.div`
     width: 90%;
   }
 `
+const Box2_sub1 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  align-items: left;
+  height: 25%;
+`
+
+const Box2_sub2 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; // 가로 정렬
+  //align-items: left;
+  height: 75%;
+`
+
 const Box3 = styled.div`
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -192,6 +212,7 @@ const Box3 = styled.div`
 
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -215,6 +236,7 @@ const Box4 = styled.div`
   border-radius: 16px;
   margin-top: 15px;
   margin-bottom: 20px;
+  overflow: hidden;
 
   @media (min-width: 375px) and (max-width: 1440px) {
     //between
@@ -230,6 +252,22 @@ const Box4 = styled.div`
     //iphone
     width: 90%;
   }
+`
+
+const Box4_sub1 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  height: 15%;
+  background-color: none;
+`
+const Box4_sub2 = styled.div`
+  // 현재위치 박스
+  display: flex;
+  flex-direction: column; // 세로 정렬
+  // justify-content: center; //센터정렬
+  align-items: center;
+  height: 90%;
+  background-color: none;
 `
 
 const 알림1 = styled.button`
@@ -295,6 +333,10 @@ const 알림3 = styled.button`
     margin-top: -0px;
     margin-left: 60px;
     font-size: 30px;
+  }
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    font-size: 25px;
   }
 `
 const 추천 = styled.button`
@@ -386,117 +428,33 @@ const Mask = styled.image`
   border: none;
   outline: none;
 `
-const Box2_sub1 = styled.div`
-  // 현재위치 박스
-  display: flex;
+const Text = styled.button`
   align-items: left;
-  height: 25%;
-`
-
-const Box2_sub2 = styled.div`
-  // 현재위치 박스
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end; // 가로 정렬
-  //align-items: left;
-  height: 45%;
-`
-
-const Box2_sub3 = styled.div`
-  // 현재위치 박스
-  display: flex;
-  flex-direction: row; // 가로 정렬
-  //align-items: left;
-  height: 10%;
-`
-
-const Box2_sub4 = styled.div`
-  // 현재위치 박스
-  display: flex;
-  flex-direction: row; // 가로 정렬
-  height: 10%;
-`
-const Box2_sub5 = styled.div`
-  // 현재위치 박스
-  display: flex;
-  flex-direction: row; // 가로 정렬
-  height: 10%;
-`
-const 요일별추이 = styled.button`
-  align-items: left;
-  margin-top: 10px;
-  margin-left: 20px;
-  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-size: 20px;
   font-weight: bold;
   background: white;
   border: none;
   outline: none;
-`
-const 날짜 = styled.button`
-  align-items: left;
-  margin-left: 12%;
-  font-size: 10px;
-  background: white;
-  border: none;
-  outline: none;
+  @media (min-width: 375px) and (max-width: 1440px) {
+    //between
+    font-size: 15px;
+    margin-left: 20px;
+  }
 `
 
-const 오늘날짜 = styled.button`
-  align-items: left;
-  margin-left: 12%;
-  font-size: 10px;
-  font-weight: bold;
+const Map = styled.image`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 0%;
   background: white;
   border: none;
   outline: none;
-`
-const 오늘 = styled.button`
-  align-items: left;
-  margin-left: 32%;
-  font-size: 10px;
-  font-weight: bold;
-  background: white;
-  border: none;
-  outline: none;
-`
-
-const 오전 = styled.button`
-  align-items: left;
-  margin-left: 5%;
-  font-size: 5px;
-  font-weight: bold;
-  background: white;
-  color: #b2b2b2;
-  border: none;
-  outline: none;
-`
-const 오후 = styled.button`
-  align-items: left;
-  margin-left: 3%;
-  font-size: 5px;
-  font-weight: bold;
-  background: white;
-  color: #b2b2b2;
-  border: none;
-  outline: none;
-`
-const Bar1 = styled.div`
-  display: flex;
-  margin-left: 6%;
-`
-const Bar2 = styled.div`
-  display: flex;
-  margin-left: 1px;
-  opacity: 0.6;
-`
-const Bar3 = styled.div`
-  display: flex;
-  margin-left: 10px;
-`
-const Bar4 = styled.div`
-  display: flex;
-  margin-left: 1px;
-  opacity: 0.6;
+  height: 100%;
+  width: 100%;
 `
 
 function DustPage() {
@@ -558,98 +516,50 @@ function DustPage() {
           <Box2></Box2>
           <Box2>
             <Box2_sub1>
-              <요일별추이> 요일별 추이 </요일별추이>
+              <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <Bar1>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar4>
-
-              <Bar1>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#85BFEF" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#85BFEF" />
-              </Bar4>
-
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
-
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
-
-              <Bar1>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar1>
-              <Bar2>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar2>
-              <Bar3>
-                <Dustgraph height="70" color="#87EF85" />
-              </Bar3>
-              <Bar4>
-                <Dustgraph height="50" color="#87EF85" />
-              </Bar4>
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.30"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.31"
+              />
             </Box2_sub2>
-            <Box2_sub3>
-              <오전>AM</오전>
-              <오후>PM</오후>
-              <오전>AM</오전>
-              <오후>PM</오후>
-              <오전>AM</오전>
-              <오후>PM</오후>
-              <오전>AM</오전>
-              <오후>PM</오후>
-              <오전>AM</오전>
-              <오후>PM</오후>
-            </Box2_sub3>
-
-            <Box2_sub4>
-              <날짜>06.27</날짜>
-              <오늘날짜>06.28</오늘날짜>
-              <날짜>06.29</날짜>
-              <날짜>06.30</날짜>
-              <날짜>06.31</날짜>
-            </Box2_sub4>
-
-            <Box2_sub5>
-              <오늘>오늘</오늘>
-            </Box2_sub5>
           </Box2>
         </Wrapper1>
         <Wrapper2>
@@ -668,7 +578,19 @@ function DustPage() {
               <div> 환기 시간 입니다 </div>
             </알림3>
           </Box3>
-          <Box4></Box4>
+          <Box4>
+            <Box4_sub1>
+              {' '}
+              <Text> 지역별 농도 </Text>{' '}
+            </Box4_sub1>
+            <Box4_sub2>
+              {' '}
+              <Map>
+                {' '}
+                <img src={map} />{' '}
+              </Map>
+            </Box4_sub2>
+          </Box4>
         </Wrapper2>
 
         <Wrapper3>
@@ -700,7 +622,38 @@ function DustPage() {
             </div>
           </Box1>
           <Box2></Box2>
-          <Box2></Box2>
+          <Box2>
+            <Box2_sub1>
+              <Text> 요일별 추이 </Text>
+            </Box2_sub1>
+            <Box2_sub2>
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
+            </Box2_sub2>
+          </Box2>
+
           <Box3>
             <div>
               <알림1> 미세먼지 좋아요~</알림1>
@@ -717,7 +670,20 @@ function DustPage() {
               </알림3>
             </div>
           </Box3>
-          <Box4></Box4>
+
+          <Box4>
+            <Box4_sub1>
+              {' '}
+              <Text> 지역별 농도 </Text>{' '}
+            </Box4_sub1>
+            <Box4_sub2>
+              {' '}
+              <Map>
+                {' '}
+                <img src={map} />{' '}
+              </Map>
+            </Box4_sub2>
+          </Box4>
         </Wrapper3>
       </Background>
       <Footer />
