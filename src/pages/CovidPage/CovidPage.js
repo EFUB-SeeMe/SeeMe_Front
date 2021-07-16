@@ -7,6 +7,8 @@ import ascent_dif from '../../assets/ascent_dif.svg'
 import descent_dif from '../../assets/descent_dif.svg'
 import cur_location from '../../assets/cur_location.svg'
 import dividing_line from '../../assets/dividing_line.svg'
+import Graph from './Graph_Total'
+import Graph_Local from './Graph_Local'
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -81,7 +83,7 @@ const Box3 = styled.div`
   @media (min-width: 1440px) {
     // desktop
     width: 70%;
-    height: 323px;
+    height: 293px;
   }
 
   @media (min-width: 375px) and (max-width: 1440px) {
@@ -303,11 +305,29 @@ const Wrap5 = styled.div`
     width: 30%;
   }
 `
+// Graph Wrapper
 const Wrap6 = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-around, center;
   width: 75%;
   // background: lavenderblush;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 14px;
+
+  @media (min-width: 375px) and (max-width: 843px) {
+    //between
+    width: 70%;
+  }
+`
+const Wrap6a = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around, center;
+  width: 75%;
+  // background: lavender;
+  margin-right: 14px;
+  margin-top: 70px;
 
   @media (min-width: 375px) and (max-width: 843px) {
     //between
@@ -409,7 +429,7 @@ function CovidPage() {
               <Loc_Icon>
                 <img src={cur_location} />
               </Loc_Icon>
-              <Text1>현재 위치(00구 00동)</Text1>
+              <Text1>성수구 성수1동</Text1>
             </Wrap2>
             <Wrap2a>
               <Wrap3>
@@ -439,7 +459,14 @@ function CovidPage() {
                 <Text5 color={'black'}>157,723명</Text5>
               </Wrap7>
             </Wrap5>
-            <Wrap6></Wrap6>
+            <Wrap6>
+              <Graph height="161" num="623" month="06" date="23"></Graph>
+              <Graph height="178" num="634" month="06" date="24"></Graph>
+              <Graph height="203" num="668" month="06" date="25"></Graph>
+              <Graph height="156" num="614" month="06" date="26"></Graph>
+              <Graph height="117" num="501" month="06" date="27"></Graph>
+              <Graph height="139" num="567" month="06" date="28"></Graph>
+            </Wrap6>
           </Wrap4>
         </Box2>
         <Box3>
@@ -455,7 +482,44 @@ function CovidPage() {
                 <Text5 color={'black'}>50,321명</Text5>
               </Wrap7>
             </Wrap5>
-            <Wrap6></Wrap6>
+            <Wrap6a>
+              <Graph_Local
+                height="89"
+                num="269"
+                month="06"
+                date="23"
+              ></Graph_Local>
+              <Graph_Local
+                height="87"
+                num="263"
+                month="06"
+                date="24"
+              ></Graph_Local>
+              <Graph_Local
+                height="80"
+                num="242"
+                month="06"
+                date="25"
+              ></Graph_Local>
+              <Graph_Local
+                height="61.6"
+                num="185"
+                month="06"
+                date="26"
+              ></Graph_Local>
+              <Graph_Local
+                height="68.3"
+                num="205"
+                month="06"
+                date="27"
+              ></Graph_Local>
+              <Graph_Local
+                height="113.3"
+                num="334"
+                month="06"
+                date="28"
+              ></Graph_Local>
+            </Wrap6a>
           </Wrap4>
         </Box3>
       </Background>
