@@ -10,11 +10,12 @@ import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
-import map from '../../assets/Dust_map.svg'
 
 
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
+import DustMap from './DustMap'
+import { Scroll } from "./Scroll";
 
 
 
@@ -460,6 +461,21 @@ const Map = styled.image`
   width: 100%;
 `
 
+const Row=styled.div`
+display:flex;
+flex-direction: row;
+justify-content: center;
+width:100%;
+overflow:hidden;
+`
+const Column=styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width:100%;
+`
+
 function DustPage() {
   return (
     <>
@@ -548,7 +564,7 @@ function DustPage() {
           </Box3>
           <Box4>
             <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
-            <Box4_sub2> <Map> <img src={map} /> </Map></Box4_sub2>
+            <DustMap> </DustMap>
           </Box4>
         </Wrapper2>
 
@@ -586,9 +602,11 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
-              <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
-              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
+              <Scroll>
+                <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
+                <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
+                <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
+              </Scroll>
             </Box2_sub2>
           </Box2>
          
@@ -611,7 +629,7 @@ function DustPage() {
 
           <Box4>
             <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
-            <Box4_sub2> <Map> <img src={map} /> </Map></Box4_sub2>
+            <DustMap> </DustMap>
           </Box4>
         </Wrapper3>
       </Background>
