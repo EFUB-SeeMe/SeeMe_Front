@@ -370,40 +370,7 @@ const 추천 = styled.button`
     font-size: 14px;
   }
 `
-const 지금위치 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 22px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 미세먼지상태 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 미세먼지농도 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 80px;
-  font-size: 18px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 초미세먼지농도 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 50px;
-  font-size: 18px;
-  background: none;
-  border: none;
-  outline: none;
-`
+
 const 농도수치 = styled.button`
   align-items: center;
   margin-top: 10px;
@@ -420,16 +387,6 @@ const 농도수치 = styled.button`
     margin-right: -30px;
     display: center;
   }
-`
-const 활동알림 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 25%;
-  margin-right: -60%;
-  font-size: 22px;
-  background: none;
-  border: none;
-  outline: none;
 `
 
 const Mask = styled.image`
@@ -459,19 +416,6 @@ const Text = styled.button`
     font-size: 15px;
     margin-left: 20px;
   }
-`
-
-const Map = styled.image`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 10px;
-  margin-top: 0%;
-  background: white;
-  border: none;
-  outline: none;
-  height: 100%;
-  width: 100%;
 `
 
 const Row=styled.div`
@@ -777,7 +721,6 @@ function DustPage() {
             </알림3>
           </Box3>
           <Box4>
-            <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
             <DustMap> </DustMap>
           </Box4>
         </Wrapper2>
@@ -1059,7 +1002,6 @@ function DustPage() {
           </Box3>
 
           <Box4>
-            <Box4_sub1> <Text> 지역별 농도 </Text> </Box4_sub1>
             <DustMap> </DustMap>
           </Box4>
         </Wrapper3>
