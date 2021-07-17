@@ -11,16 +11,13 @@ import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
 
-
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
 import Dustgraph_time from './Dustgraph_time'
 import Dustinfo from './Dustinfo'
-
+import Dustinfo2 from './Dustinfo2'
 import DustMap from './DustMap'
-import { Scroll } from "./Scroll";
-
-
+import { Scroll } from './Scroll'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -37,7 +34,7 @@ const Wrapper1 = styled.div`
   align-items: center;
   flex-direction: column;
   width: 55%;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: none;
   }
@@ -49,7 +46,7 @@ const Wrapper2 = styled.div`
   justify-content: center;
   align-items: center;
   width: 45%;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: none;
   }
@@ -60,12 +57,10 @@ const Wrapper3 = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     display: none;
   }
-
   @media (min-width: 1440px) {
     //desktop
     display: none;
@@ -78,22 +73,19 @@ const Box1 = styled.div`
   border-radius: 16px;
   margin-bottom: 10px;
   margin-top: 0px;
-
   display: flex;
   flex-direction: row;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 220px;
   }
-
   @media (min-width: 1440px) {
     //desktop
     width: 90%;
     height: 300px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     width: 90%;
     height: 350px;
@@ -137,13 +129,27 @@ const Box1_sub5 = styled.div`
   width: 50%;
 `
 const MainBox = styled.div`
-  height: 220px;
-  width: 330px;
+  height: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-content: center;
   margin-top: 15px;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    height: 280px;
+    width: 300px;
+  }
 `
+const MainBox2 = styled.div`
+  height: 400px;
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 0px;
+`
+
 const Location = styled.image`
   // 위치 아이콘
   display: flex;
@@ -185,19 +191,18 @@ const Box2 = styled.div`
   border-radius: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
-  overflow:hidden;
-  @media (min-width: 420px) and (max-width: 1440px) {
+  overflow: hidden;
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 187px;
   }
-
   @media (min-width: 1440px) {
     //desktop
     width: 90%;
     height: 217px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     width: 90%;
   }
@@ -223,13 +228,11 @@ const Box3 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-top: 18px;
-  margin-bottom: 5px;
-
+  margin-bottom: 0px;
   display: flex;
-  flex-direction: column;
-  overflow:hidden;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
+  flex-direction: center;
+  overflow: hidden;
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 265px;
@@ -239,7 +242,7 @@ const Box3 = styled.div`
     width: 90%;
     height: 360px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     width: 90%;
     height: 330px;
@@ -251,9 +254,8 @@ const Box4 = styled.div`
   border-radius: 16px;
   margin-top: 15px;
   margin-bottom: 20px;
-  overflow:hidden;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
+  overflow: hidden;
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 350px;
@@ -263,7 +265,7 @@ const Box4 = styled.div`
     width: 90%;
     height: 400px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     width: 90%;
     height: 300px;
@@ -288,12 +290,12 @@ const Box4_sub2 = styled.div`
 const 알림1 = styled.button`
   align-items: center;
   margin-top: 30px;
-  margin-left: 130px;
+  margin-left: 0px;
   font-size: 20px;
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -310,7 +312,7 @@ const 알림1_bold = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -326,7 +328,7 @@ const 알림2 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: center;
     margin-top: -30px;
@@ -342,27 +344,27 @@ const 알림3 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: center;
     margin-top: -0px;
     margin-left: 60px;
     font-size: 30px;
   }
-  @media (min-width: 420px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size: 25px;
   }
 `
 const 추천 = styled.button`
   align-items: center;
-  margin-top: 0px;
+  margin-top: 30px;
   margin-left: 5px;
   font-size: 20px;
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -380,7 +382,7 @@ const 농도수치 = styled.button`
   background: none;
   border: none;
   outline: none;
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     //iphone
     color: #42a0f0;
     margin-left: 67px;
@@ -392,11 +394,11 @@ const 농도수치 = styled.button`
 const Mask = styled.image`
   // 마스크로고
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   align-items: center;
   margin-right: 10px;
   margin-top: 0px;
-  background: white;
+  background: none;
   border: none;
   outline: none;
 
@@ -411,13 +413,12 @@ const Text = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (min-width: 420px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size: 15px;
     margin-left: 20px;
   }
 `
-
 const Row=styled.div`
 display:flex;
 flex-direction: row;
@@ -431,6 +432,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 width:100%;
+
 `
 
 function DustPage() {
@@ -439,11 +441,11 @@ function DustPage() {
       <Header></Header>
       <Background>
         <Wrapper1>
-        <Box1>
+          <Box1>
             <MainBox>
               <Row>
                 <img style={{ height: '35px', width: '22px' }} src={location} />
-                <p style={{ fontFamily: 'NotoSans', marginTop: '10px' }}>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
                   &ensp; 성동구 성수1동
                 </p>
               </Row>
@@ -452,22 +454,21 @@ function DustPage() {
                   style={{
                     width: '160px',
                     height: '150px',
-                    marginBottom: '50px',
+                    marginBottom: '40px',
+
                   }}
                   src={dust}
                 />
               </Row>
               <Row>
                 {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '20px' }}>
-                  좋음
-                </p>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '0px' }}>좋음</p>
               </Row>
             </MainBox>
             <Dustinfo />
           </Box1>
           <Box2>
-          <Box2_sub1>
+            <Box2_sub1>
               <Text> 시간대별 추이 </Text>
             </Box2_sub1>
 
@@ -693,32 +694,52 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-
-              <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
-              <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
-              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
-              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.30" />
-              <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.31" />
-
-              
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.30"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.31"
+              />
             </Box2_sub2>
           </Box2>
         </Wrapper1>
         <Wrapper2>
-        <Box3>
-            <div>
-              <알림1> 미세먼지 좋아요~</알림1>
-              <알림1_bold> 덴탈마스크 </알림1_bold>
-              <추천>추천 </추천>
-            </div>
-            <Mask>
-              <img src={mask} />
-            </Mask>
-            <알림2> 14시 30분 ~ 15시 30분 </알림2>
-            <알림3>
-              {' '}
-              <div> 환기 시간 입니다 </div>
-            </알림3>
+          <Box3>
+            <Dustinfo2 />
           </Box3>
           <Box4>
             <DustMap> </DustMap>
@@ -726,8 +747,8 @@ function DustPage() {
         </Wrapper2>
 
         <Wrapper3>
-        <LocationText />
-        <Box1>
+          <LocationText />
+          <Box1>
             <div>
               <img
                 style={{ marginTop: '0px', marginLeft: '75px' }}
@@ -975,16 +996,37 @@ function DustPage() {
             </Box2_sub2>
           </Box2>
           <Box2>
-          <Box2_sub1>
+            <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-                <Dustgraph_day color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.27"/> 
-                <Dustgraph_today color="#85BFEF" height1="50" height2="30" height3="40" height4="20" day="06.28" /> 
-                <Dustgraph_day color="#87EF85" height1="60" height2="20" height3="50" height4="10" day="06.29"/> 
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
             </Box2_sub2>
           </Box2>
-         
+
           <Box3>
             <div>
               <알림1> 미세먼지 좋아요~</알림1>

@@ -23,15 +23,19 @@ const Text=styled.div`
     width: 100px;
 
    @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    font-size:  ${props => props.size-3 || 16}px;
-  }
-  @media  (max-width: 420px) {
-    //iphone
-    margin-left: 20px;
-    width: 200px;
-  }
+     // between
+     margin-left: 20px;
+     width: 200px;
+  
+   }
+   @media (max-width: 420px) {
+     // iphone
+     margin-left: 20px;
+     width: 200px;
+  
+   }
 `
+
 
 const Box1=styled.div`
     display:flex;
@@ -135,4 +139,4 @@ function DustMap({latitude,longitude,dust,microdust}) {
 </div>
   )
 }
-export default DustMap;
+export default DustMap
