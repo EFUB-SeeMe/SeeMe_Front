@@ -20,7 +20,7 @@ const Row = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     justify-content: space-evenly;
-    width: 50%;
+    width: 90%;
   }
   @media (max-width: 430px) {
     //iphone
