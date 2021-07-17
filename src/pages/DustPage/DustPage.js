@@ -16,7 +16,6 @@ import Dustgraph_today from './Dustgraph_today'
 import Dustgraph_time from './Dustgraph_time'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
-
 import DustMap from './DustMap'
 import { Scroll } from './Scroll'
 
@@ -373,40 +372,7 @@ const 추천 = styled.button`
     font-size: 14px;
   }
 `
-const 지금위치 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 22px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 미세먼지상태 = styled.button`
-  align-items: center;
-  margin-top: 0px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 미세먼지농도 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 80px;
-  font-size: 18px;
-  background: none;
-  border: none;
-  outline: none;
-`
-const 초미세먼지농도 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 50px;
-  font-size: 18px;
-  background: none;
-  border: none;
-  outline: none;
-`
+
 const 농도수치 = styled.button`
   align-items: center;
   margin-top: 10px;
@@ -424,16 +390,6 @@ const 농도수치 = styled.button`
     display: center;
   }
 `
-const 활동알림 = styled.button`
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 25%;
-  margin-right: -60%;
-  font-size: 22px;
-  background: none;
-  border: none;
-  outline: none;
-`
 
 const Mask = styled.image`
   // 마스크로고
@@ -445,6 +401,8 @@ const Mask = styled.image`
   background: none;
   border: none;
   outline: none;
+
+  
 `
 const Text = styled.button`
   align-items: left;
@@ -461,33 +419,20 @@ const Text = styled.button`
     margin-left: 20px;
   }
 `
-
-const Map = styled.image`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 10px;
-  margin-top: 0%;
-  background: white;
-  border: none;
-  outline: none;
-  height: 100%;
-  width: 100%;
+const Row=styled.div`
+display:flex;
+flex-direction: row;
+justify-content: center;
+width:100%;
+overflow:hidden;
 `
+const Column=styled.div`
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width:100%;
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-`
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 `
 
 function DustPage() {
@@ -510,6 +455,7 @@ function DustPage() {
                     width: '160px',
                     height: '150px',
                     marginBottom: '40px',
+
                   }}
                   src={dust}
                 />
@@ -796,10 +742,6 @@ function DustPage() {
             <Dustinfo2 />
           </Box3>
           <Box4>
-            <Box4_sub1>
-              {' '}
-              <Text> 지역별 농도 </Text>{' '}
-            </Box4_sub1>
             <DustMap> </DustMap>
           </Box4>
         </Wrapper2>
@@ -1086,14 +1028,22 @@ function DustPage() {
           </Box2>
 
           <Box3>
-            <Dustinfo2 />
+            <div>
+              <알림1> 미세먼지 좋아요~</알림1>
+              <알림1_bold> 덴탈마스크 </알림1_bold>
+              <추천>추천 </추천>
+            </div>
+            <Mask>
+              <img src={mask} />
+            </Mask>
+            <알림2> 14시 30분 ~ 15시 30분 </알림2>
+            <알림3>
+              {' '}
+              <div> 환기 시간 입니다 </div>
+            </알림3>
           </Box3>
 
           <Box4>
-            <Box4_sub1>
-              {' '}
-              <Text> 지역별 농도 </Text>{' '}
-            </Box4_sub1>
             <DustMap> </DustMap>
           </Box4>
         </Wrapper3>

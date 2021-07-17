@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
+import { useState } from "react";
 
-import map from '../../assets/Dust_map.svg'
 import bluedust from '../../assets/bluedust.svg'
 import greendust from '../../assets/greendust.svg'
 
@@ -11,291 +11,132 @@ const Wrapper1 = styled.div`
   width: 100%;
   height: 100%;
 `
+const Text=styled.div`
+    background: "rgba( 255, 255, 255, 0 )";
+    color:black;
+    font-size:  ${props => props.size || 16}px;
+    font-family: 'NotoSans';
 
-const Map = styled.img`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: white;
-  border: black;
-  outline: black;
-  margin-top: -1%;
-  margin-left: 15%;
-  width: 400px;
-  height: 400px;
-  @media (max-width: 420px) {
+    margin-top: 15px;
+    margin-right: 60px;
+    margin-left: 50px;
+    width: 100px;
+
+   @media (min-width: 420px) and (max-width: 1440px) {
+     // between
+     margin-left: 20px;
+     width: 200px;
+  
+   }
+   @media (max-width: 420px) {
+     // iphone
+     margin-left: 20px;
+     width: 200px;
+  
+   }
+`
+
+
+const Box1=styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    width:100%;
+    height: 10%;
+`
+const Box2=styled.div`
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    width:100%;
+    height: 90%;
+`
+
+
+const Button = styled.button`
+  height: 42px;
+  width: 150px;
+  color:black;
+  background: #F6F3F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
+  outline:none;
+  border:1px solid rgba(0,0,0,0);
+  margin-right: 20px;
+  &:hover {
+    background:#ECF8FF;
+  }
+  &:active {
+    background: #E9E7FF;
+  }
+
+  @media  (max-width: 420px) {
     //iphone
-    width: 250px;
-    height: 250px;
-    margin-top: 0%;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 300px;
-    height: 300px;
-    margin-left: 5%;
+    font-size:10px;
   }
 `
 
-const DustCircle1 = styled.div`
+const DustCircle = styled.div`
   position: relative;
-  left: -115px;
-  top: 30px;
+  left: -170px;
+  top: 40px;
   opacity: 0.6;
+
 `
 
-const DustCircle2 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -45px;
-  top: -30px;
-`
-const DustCircle3 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -38px;
-  top: -10px;
-`
-const DustCircle4 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -150px;
-  top: 6px;
-`
-const DustCircle5 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -100px;
-  top: 70px;
-`
-const DustCircle6 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -220px;
-  top: 60px;
-`
-const DustCircle7 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -350px;
-  top: 90px;
-`
-const DustCircle8 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -260px;
-  top: 85px;
-`
-const DustCircle9 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -385px;
-  top: 80px;
-`
-const DustCircle10 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -410px;
-  top: 115px;
-`
-const DustCircle11 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -545px;
-  top: 110px;
-`
-const DustCircle12 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -505px;
-  top: 150px;
-`
-const DustCircle13 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -480px;
-  top: 125px;
-`
-const DustCircle14 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -470px;
-  top: 130px;
-`
-const DustCircle15 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -800px;
-  top: 100px;
-`
-const DustCircle16 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -800px;
-  top: 160px;
-`
-const DustCircle17 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -840px;
-  top: 200px;
-`
-const DustCircle18 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -827px;
-  top: 170px;
-`
-const DustCircle19 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -817px;
-  top: 190px;
-`
-const DustCircle20 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -860px;
-  top: 250px;
-`
-const DustCircle21 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -953px;
-  top: 244px;
-`
-const DustCircle22 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -875px;
-  top: 220px;
-`
-const DustCircle23 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -855px;
-  top: 210px;
-`
-const DustCircle24 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -840px;
-  top: 190px;
-`
-const DustCircle25 = styled.div`
-  position: relative;
-  opacity: 0.6;
-  left: -850px;
-  top: 130px;
-`
+function DustMap({latitude,longitude,dust,microdust}) {
+  const [myState, setMyState] = useState({
+          "latitude":"",
+          "longitude":"",
+          "dust":"",
+          "microdust":""
 
-function DustMap() {
+  });
+  const getData = async () => {
+      try {
+          setMyState({
+              "latitude":latitude,
+              "longitude":longitude,
+              "dust":dust,
+              "microdust":microdust
+          });
+          console.log(myState);
+        }catch (e) {
+        console.log("error")
+        console.log(myState);
+      }
+    }
+    const getData2 = async () => {
+      try {
+        setMyState({
+            "latitude":latitude,
+            "longitude":longitude,
+            "dust":dust,
+            "microdust":microdust
+        });
+        console.log(myState);
+      }catch (e) {
+      console.log("error")
+      console.log(myState);
+    }
+    }
+    
+
   return (
     <div>
-      <Wrapper1>
-        <Map src={map}></Map>
-        <DustCircle1>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={bluedust} />{' '}
-        </DustCircle1>
-        <DustCircle2>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle2>
-        <DustCircle3>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle3>
-        <DustCircle4>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle4>
-        <DustCircle5>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle5>
-        <DustCircle6>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle6>
-        <DustCircle7>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle7>
-        <DustCircle8>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle8>
-        <DustCircle9>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle9>
-        <DustCircle10>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle10>
-        <DustCircle11>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle11>
-        <DustCircle12>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle12>
-        <DustCircle13>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle13>
-        <DustCircle14>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle14>
-        <DustCircle15>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle15>
-        <DustCircle16>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle16>
-        <DustCircle17>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle17>
-        <DustCircle18>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle18>
-        <DustCircle19>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle19>
-        <DustCircle20>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle20>
-        <DustCircle21>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle21>
-        <DustCircle22>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle22>
-        <DustCircle23>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle23>
-        <DustCircle24>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle24>
-        <DustCircle25>
-          {' '}
-          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
-        </DustCircle25>
-      </Wrapper1>
-    </div>
+    <Wrapper1>
+        <Box1>
+          <Text>{"지역별 농도"}</Text>
+          <Button onClick={getData} > 미세먼지 </Button>
+          <Button onClick={getData2} > 초미세먼지 </Button>
+        </Box1>
+        <Box2> 
+
+        </Box2>
+    </Wrapper1>
+</div>
   )
 }
 export default DustMap
