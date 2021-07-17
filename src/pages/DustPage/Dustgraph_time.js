@@ -28,7 +28,6 @@ const Box2 = styled.div`
   margin-top: 0px;
   width: 100%;
   height: 10%;
-  margin-left: %;
   display: flex;
   flex-direction: row;
 `

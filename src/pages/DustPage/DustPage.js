@@ -196,7 +196,7 @@ const Box2 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 187px;
+    height: 200px;
   }
   @media (min-width: 1440px) {
     //desktop
