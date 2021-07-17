@@ -25,12 +25,12 @@ const Map = styled.img`
   width: 400px;
   height: 400px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 80px;
     height: 80px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 300px;
     height: 300px;
