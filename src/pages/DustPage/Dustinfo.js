@@ -18,7 +18,7 @@ const Row = styled.div`
   justify-content: space-evenly;
   margin-top: 12px;
   width: 100%;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     justify-content: space-evenly;
   }
@@ -45,7 +45,7 @@ const Text = styled.div`
   font-family: 'NotoSans';
   margin-right: 5px;
   text-align: center;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size: ${props => props.size - 10 || 18}px;
   }
@@ -53,7 +53,7 @@ const Text = styled.div`
 const DustImage = styled.img`
   width: 206px;
   height: 35px;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 156px;
     height: 35px;
