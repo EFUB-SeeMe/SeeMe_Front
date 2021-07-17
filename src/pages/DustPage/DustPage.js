@@ -401,8 +401,6 @@ const Mask = styled.image`
   background: none;
   border: none;
   outline: none;
-
-  
 `
 const Text = styled.button`
   align-items: left;
@@ -419,20 +417,19 @@ const Text = styled.button`
     margin-left: 20px;
   }
 `
-const Row=styled.div`
-display:flex;
-flex-direction: row;
-justify-content: center;
-width:100%;
-overflow:hidden;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
 `
-const Column=styled.div`
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width:100%;
-
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `
 
 function DustPage() {
@@ -455,7 +452,6 @@ function DustPage() {
                     width: '160px',
                     height: '150px',
                     marginBottom: '40px',
-
                   }}
                   src={dust}
                 />
@@ -1028,21 +1024,8 @@ function DustPage() {
           </Box2>
 
           <Box3>
-            <div>
-              <알림1> 미세먼지 좋아요~</알림1>
-              <알림1_bold> 덴탈마스크 </알림1_bold>
-              <추천>추천 </추천>
-            </div>
-            <Mask>
-              <img src={mask} />
-            </Mask>
-            <알림2> 14시 30분 ~ 15시 30분 </알림2>
-            <알림3>
-              {' '}
-              <div> 환기 시간 입니다 </div>
-            </알림3>
+            <Dustinfo2 />
           </Box3>
-
           <Box4>
             <DustMap> </DustMap>
           </Box4>
