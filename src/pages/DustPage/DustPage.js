@@ -32,7 +32,7 @@ const Wrapper1 = styled.div`
   align-items: center;
   flex-direction: column;
   width: 55%;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: none;
   }
@@ -44,7 +44,7 @@ const Wrapper2 = styled.div`
   justify-content: center;
   align-items: center;
   width: 45%;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: none;
   }
@@ -56,7 +56,7 @@ const Wrapper3 = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media (min-width: 376px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     display: none;
   }
@@ -77,7 +77,7 @@ const Box1 = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 250px;
@@ -88,7 +88,7 @@ const Box1 = styled.div`
     width: 90%;
     height: 300px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
     height: 350px;
@@ -173,7 +173,7 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 187px;
@@ -184,7 +184,7 @@ const Box2 = styled.div`
     width: 90%;
     height: 217px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
   }
@@ -216,7 +216,7 @@ const Box3 = styled.div`
   flex-direction: column;
   overflow: hidden;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 265px;
@@ -226,7 +226,7 @@ const Box3 = styled.div`
     width: 90%;
     height: 360px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
     height: 330px;
@@ -240,7 +240,7 @@ const Box4 = styled.div`
   margin-bottom: 20px;
   overflow: hidden;
 
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 350px;
@@ -250,7 +250,7 @@ const Box4 = styled.div`
     width: 90%;
     height: 400px;
   }
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     width: 90%;
   }
@@ -280,7 +280,7 @@ const 알림1 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -297,7 +297,7 @@ const 알림1_bold = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -313,7 +313,7 @@ const 알림2 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: center;
     margin-top: -30px;
@@ -329,14 +329,14 @@ const 알림3 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: center;
     margin-top: -0px;
     margin-left: 60px;
     font-size: 30px;
   }
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 25px;
   }
@@ -349,7 +349,7 @@ const 추천 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     display: center;
     margin-top: 30px;
@@ -400,7 +400,7 @@ const 농도수치 = styled.button`
   background: none;
   border: none;
   outline: none;
-  @media (max-width: 375px) {
+  @media (max-width: 420px) {
     //iphone
     color: #42a0f0;
     margin-left: 67px;
@@ -439,7 +439,7 @@ const Text = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (min-width: 375px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 15px;
     margin-left: 20px;
@@ -521,6 +521,8 @@ function DustPage() {
                   height3="40"
                   height4="20"
                   day="현재"
+                  number="30"
+                  number="30"
                 />
                 <Dustgraph_time
                   color="#85BFEF"
@@ -528,7 +530,9 @@ function DustPage() {
                   height2="30"
                   height3="40"
                   height4="20"
-                  day="06.27"
+                  day="01시"
+                  number="30"
+                  number="30"
                 />
 
                 <Dustgraph_time
@@ -537,7 +541,9 @@ function DustPage() {
                   height2="20"
                   height3="50"
                   height4="10"
-                  day="06.29"
+                  day="02시"
+                  number="30"
+                  number="30"
                 />
                 <Dustgraph_time
                   color="#87EF85"
@@ -545,7 +551,9 @@ function DustPage() {
                   height2="20"
                   height3="50"
                   height4="10"
-                  day="06.30"
+                  day="03시"
+                  number="30"
+                  number="30"
                 />
                 <Dustgraph_time
                   color="#87EF85"
@@ -553,7 +561,169 @@ function DustPage() {
                   height2="20"
                   height3="50"
                   height4="10"
-                  day="06.31"
+                  day="04시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="05시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="06시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="07시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="08시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="09시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="10시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="11시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="12시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="13시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="14시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="15시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="16시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="17시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="18시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="19시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="20시"
+                  number="30"
+                  number="30"
                 />
               </Scroll>
             </Box2_sub2>
@@ -666,7 +836,275 @@ function DustPage() {
               />
             </div>
           </Box1>
-          <Box2></Box2>
+          <Box2>
+            <Box2_sub1>
+              <Text> 시간대별 추이 </Text>
+            </Box2_sub1>
+
+            <Box2_sub2>
+              <Scroll>
+                <Dustgraph_time
+                  color="#85BFEF"
+                  height1="50"
+                  height2="30"
+                  height3="40"
+                  height4="20"
+                  day="현재"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#85BFEF"
+                  height1="50"
+                  height2="30"
+                  height3="40"
+                  height4="20"
+                  day="01시"
+                  number="30"
+                  number="30"
+                />
+
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="02시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="03시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="04시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="05시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="06시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="07시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="08시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="09시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="10시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="11시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="12시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="13시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="14시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="15시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="16시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="17시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="18시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="19시"
+                  number="30"
+                  number="30"
+                />
+                <Dustgraph_time
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="20시"
+                  number="30"
+                  number="30"
+                />
+              </Scroll>
+            </Box2_sub2>
+          </Box2>
+          <Box2>
+            <Box2_sub1>
+              <Text> 요일별 추이 </Text>
+            </Box2_sub1>
+
+            <Box2_sub2>
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.30"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.31"
+              />
+            </Box2_sub2>
+          </Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -688,7 +1126,7 @@ function DustPage() {
                 height4="20"
                 day="06.28"
               />
-              <Dustgraph_time
+              <Dustgraph_day
                 color="#87EF85"
                 height1="60"
                 height2="20"
