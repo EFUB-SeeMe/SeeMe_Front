@@ -1,15 +1,15 @@
-import React, { memo } from "react";
-import styled from "styled-components";
+import React, { memo } from 'react'
+import styled from 'styled-components'
 
 export const Scroll = memo(props => {
-  const { children } = props;
-  return <StyledScroll>{children}</StyledScroll>;
-});
+  const { children } = props
+  return <StyledScroll>{children}</StyledScroll>
+})
 
 const StyledScroll = styled.div`
   overflow: scroll;
   display: flex;
-  
+
   &::-webkit-scrollbar {
     /* 세로 스크롤 넓이 */
     width: 8px;

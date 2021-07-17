@@ -4,17 +4,16 @@ import styled from "styled-components"
 const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
-  margin-top: 25%;
-  width: 100%;
-  height: 100%;
   align-items: center;
+  margin-top: 25%;
+  width: 100%auto;
+  height: 50%auto;
 `
-
 const Box1 = styled.div` // 그래프 박스
   background: white;
-  margin-top: 0px;
+  margin-top: 50px;
   width: 100%;
-  height:70%;
+  height:50%;
   margin-left: 10%;
   margin-bottom: 10%;
 
@@ -26,7 +25,7 @@ const Box2 = styled.div` // AMPM 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:10%;
+  height:5%;
   margin-left: 5%;
 
   display: flex;
@@ -36,7 +35,7 @@ const Box3 = styled.div` // 날짜 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:10%;
+  height:5%;
   margin-left: 5%;
 
   display: flex;
@@ -45,7 +44,7 @@ const Box3 = styled.div` // 날짜 박스
 const Box4 = styled.div` // 오늘 박스
   display: flex;
   flex-direction: row; 
-  height:10%;
+  height:5%;
 `
 // 그래프 4개 그리기 시작
 const Bar1 = styled.div`
