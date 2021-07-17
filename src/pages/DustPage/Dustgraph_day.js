@@ -4,16 +4,17 @@ import styled from "styled-components"
 const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
-  align-items: center;
   margin-top: 25%;
-  width: 100%auto;
-  height: 50%auto;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 `
+
 const Box1 = styled.div` // 그래프 박스
   background: white;
-  margin-top: 50px;
+  margin-top: 0px;
   width: 100%;
-  height:50%;
+  height:70%;
   margin-left: 10%;
   margin-bottom: 10%;
 
@@ -25,7 +26,7 @@ const Box2 = styled.div` // AMPM 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:5%;
+  height:10%;
   margin-left: 5%;
 
   display: flex;
@@ -35,7 +36,7 @@ const Box3 = styled.div` // 날짜 박스
   background: white;
   margin-top: 0px;
   width: 100%;
-  height:5%;
+  height:10%;
   margin-left: 5%;
 
   display: flex;
@@ -44,7 +45,7 @@ const Box3 = styled.div` // 날짜 박스
 const Box4 = styled.div` // 오늘 박스
   display: flex;
   flex-direction: row; 
-  height:5%;
+  height:10%;
 `
 // 그래프 4개 그리기 시작
 const Bar1 = styled.div`
@@ -55,9 +56,16 @@ const Bar1 = styled.div`
  filter: drop-ShadowRoot(0px 4px 4px rgba(0,0,0,0.25)); 
  display: flex;
  flex-direction: row;
+
   @media (min-width: 1440px) {
     //desktop
     width:18px;
+    margin-left: 40px;
+  }
+  @media (min-width: 420px) and (max-width: 1440px) {
+    //between
+    width:18px;
+    margin-left: 40px;
   }
 `
 const Bar2 = styled.div`
@@ -111,6 +119,17 @@ const 날짜 = styled.button`
   border: none;
   outline: none;
   margin-bottom: 33%;
+
+  @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+    margin-left: 60px;
+  }
+  @media (min-width: 420px) and (max-width: 1440px) {
+    //between
+    width:18px;
+    margin-left: 60px;
+  }
 `
 
 const AM = styled.button`
@@ -122,6 +141,17 @@ const AM = styled.button`
   color: #b2b2b2;
   border: none;
   outline: none;
+
+  @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+    margin-left: 50px;
+  }
+  @media (min-width: 420px) and (max-width: 1440px) {
+    //between
+    width:18px;
+    margin-left: 50px;
+  }
 `
 const PM = styled.button`
   align-items: left;
@@ -132,6 +162,17 @@ const PM = styled.button`
   color: #b2b2b2;
   border: none;
   outline: none;
+
+  @media (min-width: 1440px) {
+    //desktop
+    width:18px;
+    margin-left: 28px;
+  }
+  @media (min-width: 420px) and (max-width: 1440px) {
+    //between
+    width:18px;
+    margin-left: 28px;
+  }
 `
 
 function Dustgraph_day({color, height1, height2, height3, height4, day}) {

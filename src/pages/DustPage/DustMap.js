@@ -27,8 +27,9 @@ const Map = styled.img`
 
   @media (max-width: 420px) {
     //iphone
-    width: 80px;
-    height: 80px;
+    width: 250px;
+    height: 250px;
+    margin-top: 0%;
   }
   @media (min-width: 420px) and (max-width: 1440px) {
     //between

@@ -255,6 +255,7 @@ const Box4 = styled.div`
   @media (max-width: 420px) {
     //iphone
     width: 90%;
+    height: 300px;
   }
 `
 
