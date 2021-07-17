@@ -62,7 +62,7 @@ const Button = styled.button`
   border:1px solid rgba(0,0,0,0);
   margin-right: 20px;
   &:hover {
-    background:#E9E7FF;
+    background:#ECF8FF;
   }
   &:active {
     background: #E9E7FF;
