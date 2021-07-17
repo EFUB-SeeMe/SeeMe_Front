@@ -18,7 +18,6 @@ const Box1 = styled.div`
   height: 70%;
   margin-left: 30%;
   margin-bottom: 10%;
-
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -30,7 +29,6 @@ const Box2 = styled.div`
   width: 100%;
   height: 10%;
   margin-left: %;
-
   display: flex;
   flex-direction: row;
 `
@@ -42,7 +40,6 @@ const Box3 = styled.div`
   width: 140%;
   height: 10%;
   margin-left: 20%;
-
   display: flex;
   flex-direction: row;
 `
@@ -59,7 +56,6 @@ const Box5 = styled.div`
   width: 140%;
   height: 10%;
   margin-left: 0%;
-
   display: flex;
   flex-direction: row;
 `
@@ -69,7 +65,6 @@ const Bar1 = styled.div`
   height: ${props => props.height1 || 50}px;
   width: 15px;
   margin-left: 19px;
-
   filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: row;
@@ -86,7 +81,6 @@ const Bar2 = styled.div`
   margin-right: 25px;
   opacity: 0.6;
   filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
-
   display: flex;
   flex-direction: row;
   @media (min-width: 1440px) {
