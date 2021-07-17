@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 import map from '../../assets/Dust_map.svg'
 import bluedust from '../../assets/bluedust.svg'
@@ -21,10 +21,8 @@ const Map = styled.img`
   outline: black;
   margin-top: -1%;
   margin-left: 15%;
-
   width: 400px;
   height: 400px;
-
   @media (max-width: 420px) {
     //iphone
     width: 250px;
@@ -191,40 +189,113 @@ const DustCircle25 = styled.div`
   top: 130px;
 `
 
-
-
 function DustMap() {
-    return(
-        <div>
-            <Wrapper1>
-                <Map src={map}></Map>
-                <DustCircle1> <img style={{width:"40px", height:"40px"}}src={bluedust}/> </DustCircle1>
-                <DustCircle2> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle2>
-                <DustCircle3> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle3>
-                <DustCircle4> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle4>
-                <DustCircle5> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle5>
-                <DustCircle6> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle6>
-                <DustCircle7> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle7>
-                <DustCircle8> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle8>
-                <DustCircle9> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle9>
-                <DustCircle10> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle10>
-                <DustCircle11> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle11>
-                <DustCircle12> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle12>
-                <DustCircle13> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle13>
-                <DustCircle14> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle14>
-                <DustCircle15> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle15>
-                <DustCircle16> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle16>
-                <DustCircle17> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle17>
-                <DustCircle18> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle18>
-                <DustCircle19> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle19>
-                <DustCircle20> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle20>
-                <DustCircle21> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle21>
-                <DustCircle22> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle22>
-                <DustCircle23> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle23>
-                <DustCircle24> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle24>
-                <DustCircle25> <img style={{width:"40px", height:"40px"}}src={greendust}/> </DustCircle25>
-            </Wrapper1>
-        </div>
-    )
+  return (
+    <div>
+      <Wrapper1>
+        <Map src={map}></Map>
+        <DustCircle1>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={bluedust} />{' '}
+        </DustCircle1>
+        <DustCircle2>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle2>
+        <DustCircle3>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle3>
+        <DustCircle4>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle4>
+        <DustCircle5>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle5>
+        <DustCircle6>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle6>
+        <DustCircle7>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle7>
+        <DustCircle8>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle8>
+        <DustCircle9>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle9>
+        <DustCircle10>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle10>
+        <DustCircle11>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle11>
+        <DustCircle12>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle12>
+        <DustCircle13>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle13>
+        <DustCircle14>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle14>
+        <DustCircle15>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle15>
+        <DustCircle16>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle16>
+        <DustCircle17>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle17>
+        <DustCircle18>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle18>
+        <DustCircle19>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle19>
+        <DustCircle20>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle20>
+        <DustCircle21>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle21>
+        <DustCircle22>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle22>
+        <DustCircle23>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle23>
+        <DustCircle24>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle24>
+        <DustCircle25>
+          {' '}
+          <img style={{ width: '40px', height: '40px' }} src={greendust} />{' '}
+        </DustCircle25>
+      </Wrapper1>
+    </div>
+  )
 }
-export default DustMap;
+export default DustMap
