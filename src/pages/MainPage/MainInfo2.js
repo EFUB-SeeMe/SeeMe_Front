@@ -48,7 +48,7 @@ const Text=styled.div`
     margin-right: 5px;
     text-align: center;
     margin-top: 3px;
-    @media (min-width: 390px) and (max-width: 1440px) {
+    @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size:  ${props => props.size-10 || 18}px;
   }

@@ -15,7 +15,7 @@ const Wrapper =styled.div`
     display:flex;
     flex-direction: row;
     justify-content: center;
-    @media (min-width: 390px) and (max-width: 1440px) {
+    @media (min-width: 430px) and (max-width: 1440px) {
     //between
     display: none;
   }

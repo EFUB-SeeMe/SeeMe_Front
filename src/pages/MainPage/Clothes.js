@@ -14,26 +14,24 @@ const Wrapper=styled.div`
     width:100%;
     height:100%;
 `
-const Styled = styled.div`
-  background: ${props => props.color || "black"};
-  height:${props => props.height || 50}px;
-  width:20px;
-  margin-bottom: 5px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 16px;
-`
+
 const Text=styled.div`
     background: "rgba( 255, 255, 255, 0 )";
     color:black;
     font-size:  ${props => props.size || 16}px;
     font-family: 'NotoSans';
 
-    margin-top: 15px;
+    margin-top: 10px;
     margin-right: 60px;
 
-   @media (min-width: 390px) and (max-width: 1440px) {
+   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     margin-left: 20px;
+    font-size:  ${props => props.size-3 || 16}px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    margin-top: 0px;
     font-size:  ${props => props.size-3 || 16}px;
   }
 `
@@ -44,12 +42,18 @@ const Row=styled.div`
     justify-content: space-evenly;
     margin-bottom: 50px;
     width:100%;
+    @media (max-width: 430px) {
+    //iphone
+    margin-bottom: 40px;
+  }
 `
 const StartRow=styled.div`
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
     width:100%;
+    margin-left:20px;
+    margin-bottom: 10px;
     @media (min-width: 1440px) {
     //desktop
     margin-left: 130px;
@@ -74,12 +78,12 @@ const Button = styled.button`
 `
 
 const Image=styled.img`
-@media (min-width: 390px) and (max-width: 1440px) {
+@media (min-width: 430px) and (max-width: 1440px) {
     //between
     width:70px;
     height:70px;
   }
-  @media (max-width: 390px) {
+  @media (max-width: 430px) {
     //iphone
     width:60px;
     height:60px;
