@@ -310,6 +310,7 @@ function MainPage() {
               <RainGraph height="0" num="0" time="4" />
             </AlwaysScrollSection>
           </Box2>
+
           <Box3>
             <Clothes />
           </Box3>

@@ -55,6 +55,7 @@ const StartRow=styled.div`
     margin-left: 130px;
   }
 `
+
 const Button = styled.button`
   height: 42px;
   width: 50px;
