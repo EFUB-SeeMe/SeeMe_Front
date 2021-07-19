@@ -205,6 +205,7 @@ const Box2 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
+    height: 240px;
   }
 `
 const Box2_sub1 = styled.div`
@@ -385,8 +386,8 @@ const 농도수치 = styled.button`
   @media (max-width: 430px) {
     //iphone
     color: #42a0f0;
-    margin-left: 67px;
-    margin-right: -30px;
+    margin-left: 70px;
+    margin-right: -9px;
     display: center;
   }
 `
@@ -746,28 +747,36 @@ function DustPage() {
           <LocationText />
           <Box1>
             <div>
-              <img
-                style={{ marginTop: '0px', marginLeft: '75px' }}
-                src={dust}
-              />
-
-              <a
-                style={{
-                  marginTop: '16px',
-                  marginLeft: '60px',
-                  fontSize: '16px',
-                  fontFamily: 'NotoSans',
-                }}
-              >
-                미세먼지 농도 &ensp;&emsp; 초미세먼지 농도
-              </a>
-
-              <농도수치> 23 </농도수치>
-              <농도수치> 15 </농도수치>
-              <img
-                style={{ marginTop: '5px', marginLeft: '50px' }}
-                src={standard}
-              />
+              <Row>
+                <img
+                  style={{ marginTop: '0px', marginLeft: '70px' }}
+                  src={dust}
+                />
+              </Row>
+              <Row>
+                <a
+                  style={{
+                    marginTop: '0px',
+                    marginLeft: '80px',
+                    fontSize: '16px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  미세먼지&emsp;&emsp;&emsp;&emsp;&emsp;초미세먼지
+                </a>
+              </Row>
+              <Row>
+                <div>
+                  <농도수치> 23 </농도수치>
+                  <농도수치> 15 </농도수치>
+                </div>
+              </Row>
+              <Row>
+                <img
+                  style={{ marginTop: '5px', marginLeft: '70px' }}
+                  src={standard}
+                />
+              </Row>
             </div>
           </Box1>
           <Box2>
