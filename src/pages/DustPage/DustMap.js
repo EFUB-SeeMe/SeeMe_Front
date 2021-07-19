@@ -2,12 +2,14 @@ import React from "react"
 import styled from "styled-components"
 import { useState } from "react";
 
+import MapAPI from './MapAPI'
+
 import bluedust from '../../assets/bluedust.svg'
 import greendust from '../../assets/greendust.svg'
 
 const Wrapper1 = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 `
@@ -41,7 +43,7 @@ const Box1=styled.div`
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     width:100%;
     height: 10%;
 `
@@ -49,9 +51,18 @@ const Box2=styled.div`
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-left: -150px;
     width:100%;
     height: 90%;
+   @media (max-width: 420px) {
+     // iphone
+     margin-left: -125px;
+   }
+   @media (min-width: 1440px) {
+    //between
+    margin-top: 40px;
+  }
 `
 
 
@@ -133,7 +144,7 @@ function DustMap({latitude,longitude,dust,microdust}) {
           <Button onClick={getData2} > 초미세먼지 </Button>
         </Box1>
         <Box2> 
-
+          <MapAPI> </MapAPI>
         </Box2>
     </Wrapper1>
 </div>
