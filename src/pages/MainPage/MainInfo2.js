@@ -48,7 +48,7 @@ const Text=styled.div`
     margin-right: 5px;
     text-align: center;
     margin-top: 3px;
-    @media (min-width: 375px) and (max-width: 1440px) {
+    @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size:  ${props => props.size-10 || 18}px;
   }
@@ -62,10 +62,10 @@ function MainInfo2({color,height,num,time}) {
         <Row>
         <Text size="65">26°</Text>
         <Column>
-        <Text size="26">체감 온도 28℃ </Text>
+        <Text size="18">체감 온도 28℃ </Text>
         <CenterRow>
-        <Text size="23" color="#EF8787">최고 29℃ &nbsp;&nbsp;</Text>
-            <Text size="23" color="#6CB8F8">최저 20℃ </Text></CenterRow>
+        <Text size="18" color="#EF8787">최고 29℃ &nbsp;&nbsp;</Text>
+            <Text size="18" color="#6CB8F8">최저 20℃ </Text></CenterRow>
         </Column>
         </Row>
         </Wrapper>

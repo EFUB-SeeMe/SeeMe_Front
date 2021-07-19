@@ -205,6 +205,7 @@ const Box2 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
+    height: 240px;
   }
 `
 const Box2_sub1 = styled.div`
@@ -385,8 +386,8 @@ const 농도수치 = styled.button`
   @media (max-width: 430px) {
     //iphone
     color: #42a0f0;
-    margin-left: 67px;
-    margin-right: -30px;
+    margin-left: 70px;
+    margin-right: -9px;
     display: center;
   }
 `
@@ -401,8 +402,6 @@ const Mask = styled.image`
   background: none;
   border: none;
   outline: none;
-
-  
 `
 const Text = styled.button`
   align-items: left;
@@ -419,20 +418,19 @@ const Text = styled.button`
     margin-left: 20px;
   }
 `
-const Row=styled.div`
-display:flex;
-flex-direction: row;
-justify-content: center;
-width:100%;
-overflow:hidden;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
 `
-const Column=styled.div`
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width:100%;
-
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `
 
 function DustPage() {
@@ -455,7 +453,6 @@ function DustPage() {
                     width: '160px',
                     height: '150px',
                     marginBottom: '40px',
-
                   }}
                   src={dust}
                 />
@@ -750,28 +747,36 @@ function DustPage() {
           <LocationText />
           <Box1>
             <div>
-              <img
-                style={{ marginTop: '0px', marginLeft: '75px' }}
-                src={dust}
-              />
-
-              <a
-                style={{
-                  marginTop: '16px',
-                  marginLeft: '60px',
-                  fontSize: '16px',
-                  fontFamily: 'NotoSans',
-                }}
-              >
-                미세먼지 농도 &ensp;&emsp; 초미세먼지 농도
-              </a>
-
-              <농도수치> 23 </농도수치>
-              <농도수치> 15 </농도수치>
-              <img
-                style={{ marginTop: '5px', marginLeft: '50px' }}
-                src={standard}
-              />
+              <Row>
+                <img
+                  style={{ marginTop: '0px', marginLeft: '70px' }}
+                  src={dust}
+                />
+              </Row>
+              <Row>
+                <a
+                  style={{
+                    marginTop: '0px',
+                    marginLeft: '80px',
+                    fontSize: '16px',
+                    fontFamily: 'NotoSans',
+                  }}
+                >
+                  미세먼지&emsp;&emsp;&emsp;&emsp;&emsp;초미세먼지
+                </a>
+              </Row>
+              <Row>
+                <div>
+                  <농도수치> 23 </농도수치>
+                  <농도수치> 15 </농도수치>
+                </div>
+              </Row>
+              <Row>
+                <img
+                  style={{ marginTop: '5px', marginLeft: '70px' }}
+                  src={standard}
+                />
+              </Row>
             </div>
           </Box1>
           <Box2>
@@ -1028,21 +1033,8 @@ function DustPage() {
           </Box2>
 
           <Box3>
-            <div>
-              <알림1> 미세먼지 좋아요~</알림1>
-              <알림1_bold> 덴탈마스크 </알림1_bold>
-              <추천>추천 </추천>
-            </div>
-            <Mask>
-              <img src={mask} />
-            </Mask>
-            <알림2> 14시 30분 ~ 15시 30분 </알림2>
-            <알림3>
-              {' '}
-              <div> 환기 시간 입니다 </div>
-            </알림3>
+            <Dustinfo2 />
           </Box3>
-
           <Box4>
             <DustMap> </DustMap>
           </Box4>
