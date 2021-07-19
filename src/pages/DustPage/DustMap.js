@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { useState } from "react";
 
-import MapAPI from './MapAPI'
 
 import bluedust from '../../assets/bluedust.svg'
 import greendust from '../../assets/greendust.svg'
@@ -144,7 +143,6 @@ function DustMap({latitude,longitude,dust,microdust}) {
           <Button onClick={getData2} > 초미세먼지 </Button>
         </Box1>
         <Box2> 
-          <MapAPI> </MapAPI>
         </Box2>
     </Wrapper1>
 </div>
