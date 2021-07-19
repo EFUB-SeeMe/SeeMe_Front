@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AlwaysScrollSection } from './AlwaysScrollSection'
 import Header from '../../components/Header/Header'
@@ -10,6 +11,7 @@ import cur_location from '../../assets/cur_location.svg'
 import dividing_line from '../../assets/dividing_line.svg'
 import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
+import { covidMain } from "../../_actions/user_action";
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -454,6 +456,21 @@ const BoldText1 = styled.div`
   }
 `
 function CovidPage() {
+
+  const [mainState,setMainState]=useState({ status: 'idle', member: null});
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(covidMain(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
+      setMainState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setMainState({ status: 'resolved', member: data}), 600);
+      console.log(mainState.member);
+    });
+  }, []);
+
+    
+  
+
   return (
     <div>
       <Header></Header>
@@ -470,13 +487,13 @@ function CovidPage() {
             <Wrap2a>
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
-                <Text3>567명</Text3>
+                <Text3>{mainState?.member?.coronicTotal+"명"}</Text3>
                 <Ascent></Ascent>
               </Wrap3>
               <Line></Line>
               <Wrap3>
                 <Text2>우리지역 확진자 수</Text2>
-                <Text3>334명</Text3>
+                <Text3>{mainState?.member?.coronicRegion+"명"}</Text3>
                 <Descent></Descent>
               </Wrap3>
             </Wrap2a>
