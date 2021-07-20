@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 280px;
-  height: 280px;
+  height: 100%;
+  width: 58%;
   margin-top: 15px;
 `
 const Row = styled.div`

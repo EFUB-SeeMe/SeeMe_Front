@@ -7,24 +7,27 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 600px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   margin-top: 28px;
 `
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
   margin-top: 1px;
-  width: 60%;
+  width: 100%;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     width: 90%;
   }
   @media (max-width: 430px) {
     //iphone
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     width: 90%;
   }
 `
@@ -48,7 +51,7 @@ const Text = styled.div`
   color: ${props => props.color || 'black'};
   font-size: ${props => props.size || 20}px;
   font-family: 'NotoSans';
-  margin-right: 5px;
+  margin-right: 0px;
   text-align: center;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -84,7 +87,7 @@ function Dustinfo2({ color, height, num, time }) {
     <Wrapper>
       <Row>
         <Text size="20"> 미세먼지 좋아요~ </Text>
-        <Text size="20">덴탈마스크 </Text>
+        <Text size="20">덴탈마스크</Text>
         <Text size="20">추천 </Text>
       </Row>
       <Row>
@@ -92,14 +95,10 @@ function Dustinfo2({ color, height, num, time }) {
       </Row>
 
       <Row>
-        <Text size="24" color="#222222">
-          14시 30분 ~ 15시 30분{' '}
+        <Text size="24" color="#222222"> // 여기에 뭐 넣지
         </Text>
       </Row>
       <Row>
-        <Text size="35" color="#222222">
-          환기 시간 입니다{' '}
-        </Text>
       </Row>
     </Wrapper>
   )
