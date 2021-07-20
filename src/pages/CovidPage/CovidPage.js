@@ -342,7 +342,6 @@ const Wrap6a = styled.div`
   flex-direction: row;
   justify-content: space-around, center;
   width: 75%;
-  //background: lavender;
   margin-right: 14px;
   margin-left: 20px;
   margin-top: 70px;
