@@ -5,13 +5,11 @@ import { AlwaysScrollSection } from './AlwaysScrollSection'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import ascent_dif from '../../assets/ascent_dif.svg'
-import descent_dif from '../../assets/descent_dif.svg'
 import cur_location from '../../assets/cur_location.svg'
-import dividing_line from '../../assets/dividing_line.svg'
 import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
-import { covidMain } from "../../_actions/user_action";
+import Ascent from './Ascent'
+import { covidMain,covidNational,covidRegional } from "../../_actions/user_action";
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -207,7 +205,7 @@ const Text3 = styled.div`
 
   @media (max-width: 420px) {
     //iphone
-    font-size: 50px;
+    font-size: 40px;
     margin-left: 10px;
   }
   @media (min-width: 420px) and (max-width: 1440px) {
@@ -245,48 +243,6 @@ const Line = styled.div`
     border: 0px solid #d9d9d9;
   }
 `
-const Ascent = styled.img`
-  margin-top: 11px;
-  width: 99px;
-  height: 37px;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    margin-left: 10px;
-    width: 89px;
-    height: 30px;
-  }
-  @media (max-width: 420px) {
-    //iphone
-    margin-top: 5px;
-    width: 50px;
-    height: 21px;
-  }
-`
-Ascent.defaultProps = {
-  src: ascent_dif,
-}
-const Descent = styled.img`
-  margin-top: 11px;
-  width: 99px;
-  height: 37px;
-
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    margin-left: 10px;
-    width: 89px;
-    height: 30px;
-  }
-  @media (max-width: 420px) {
-    //iphone
-    margin-top: 5px;
-    width: 50px;
-    height: 21px;
-  }
-`
-Descent.defaultProps = {
-  src: descent_dif,
-}
 
 //////////////////////////////////////////////////////
 ///////////////// Box2 & 3 Start /////////////////////
@@ -435,8 +391,7 @@ const Text5 = styled.div`
   }
 `
 const BoldText1 = styled.div`
-  font-family: 'NotoSans';
-  font-weight: bold;
+  font-family: 'NotoSansBold';
   font-size: 16px;
   line-height: 20px;
   margin-left: 40px;
@@ -458,16 +413,34 @@ const BoldText1 = styled.div`
 function CovidPage() {
 
   const [mainState,setMainState]=useState({ status: 'idle', member: null});
+  const [nationalState,setNationalState]=useState({ status: 'idle', member: null});
+  const [regionalState,setRegionalState]=useState({ status: 'idle', member: null});
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(covidMain(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
       setMainState({ status: 'pending' });
       const data = response.payload;
       setTimeout(() => setMainState({ status: 'resolved', member: data}), 600);
-      console.log(mainState.member);
+      console.log(data);
     });
   }, []);
 
+  useEffect(() => {
+    dispatch(covidNational()).then(response => {
+      setNationalState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setNationalState({ status: 'resolved', member: data}), 600);
+ 
+    });
+  }, []);
+  useEffect(() => {
+    dispatch(covidRegional(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
+      setRegionalState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setRegionalState({ status: 'resolved', member: data}), 600);
+      
+    });
+  }, []);
     
   
 
@@ -488,13 +461,13 @@ function CovidPage() {
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
                 <Text3>{mainState?.member?.coronicTotal+"명"}</Text3>
-                <Ascent></Ascent>
+                <Ascent text={mainState?.member?.compTotal} num={mainState?.member?.isIncTotal}></Ascent>
               </Wrap3>
               <Line></Line>
               <Wrap3>
                 <Text2>우리지역 확진자 수</Text2>
                 <Text3>{mainState?.member?.coronicRegion+"명"}</Text3>
-                <Descent></Descent>
+                <Ascent text={mainState?.member?.compRegion} num={mainState?.member?.isIncRegion}></Ascent>
               </Wrap3>
             </Wrap2a>
           </Wrap1>
@@ -505,21 +478,19 @@ function CovidPage() {
               <Text4>전국 확진자 추이</Text4>
               <Wrap7>
                 <Text5>신규</Text5>
-                <BoldText1>567명</BoldText1>
+                <BoldText1>{nationalState?.member?.newCoronic+"명"}</BoldText1>
               </Wrap7>
               <Wrap7>
                 <Text5>누적</Text5>
-                <Text5 color={'black'}>157,723명</Text5>
+                <Text5 color={'black'}>{nationalState?.member?.totalCoronic+"명"}</Text5>
               </Wrap7>
             </Wrap5>
             <Wrap6>
               <AlwaysScrollSection>
-                <Graph height="121" num="623" month="06" date="23"></Graph>
-                <Graph height="138" num="634" month="06" date="24"></Graph>
-                <Graph height="163" num="668" month="06" date="25"></Graph>
-                <Graph height="116" num="614" month="06" date="26"></Graph>
-                <Graph height="77" num="501" month="06" date="27"></Graph>
-                <Graph height="99" num="567" month="06" date="28"></Graph>
+                {nationalState.member?.coronicList?.map((corona,i)=>
+                <Graph height={corona.coronicByDay/10} num={corona.coronicByDay}  totalDate={corona.day}
+                />
+                )}
               </AlwaysScrollSection>
             </Wrap6>
           </Wrap4>
@@ -530,51 +501,19 @@ function CovidPage() {
               <Text4>우리지역 확진자 추이</Text4>
               <Wrap7>
                 <Text5>신규</Text5>
-                <BoldText1>334명</BoldText1>
+                <BoldText1>{regionalState?.member?.newCoronic+"명"}</BoldText1>
               </Wrap7>
               <Wrap7>
                 <Text5>누적</Text5>
-                <Text5 color={'black'}>50,321명</Text5>
+                <Text5 color={'black'}>{regionalState?.member?.totalCoronic+"명"}</Text5>
               </Wrap7>
             </Wrap5>
             <Wrap6a>
               <AlwaysScrollSection>
-                <Graph_Local
-                  height="69"
-                  num="269"
-                  month="06"
-                  date="23"
-                ></Graph_Local>
-                <Graph_Local
-                  height="67"
-                  num="263"
-                  month="06"
-                  date="24"
-                ></Graph_Local>
-                <Graph_Local
-                  height="60"
-                  num="242"
-                  month="06"
-                  date="25"
-                ></Graph_Local>
-                <Graph_Local
-                  height="41.6"
-                  num="185"
-                  month="06"
-                  date="26"
-                ></Graph_Local>
-                <Graph_Local
-                  height="48.3"
-                  num="205"
-                  month="06"
-                  date="27"
-                ></Graph_Local>
-                <Graph_Local
-                  height="93.3"
-                  num="334"
-                  month="06"
-                  date="28"
-                ></Graph_Local>
+              {regionalState.member?.coronicList?.map((corona,i)=>
+                <Graph_Local height={corona.coronicByDay/8} num={corona.coronicByDay}  totalDate={corona.day}
+                />
+                )}
               </AlwaysScrollSection>
             </Wrap6a>
           </Wrap4>
