@@ -26,13 +26,25 @@ const Text = styled.div`
   color: black;
   text-align: center;
   margin-top: 5px;
+  width:60px;
 `
-function Graph_Local({ num, height, month, date }) {
+function Graph_Local({ num, height, totalDate }) {
+  if (totalDate == null) {
+    var date = "";
+    var date1 = "";
+    var date2 = "";
+    var date3 = "미제출";
+  } else {
+    var date = totalDate?.split(" ")[0];
+    var date1 = totalDate?.split(" ")[1];
+    var date2 = totalDate?.split(" ")[2];
+    var date3 = totalDate?.split(" ")[3];
+  }
   return (
     <Wrapper>
       <Text>{num}</Text>
       <Styled height={height}></Styled>
-      <Text>{month + '.' + date}</Text>
+      <Text>{date1+date2}</Text>
     </Wrapper>
   )
 }

@@ -13,6 +13,7 @@ import MainInfo2 from './MainInfo2'
 import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
+import Location from "../Location"
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -193,6 +194,9 @@ const Box4 = styled.div`
 `
 
 function MainPage() {
+  const gsLocation =  Location();
+  console.log(`gsLocation: ${JSON.stringify(gsLocation)}`);
+
   return (
     <>
       <Header></Header>
