@@ -9,7 +9,7 @@ import cur_location from '../../assets/cur_location.svg'
 import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
 import Ascent from './Ascent'
-import { covidMain,covidNational,covidRegional } from "../../_actions/user_action";
+import { covidMain,covidNational,covidRegional,latToAdd } from "../../_actions/user_action";
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -122,7 +122,7 @@ const Wrap2 = styled.div`
 `
 // Current Location Text
 const Text1 = styled.a`
-  width: 195px;
+  width: 250px;
   height: 32px;
   margin-top: 18px;
   font-family: 'NotoSans';
@@ -415,13 +415,13 @@ function CovidPage() {
   const [mainState,setMainState]=useState({ status: 'idle', member: null});
   const [nationalState,setNationalState]=useState({ status: 'idle', member: null});
   const [regionalState,setRegionalState]=useState({ status: 'idle', member: null});
+  const [nameState,setNameState] =useState({status: 'idle', member: null});
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(covidMain(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
       setMainState({ status: 'pending' });
       const data = response.payload;
       setTimeout(() => setMainState({ status: 'resolved', member: data}), 600);
-      console.log(data);
     });
   }, []);
 
@@ -437,8 +437,15 @@ function CovidPage() {
     dispatch(covidRegional(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
       setRegionalState({ status: 'pending' });
       const data = response.payload;
-      setTimeout(() => setRegionalState({ status: 'resolved', member: data}), 600);
-      
+      setTimeout(() => setRegionalState({ status: 'resolved', member: data}), 600);   
+    });
+  }, []);
+  useEffect(() => {
+    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
+      setNameState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
+      console.log(data);
     });
   }, []);
     
@@ -455,7 +462,7 @@ function CovidPage() {
               <Loc_Icon>
                 <img src={cur_location} />
               </Loc_Icon>
-              <Text1>성수구 성수1동</Text1>
+              <Text1>{nameState?.member}</Text1>
             </Wrap2>
             <Wrap2a>
               <Wrap3>

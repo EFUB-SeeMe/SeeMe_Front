@@ -14,6 +14,7 @@ import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from "../Location"
+import { latToAdd } from "../../_actions/user_action";
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -196,6 +197,16 @@ const Box4 = styled.div`
 function MainPage() {
   const gsLocation =  Location();
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`);
+  const [nameState,setNameState] =useState({status: 'idle', member: null});
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
+      setNameState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
+      console.log(data);
+    });
+  }, []);
 
   return (
     <>
@@ -206,7 +217,7 @@ function MainPage() {
             <MainBox>
               <Row>
                 <img style={{ height: '22px', width: '22px' }} src={image} />
-                <p style={{ marginTop: '3px' }}>&ensp; 성동구 성수1동</p>
+                <p style={{ marginTop: '3px' }}>&ensp; {nameState?.member}</p>
               </Row>
               <Row>
                 <img style={{ width: '160px', height: '160px' }} src={Rain} />
