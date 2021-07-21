@@ -13,6 +13,7 @@ import {
   covidMain,
   covidNational,
   covidRegional,
+  latToAdd,
 } from '../../_actions/user_action'
 
 const Background = styled.div`
@@ -126,7 +127,7 @@ const Wrap2 = styled.div`
 `
 // Current Location Text
 const Text1 = styled.a`
-  width: 195px;
+  width: 250px;
   height: 32px;
   margin-top: 18px;
   font-family: 'NotoSans';
@@ -420,6 +421,7 @@ function CovidPage() {
     status: 'idle',
     member: null,
   })
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -431,7 +433,6 @@ function CovidPage() {
       setMainState({ status: 'pending' })
       const data = response.payload
       setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
-      console.log(data)
     })
   }, [])
 
@@ -460,6 +461,19 @@ function CovidPage() {
       )
     })
   }, [])
+  useEffect(() => {
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
 
   return (
     <div>
@@ -472,7 +486,7 @@ function CovidPage() {
               <Loc_Icon>
                 <img src={cur_location} />
               </Loc_Icon>
-              <Text1>{mainState?.member?.location}</Text1>
+              <Text1>{nameState?.member}</Text1>
             </Wrap2>
             <Wrap2a>
               <Wrap3>
