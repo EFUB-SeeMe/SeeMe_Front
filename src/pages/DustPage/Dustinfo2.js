@@ -68,17 +68,17 @@ const Text = styled.div`
   }
 `
 const MaskImage = styled.img`
-  width: 300px;
-  height: 180px;
+  width: 380px;
+  height: 220px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 130px;
-    height: 120px;
+    width: 200px;
+    height: 150px;
   }
   @media (max-width: 430px) {
     //iphone
-    width: 150px;
-    height: 150px;
+    width: 200x;
+    height: 200px;
   }
 `
 

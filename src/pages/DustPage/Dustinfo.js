@@ -16,7 +16,7 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 12px;
+  margin-top: 10px;
   width: 100%;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -50,13 +50,17 @@ const Text = styled.div`
     font-size: ${props => props.size - 10 || 18}px;
   }
 `
-const DustImage = styled.img`
+const Standard = styled.img`
   width: 206px;
   height: 35px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 156px;
     height: 35px;
+  }
+  @media (min-width:  1440px)  {
+    //desktop
+    width: 200px;
   }
 `
 
@@ -68,15 +72,15 @@ function Dustinfo({ color, height, num, time }) {
         <Text size="25">초미세먼지 </Text>
       </Row>
       <Row>
-        <Text size="60" color="#42A0F0">
+        <Text size="70" color="#42A0F0">
           23
         </Text>
-        <Text size="60" color="#42A0F0">
+        <Text size="70" color="#42A0F0">
           15
         </Text>
       </Row>
       <Row>
-        <DustImage src={standard} />
+        <Standard src={standard} />
       </Row>
       <Row>
         <Text size="22" color="#222222">

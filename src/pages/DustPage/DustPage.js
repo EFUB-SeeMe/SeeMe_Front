@@ -13,10 +13,8 @@ import standard from '../../assets/Dust_standard.svg'
 
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
-import Dustgraph_time from './Dustgraph_time'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
-import { Scroll } from './Scroll'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -84,6 +82,15 @@ const Box1 = styled.div`
     width: 90%;
     height: 300px;
   }
+`
+const Box1_mobile = styled.div`
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
   @media (max-width: 430px) {
     //iphone
     width: 90%;
@@ -91,6 +98,7 @@ const Box1 = styled.div`
     margin-top: 15px;
   }
 `
+
 const MainBox = styled.div`
   height: 100%;
   width: 42%;
@@ -197,20 +205,18 @@ const Box4 = styled.div`
 const 농도수치 = styled.button`
   align-items: center;
   margin-top: 10px;
-  margin-left: 90px;
-  margin-right: -9px;
   font-size: 65px;
+  width: 50%;
   background: none;
   border: none;
   outline: none;
   @media (max-width: 430px) {
     //iphone
     color: #42a0f0;
-    margin-left: 70px;
-    margin-right: -9px;
     display: center;
   }
 `
+
 const Text = styled.button`
   align-items: left;
   margin-top: 20px;
@@ -241,6 +247,35 @@ const Column = styled.div`
   width: 100%;
 `
 
+const DustImage = styled.img`
+  width: 200px;
+  height: 200px;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    width: 130px;
+    height: 130px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    width: 180x;
+    height: 180px;
+  }
+`
+
+const Text2 = styled.div`
+  background: 'rgba( 255, 255, 255, 0 )';
+  color: ${props => props.color || 'black'};
+  font-size: ${props => props.size || 18}px;
+  font-family: 'NotoSans';
+  margin-right: 5px;
+  text-align: center;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    font-size: ${props => props.size - 10 || 18}px;
+  }
+`
+
+
 function DustPage() {
   return (
     <>
@@ -256,14 +291,7 @@ function DustPage() {
                 </p>
               </Row>
               <Row>
-                <img
-                  style={{
-                    width: '160px',
-                    height: '150px',
-                    marginBottom: '40px',
-                  }}
-                  src={dust}
-                />
+                <DustImage src={dust} />
               </Row>
               <Row>
                 {' '}
@@ -334,19 +362,14 @@ function DustPage() {
 
         <Wrapper3>
           <LocationText />
-          <Box1>
+          <Box1_mobile>
             <div>
               <Row>
-                <img
-                  style={{ marginTop: '0px', marginLeft: '70px' }}
-                  src={dust}
-                />
+                <DustImage src={dust} />
               </Row>
               <Row>
                 <a
                   style={{
-                    marginTop: '0px',
-                    marginLeft: '80px',
                     fontSize: '16px',
                     fontFamily: 'NotoSans',
                   }}
@@ -355,19 +378,17 @@ function DustPage() {
                 </a>
               </Row>
               <Row>
-                <div>
-                  <농도수치> 23 </농도수치>
-                  <농도수치> 15 </농도수치>
-                </div>
+                <Text2 size="60" color="#42A0F0">  23 &emsp; </Text2>
+                <Text2 size="60" color="#42A0F0">  15 </Text2>
               </Row>
               <Row>
                 <img
-                  style={{ marginTop: '5px', marginLeft: '70px' }}
+                  style={{ marginTop: '5px'}}
                   src={standard}
                 />
               </Row>
             </div>
-          </Box1>
+          </Box1_mobile>
           <Box2>
             
           </Box2>
