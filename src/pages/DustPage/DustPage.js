@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-
+import { latToAdd } from "../../_actions/user_action";
+import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
+import { useState, useEffect, useRef } from 'react'
 // load image
 import mask from '../../assets/Dust_mask.svg'
 import dust from '../../assets/Group 336.svg'
@@ -277,6 +279,17 @@ const Text2 = styled.div`
 
 
 function DustPage() {
+  const [nameState,setNameState] =useState({status: 'idle', member: null});
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
+      setNameState({ status: 'pending' });
+      const data = response.payload;
+      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
+      console.log(data);
+    });
+  }, []);
+
   return (
     <>
       <Header></Header>
@@ -287,7 +300,7 @@ function DustPage() {
               <Row>
                 <img style={{ height: '35px', width: '22px' }} src={location} />
                 <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  &ensp; 성동구 성수1동
+                  &ensp; {nameState?.member}
                 </p>
               </Row>
               <Row>
@@ -309,6 +322,7 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
+              <AlwaysScrollSection>
               <Dustgraph_day
                 color="#85BFEF"
                 height1="70"
@@ -338,7 +352,7 @@ function DustPage() {
                 height1="60"
                 height2="20"
                 day="06.31"
-              />
+              /></AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
         </Wrapper1>

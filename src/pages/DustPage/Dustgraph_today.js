@@ -102,8 +102,8 @@ const 날짜 = styled.button`
     margin-left: 60px;
   }
 `
-                                 
-function Dustgraph_today({ color, height1, height2, day }) {
+
+function Dustgraph_today({ color, height1, height2,  day }) {
   return (
     <div>
       <Wrapper1>
