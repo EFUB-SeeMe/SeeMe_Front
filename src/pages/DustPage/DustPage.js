@@ -311,42 +311,32 @@ function DustPage() {
             <Box2_sub2>
               <Dustgraph_day
                 color="#85BFEF"
-                height1="50"
+                height1="70"
                 height2="30"
-                height3="40"
-                height4="20"
                 day="06.27"
               />
               <Dustgraph_today
                 color="#85BFEF"
-                height1="50"
+                height1="80"
                 height2="30"
-                height3="40"
-                height4="20"
                 day="06.28"
               />
               <Dustgraph_day
                 color="#87EF85"
                 height1="60"
                 height2="20"
-                height3="50"
-                height4="10"
                 day="06.29"
               />
               <Dustgraph_day
                 color="#87EF85"
-                height1="60"
+                height1="90"
                 height2="20"
-                height3="50"
-                height4="10"
                 day="06.30"
               />
               <Dustgraph_day
                 color="#87EF85"
                 height1="60"
                 height2="20"
-                height3="50"
-                height4="10"
                 day="06.31"
               />
             </Box2_sub2>
