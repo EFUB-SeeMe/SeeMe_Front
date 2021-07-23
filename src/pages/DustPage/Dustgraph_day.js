@@ -6,185 +6,95 @@ const Wrapper1 = styled.div`
   flex-direction: column; // 세로정렬
   margin-top: 25%;
   width: 100%;
-  height: 100%;
+  height: 75%;
   align-items: center;
 `
 
 const Box1 = styled.div`
   // 그래프 박스
   background: white;
-  margin-top: 0px;
+  margin-top: 20%;
   width: 100%;
-  height: 70%;
-  margin-left: 10%;
+  height: 60%;
+  margin-left: 20%;
   margin-bottom: 10%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`
+  direction: row;
+ `
+
 const Box2 = styled.div`
-  // AMPM 박스
-  background: white;
-  margin-top: 0px;
-  width: 100%;
-  height: 10%;
-  margin-left: 5%;
-  display: flex;
-  flex-direction: row;
-`
-const Box3 = styled.div`
   // 날짜 박스
   background: white;
   margin-top: 0px;
   width: 100%;
   height: 10%;
-  margin-left: 5%;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
-`
-const Box4 = styled.div`
-  // 오늘 박스
-  display: flex;
-  flex-direction: row;
-  height: 10%;
 `
 // 그래프 4개 그리기 시작
 const Bar1 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height1 || 50}px;
-  width: 15px;
-  margin-left: 20px;
+  width: 20px;
+  margin-left: 50px;
   filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
+  @media (min-width: 420px) {
     //desktop
-    width: 18px;
-    margin-left: 40px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 40px;
+    width: 25px;
+    margin-left: 70px;
   }
 `
 const Bar2 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height2 || 50}px;
-  width: 15px;
+  width: 20px;
   margin-left: 2px;
   opacity: 0.6;
-  filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  @media (min-width: 420px) {
     //desktop
-    width: 18px;
+    width: 25px;
+    margin-left: 5px;
   }
-`
-const Bar3 = styled.div`
-  background: ${props => props.color || 'black'};
-  height: ${props => props.height3 || 50}px;
-  width: 15px;
-  margin-left: 10px;
-  filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
-  display: flex;
-  flex-direction: row;
-  @media (min-width: 1440px) {
-    //desktop
-    width: 18px;
-  }
-`
-const Bar4 = styled.div`
-  background: ${props => props.color || 'black'};
-  height: ${props => props.height4 || 50}px;
-  width: 15px;
-  margin-left: 2px;
-  opacity: 0.6;
-  filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
-  display: flex;
-  flex-direction: row;
 `
 // 그래프 4개 그리기 끝
 
-const 날짜 = styled.button`
+const Day = styled.button`
   align-items: left;
-  margin-left: 38px;
-  font-size: 15px;
+  margin-left: 55px;
+  font-size: 13px;
   background: white;
   border: none;
   outline: none;
-  margin-bottom: 33%;
-  @media (min-width: 1440px) {
+  margin-bottom: 5%;
+  @media (min-width: 420px) {
     //desktop
     width: 18px;
-    margin-left: 60px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 60px;
+    margin-left: 75px;
   }
 `
 
-const AM = styled.button`
-  align-items: left;
-  margin-left: 25px;
-  font-size: 10px;
-  font-weight: bold;
-  background: white;
-  color: #b2b2b2;
-  border: none;
-  outline: none;
-  @media (min-width: 1440px) {
-    //desktop
-    width: 18px;
-    margin-left: 50px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 50px;
-  }
-`
-const PM = styled.button`
-  align-items: left;
-  margin-left: 18px;
-  font-size: 10px;
-  font-weight: bold;
-  background: white;
-  color: #b2b2b2;
-  border: none;
-  outline: none;
-  @media (min-width: 1440px) {
-    //desktop
-    width: 18px;
-    margin-left: 28px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 28px;
-  }
-`
-
-function Dustgraph_day({ color, height1, height2, height3, height4, day }) {
+function Dustgraph_day({ color, height1, height2, day }) {
   return (
     <div>
       <Wrapper1>
         <Box1>
           <Bar1 color={color} height1={height1}></Bar1>
           <Bar2 color={color} height2={height2}></Bar2>
-          <Bar3 color={color} height3={height3}></Bar3>
-          <Bar4 color={color} height4={height4}></Bar4>
         </Box1>
         <Box2>
-          <AM>AM</AM> <PM>PM</PM>
+          <Day>{day}</Day>
         </Box2>
-        <Box3>
-          <날짜>{day}</날짜>
-        </Box3>
-        <Box4></Box4>
       </Wrapper1>
     </div>
   )

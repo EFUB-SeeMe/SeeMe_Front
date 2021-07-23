@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import standard from '../../assets/Dust_standard.svg'
-
+import { dustMain } from '../../_actions/user_action'
+import { useState, useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -72,6 +74,22 @@ Standard.defaultProps = {
 }
 
 function Dustinfo({ color, height, num, time }) {
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      dustMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
+
   return (
     <Wrapper>
       <Row>
@@ -84,10 +102,10 @@ function Dustinfo({ color, height, num, time }) {
       </Row>
       <Row>
         <Text size="65" color="#42A0F0">
-          23
+          {mainState?.member?.mainInfo?.document?.pm10}
         </Text>
         <Text size="65" color="#42A0F0">
-          15
+          {mainState?.member?.mainInfo?.document?.pm25}
         </Text>
       </Row>
       <Row>
@@ -95,7 +113,7 @@ function Dustinfo({ color, height, num, time }) {
       </Row>
       <Row>
         <Text size="22" color="#222222">
-          야외 활동을 즐겨보세요 !{' '}
+          {mainState?.member?.mainInfo?.document?.desc}{' '}
         </Text>
       </Row>
     </Wrapper>

@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Mask from '../../assets/Dust_mask.svg'
+import { dustMain } from '../../_actions/user_action'
+import { useState, useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 
 const Wrapper = styled.div`
   display: flex;
@@ -82,20 +85,34 @@ const MaskImage = styled.img`
     height: 200px;
   }
 `
-MaskImage.defaultProps = {
-  src: Mask,
-}
 
 function Dustinfo2({ color, height, num, time }) {
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      dustMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
+
   return (
     <Wrapper>
       <Row>
-        <Text size="20"> 미세먼지 좋아요~ </Text>
-        <Text size="20">덴탈마스크</Text>
-        <Text size="20">추천 </Text>
+        <Text size="20">{mainState?.member?.maskInfo?.document?.desc} </Text>
       </Row>
       <Row>
-        <MaskImage />
+        <MaskImage
+          style={{ width: '200px', height: '200px' }}
+          src={mainState?.member?.maskInfo?.document?.maskIcon}
+        ></MaskImage>
       </Row>
     </Wrapper>
   )

@@ -20,6 +20,9 @@ import Dustgraph_today from './Dustgraph_today'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
 
+import { micro_dust } from '../../_actions/user_action'
+import { cai_main } from '../../_actions/user_action'
+
 const Background = styled.div`
   background-color: #e9e7ff;
   background-repeat: no-repeat;
@@ -370,6 +373,22 @@ function DustPage() {
       console.log(data)
     })
   }, [])
+
+  useEffect(() => {
+    dispatch(
+      cai_main(
+        window.localStorage.getItem('so2'),
+        window.localStorage.getItem('co'),
+        window.localStorage.getItem('o3'),
+        window.localStorage.getItem('no2')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
   return (
     <>
       <Header></Header>
@@ -403,46 +422,50 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.29"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.30"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.31"
-              />
+              <AlwaysScrollSection>
+                <Dustgraph_day
+                  color="#85BFEF"
+                  height1="70"
+                  height2="30"
+                  day="06.27"
+                />
+                <Dustgraph_today
+                  color="#85BFEF"
+                  height1="80"
+                  height2="30"
+                  day="06.28"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="06.29"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="90"
+                  height2="20"
+                  day="06.30"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="06.31"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="07.01"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="07.02"
+                />
+              </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
         </Wrapper1>
@@ -458,19 +481,25 @@ function DustPage() {
             <Box4_sub1>
               <Row>
                 <Text3> 아황산가스 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>
+                  {' '}
+                  {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
+                </Text3>
               </Row>
               <Row>
                 <Text3> 일산화탄소 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>{mainState?.member?.totalInfo?.document?.co}ppm</Text3>
               </Row>
               <Row>
-                <Text3> 오존 </Text3>
-                <Text3>&nbsp;&ensp;&ensp;&emsp; 000ppm </Text3>
+                <Text3> 오존 &emsp;&nbsp;&emsp; </Text3>
+                <Text3>{mainState?.member?.totalInfo?.document?.o3}ppm </Text3>
               </Row>
               <Row>
                 <Text3> 이산화질소 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>
+                  {' '}
+                  {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
+                </Text3>
               </Row>
             </Box4_sub1>
           </Box4>
@@ -516,30 +545,50 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.29"
-              />
+              <AlwaysScrollSection>
+                <Dustgraph_day
+                  color="#85BFEF"
+                  height1="70"
+                  height2="30"
+                  day="06.27"
+                />
+                <Dustgraph_today
+                  color="#85BFEF"
+                  height1="80"
+                  height2="30"
+                  day="06.28"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="06.29"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="90"
+                  height2="20"
+                  day="06.30"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="06.31"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="07.01"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  day="07.02"
+                />
+              </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
 
@@ -554,19 +603,25 @@ function DustPage() {
             <Box4_sub1>
               <Row>
                 <Text3> 아황산가스 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>
+                  {' '}
+                  {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
+                </Text3>
               </Row>
               <Row>
                 <Text3> 일산화탄소 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3> {mainState?.member?.totalInfo?.document?.co}ppm </Text3>
               </Row>
               <Row>
                 <Text3> 오존 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>{mainState?.member?.totalInfo?.document?.o3}ppm </Text3>
               </Row>
               <Row>
                 <Text3> 이산화질소 </Text3>
-                <Text3> 000ppm </Text3>
+                <Text3>
+                  {' '}
+                  {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
+                </Text3>
               </Row>
             </Box4_sub1>
           </Box4>

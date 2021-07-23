@@ -36,6 +36,7 @@ const Red = styled.div`
   border-bottom: 26px solid #ff6c6c;
   margin-left: 5px;
 
+
   @media (max-width: 420px) {
     //iphone
     border-left: 6px solid transparent;
@@ -51,6 +52,14 @@ const Green = styled.div`
   border-bottom: 26px solid #7ce063;
   margin-left: 5px;
 
+
+@media (max-width: 420px) {
+    //iphone
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 12px solid  #FEB153;
+  margin-left: 5px;
+}
   @media (max-width: 420px) {
     //iphone
     border-left: 6px solid transparent;
