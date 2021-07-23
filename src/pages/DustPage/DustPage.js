@@ -386,6 +386,7 @@ function DustPage() {
             </MainBox>
             <Dustinfo />
           </Box1>
+          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
