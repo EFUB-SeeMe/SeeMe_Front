@@ -297,6 +297,11 @@ const FaceImage = styled.img`
     width: 60%;
     height: 60%;
   }
+  @media (min-width: 1440px) {
+    // desktop
+    width: 230px;
+    height: 120px;
+  }
 `
 const Box4_sub1 = styled.div`
   // 통합대기환경지수 박스
@@ -324,8 +329,14 @@ const Text3 = styled.button`
   @media (max-width: 430px) {
     //iphone
     font-size: 15px;
-    width: 80px;
+    width: 90px;
     height: 25px;
+  }
+  @media (min-width: 1440px) {
+    // desktop
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
   }
 `
 
