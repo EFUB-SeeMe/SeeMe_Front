@@ -1,5 +1,11 @@
 import axios from 'axios'
-import { COVID_MAIN, COVID_NATIONAL, COVID_REGIONAL, LAT_TO_ADD } from './type'
+import {
+  COVID_MAIN,
+  COVID_NATIONAL,
+  COVID_REGIONAL,
+  LAT_TO_ADD,
+  DUST_MAIN,
+} from './type'
 
 import { USER_SERVER } from '../config'
 
@@ -39,6 +45,17 @@ export const latToAdd = (lat, lon) => {
     .then(response => response.data)
   return {
     type: LAT_TO_ADD,
+    payload: request,
+  }
+}
+
+// Micro Dust Page
+export const dustMain = (lat, lon) => {
+  const request = axios
+    .get(`${USER_SERVER}/microdust/main?lat=${lat}&lon=${lon}`)
+    .then(response => response.data)
+  return {
+    type: DUST_MAIN,
     payload: request,
   }
 }

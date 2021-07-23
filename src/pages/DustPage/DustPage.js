@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
+import { latToAdd, dustMain } from '../../_actions/user_action'
+import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
+import { useState, useEffect, useRef } from 'react'
 
 // load image
 import mask from '../../assets/Dust_mask.svg'
@@ -262,6 +265,11 @@ const DustImage = styled.img`
     height: 180px;
   }
 `
+/*
+  DustImage.defaultProps = {
+  src: microdust_good,
+}
+*/
 
 const Text2 = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
@@ -289,6 +297,11 @@ const FaceImage = styled.img`
     width: 60%;
     height: 60%;
   }
+  @media (min-width: 1440px) {
+    // desktop
+    width: 230px;
+    height: 120px;
+  }
 `
 const Box4_sub1 = styled.div`
   // 통합대기환경지수 박스
@@ -296,8 +309,6 @@ const Box4_sub1 = styled.div`
   flex-direction: column;
   align-items: center; // 가로 정렬
   //align-items: left;
-
-  height: 100%;
 `
 const Text3 = styled.button`
   align-items: center;
@@ -318,12 +329,47 @@ const Text3 = styled.button`
   @media (max-width: 430px) {
     //iphone
     font-size: 15px;
-    width: 80px;
+    width: 90px;
     height: 25px;
+  }
+  @media (min-width: 1440px) {
+    // desktop
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
   }
 `
 
 function DustPage() {
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+    })
+  }, [])
+
+  useEffect(() => {
+    dispatch(
+      dustMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
   return (
     <>
       <Header></Header>
@@ -334,21 +380,24 @@ function DustPage() {
               <Row>
                 <img style={{ height: '35px', width: '22px' }} src={location} />
                 <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  &ensp; 성동구 성수1동
+                  &ensp; {nameState?.member}{' '}
                 </p>
               </Row>
               <Row>
-                <DustImage src={dust} />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
+                ></DustImage>
               </Row>
               <Row>
                 {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '0px' }}>좋음</p>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
+                  {mainState?.member?.mainInfo?.document?.grade}
+                </p>
               </Row>
             </MainBox>
             <Dustinfo />
           </Box1>
           <Box2></Box2>
-
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -432,7 +481,9 @@ function DustPage() {
           <Box1_mobile>
             <div>
               <Row>
-                <DustImage src={dust} />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
+                />
               </Row>
               <Row>
                 <a
@@ -447,11 +498,11 @@ function DustPage() {
               <Row>
                 <Text2 size="60" color="#42A0F0">
                   {' '}
-                  23 &emsp;{' '}
+                  {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
                 </Text2>
                 <Text2 size="60" color="#42A0F0">
                   {' '}
-                  15{' '}
+                  {mainState?.member?.mainInfo?.document?.pm25}{' '}
                 </Text2>
               </Row>
               <Row>
