@@ -425,6 +425,7 @@ function DustPage() {
 
             {dustState.member?.map((array, i) => (
                   <Dustgraph_day
+                  color="#85BFEF"
                   height1={array?.dust*3}
                   height2={array?.microdust*3}
                   day={array?.date}
