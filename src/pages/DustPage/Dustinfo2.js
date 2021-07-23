@@ -70,6 +70,7 @@ const Text = styled.div`
 const MaskImage = styled.img`
   width: 380px;
   height: 220px;
+  margin-top: 30px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 200px;
@@ -81,6 +82,9 @@ const MaskImage = styled.img`
     height: 200px;
   }
 `
+MaskImage.defaultProps = {
+  src: Mask,
+}
 
 function Dustinfo2({ color, height, num, time }) {
   return (
@@ -91,14 +95,7 @@ function Dustinfo2({ color, height, num, time }) {
         <Text size="20">추천 </Text>
       </Row>
       <Row>
-        <MaskImage src={Mask} />
-      </Row>
-
-      <Row>
-        <Text size="24" color="#222222"> // 여기에 뭐 넣지
-        </Text>
-      </Row>
-      <Row>
+        <MaskImage />
       </Row>
     </Wrapper>
   )

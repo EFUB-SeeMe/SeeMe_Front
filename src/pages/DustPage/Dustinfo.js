@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import dust from '../../assets/Group 336.svg'
 import standard from '../../assets/Dust_standard.svg'
 
 const Wrapper = styled.div`
@@ -53,34 +52,46 @@ const Text = styled.div`
 const Standard = styled.img`
   width: 206px;
   height: 35px;
-  @media (min-width: 430px) and (max-width: 1440px) {
+
+  @media (min-width: 1030px) and (max-width: 1440px) {
     //between
-    width: 156px;
+    width: 216px;
     height: 35px;
   }
-  @media (min-width:  1440px)  {
+  @media (min-width: 430px) and (max-width: 1030px) {
+    // ipad
+    width: 156px;
+  }
+  @media (min-width: 1440px) {
     //desktop
-    width: 200px;
+    width: 296px;
   }
 `
+Standard.defaultProps = {
+  src: standard,
+}
 
 function Dustinfo({ color, height, num, time }) {
   return (
     <Wrapper>
       <Row>
-        <Text size="25"> 미세먼지 </Text>
-        <Text size="25">초미세먼지 </Text>
+        <Text size="18" style={{ marginTop: '15px' }}>
+          미세먼지 농도
+        </Text>
+        <Text size="18" style={{ marginTop: '15px' }}>
+          초미세먼지 농도
+        </Text>
       </Row>
       <Row>
-        <Text size="70" color="#42A0F0">
+        <Text size="65" color="#42A0F0">
           23
         </Text>
-        <Text size="70" color="#42A0F0">
+        <Text size="65" color="#42A0F0">
           15
         </Text>
       </Row>
       <Row>
-        <Standard src={standard} />
+        <Standard></Standard>
       </Row>
       <Row>
         <Text size="22" color="#222222">
