@@ -406,7 +406,9 @@ function DustPage() {
           <Box1_mobile>
             <div>
               <Row>
-                <DustImage />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
+                />
               </Row>
               <Row>
                 <a
@@ -421,11 +423,11 @@ function DustPage() {
               <Row>
                 <Text2 size="60" color="#42A0F0">
                   {' '}
-                  23 &emsp;{' '}
+                  {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
                 </Text2>
                 <Text2 size="60" color="#42A0F0">
                   {' '}
-                  15{' '}
+                  {mainState?.member?.mainInfo?.document?.pm25}{' '}
                 </Text2>
               </Row>
               <Row>
