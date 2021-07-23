@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import { latToAdd } from "../../_actions/user_action";
+import { latToAdd } from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
 // load image
@@ -12,6 +12,7 @@ import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
+import microdust_good from '../../assets/microdust_good.svg'
 
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
@@ -74,6 +75,7 @@ const Box1 = styled.div`
   margin-top: 0px;
   display: flex;
   flex-direction: row;
+
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
@@ -251,7 +253,7 @@ const Column = styled.div`
 
 const DustImage = styled.img`
   width: 200px;
-  height: 200px;
+  height: 160px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 130px;
@@ -263,7 +265,9 @@ const DustImage = styled.img`
     height: 180px;
   }
 `
-
+DustImage.defaultProps = {
+  src: microdust_good,
+}
 const Text2 = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
   color: ${props => props.color || 'black'};
@@ -277,18 +281,22 @@ const Text2 = styled.div`
   }
 `
 
-
 function DustPage() {
-  const [nameState,setNameState] =useState({status: 'idle', member: null});
-  const dispatch = useDispatch();
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setNameState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
-      console.log(data);
-    });
-  }, []);
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
 
   return (
     <>
@@ -304,18 +312,16 @@ function DustPage() {
                 </p>
               </Row>
               <Row>
-                <DustImage src={dust} />
+                <DustImage />
               </Row>
               <Row>
                 {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '0px' }}>좋음</p>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>좋음</p>
               </Row>
             </MainBox>
             <Dustinfo />
           </Box1>
-          <Box2>
-            
-          </Box2>
+          <Box2></Box2>
 
           <Box2>
             <Box2_sub1>
@@ -323,46 +329,47 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
               <AlwaysScrollSection>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.29"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.30"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.31"
-              /></AlwaysScrollSection>
+                <Dustgraph_day
+                  color="#85BFEF"
+                  height1="50"
+                  height2="30"
+                  height3="40"
+                  height4="20"
+                  day="06.27"
+                />
+                <Dustgraph_today
+                  color="#85BFEF"
+                  height1="50"
+                  height2="30"
+                  height3="40"
+                  height4="20"
+                  day="06.28"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="06.29"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="06.30"
+                />
+                <Dustgraph_day
+                  color="#87EF85"
+                  height1="60"
+                  height2="20"
+                  height3="50"
+                  height4="10"
+                  day="06.31"
+                />
+              </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
         </Wrapper1>
@@ -370,8 +377,7 @@ function DustPage() {
           <Box3>
             <Dustinfo2 />
           </Box3>
-          <Box4>
-          </Box4>
+          <Box4></Box4>
         </Wrapper2>
 
         <Wrapper3>
@@ -379,7 +385,7 @@ function DustPage() {
           <Box1_mobile>
             <div>
               <Row>
-                <DustImage src={dust} />
+                <DustImage />
               </Row>
               <Row>
                 <a
@@ -392,20 +398,21 @@ function DustPage() {
                 </a>
               </Row>
               <Row>
-                <Text2 size="60" color="#42A0F0">  23 &emsp; </Text2>
-                <Text2 size="60" color="#42A0F0">  15 </Text2>
+                <Text2 size="60" color="#42A0F0">
+                  {' '}
+                  23 &emsp;{' '}
+                </Text2>
+                <Text2 size="60" color="#42A0F0">
+                  {' '}
+                  15{' '}
+                </Text2>
               </Row>
               <Row>
-                <img
-                  style={{ marginTop: '5px'}}
-                  src={standard}
-                />
+                <img style={{ marginTop: '5px' }} src={standard} />
               </Row>
             </div>
           </Box1_mobile>
-          <Box2>
-            
-          </Box2>
+          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -441,8 +448,7 @@ function DustPage() {
           <Box3>
             <Dustinfo2 />
           </Box3>
-          <Box4>
-          </Box4>
+          <Box4></Box4>
         </Wrapper3>
       </Background>
       <Footer />
