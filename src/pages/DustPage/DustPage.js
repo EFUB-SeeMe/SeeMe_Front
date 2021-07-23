@@ -6,13 +6,14 @@ import LocationText from '../../components/LocationText'
 import { latToAdd, dustMain } from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
+
 // load image
 import mask from '../../assets/Dust_mask.svg'
 import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
-import microdust_good from '../../assets/microdust_good.svg'
+import face from '../../assets/face_bad.svg'
 
 import Dustgraph_day from './Dustgraph_day'
 import Dustgraph_today from './Dustgraph_today'
@@ -75,7 +76,6 @@ const Box1 = styled.div`
   margin-top: 0px;
   display: flex;
   flex-direction: row;
-
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
@@ -192,7 +192,7 @@ const Box4 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 350px;
+    height: 380px;
   }
   @media (min-width: 1440px) {
     //desktop
@@ -253,7 +253,7 @@ const Column = styled.div`
 
 const DustImage = styled.img`
   width: 200px;
-  height: 160px;
+  height: 200px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 130px;
@@ -281,6 +281,51 @@ const Text2 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size: ${props => props.size - 10 || 18}px;
+  }
+`
+const FaceImage = styled.img`
+  width: 350px;
+  height: 430px;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    width: 230px;
+    height: 120px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    margin-top: 10px;
+    width: 60%;
+    height: 60%;
+  }
+`
+const Box4_sub1 = styled.div`
+  // 통합대기환경지수 박스
+  display: flex;
+  flex-direction: column;
+  align-items: center; // 가로 정렬
+  //align-items: left;
+`
+const Text3 = styled.button`
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 22px;
+  font-weight: regular;
+  background: white;
+  border: none;
+  outline: none;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    font-size: 15px;
+    width: 80px;
+    height: 25px;
   }
 `
 
@@ -314,7 +359,6 @@ function DustPage() {
       console.log(data)
     })
   }, [])
-
   return (
     <>
       <Header></Header>
@@ -342,55 +386,51 @@ function DustPage() {
             </MainBox>
             <Dustinfo />
           </Box1>
-          <Box2></Box2>
-
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <AlwaysScrollSection>
-                <Dustgraph_day
-                  color="#85BFEF"
-                  height1="50"
-                  height2="30"
-                  height3="40"
-                  height4="20"
-                  day="06.27"
-                />
-                <Dustgraph_today
-                  color="#85BFEF"
-                  height1="50"
-                  height2="30"
-                  height3="40"
-                  height4="20"
-                  day="06.28"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  height3="50"
-                  height4="10"
-                  day="06.29"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  height3="50"
-                  height4="10"
-                  day="06.30"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  height3="50"
-                  height4="10"
-                  day="06.31"
-                />
-              </AlwaysScrollSection>
+              <Dustgraph_day
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.27"
+              />
+              <Dustgraph_today
+                color="#85BFEF"
+                height1="50"
+                height2="30"
+                height3="40"
+                height4="20"
+                day="06.28"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.29"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.30"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                height3="50"
+                height4="10"
+                day="06.31"
+              />
             </Box2_sub2>
           </Box2>
         </Wrapper1>
@@ -398,7 +438,30 @@ function DustPage() {
           <Box3>
             <Dustinfo2 />
           </Box3>
-          <Box4></Box4>
+          <Box4>
+            <Text> 통합대기환경지수 </Text>
+            <Row>
+              <FaceImage src={face} />
+            </Row>
+            <Box4_sub1>
+              <Row>
+                <Text3> 아황산가스 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 일산화탄소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 오존 </Text3>
+                <Text3>&nbsp;&ensp;&ensp;&emsp; 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 이산화질소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+            </Box4_sub1>
+          </Box4>
         </Wrapper2>
 
         <Wrapper3>
@@ -471,7 +534,30 @@ function DustPage() {
           <Box3>
             <Dustinfo2 />
           </Box3>
-          <Box4></Box4>
+          <Box4>
+            <Text> 통합대기환경지수 </Text>
+            <Row>
+              <FaceImage src={face} />
+            </Row>
+            <Box4_sub1>
+              <Row>
+                <Text3> 아황산가스 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 일산화탄소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 오존 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 이산화질소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+            </Box4_sub1>
+          </Box4>
         </Wrapper3>
       </Background>
       <Footer />
