@@ -6,17 +6,17 @@ const Wrapper1 = styled.div`
   flex-direction: column; // 세로정렬
   margin-top: 25%;
   width: 100%;
-  height: 100%;
+  height: 75%;
   align-items: center;
 `
 
 const Box1 = styled.div`
   // 그래프 박스
   background: white;
-  margin-top: 0px;
+  margin-top: 20%;
   width: 100%;
-  height: 70%;
-  margin-left: 10%;
+  height: 60%;
+  margin-left: 20%;
   margin-bottom: 10%;
   display: flex;
   flex-direction: row;
@@ -30,7 +30,7 @@ const Box2 = styled.div`
   margin-top: 0px;
   width: 100%;
   height: 10%;
-  margin-left: 5%;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
 `
@@ -39,19 +39,16 @@ const Bar1 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height1 || 50}px;
   width: 20px;
-  margin-left: 20px;
+  margin-left: 50px;
   filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
+  @media (min-width: 420px) {
     //desktop
     width: 25px;
-    margin-left: 40px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 40px;
+    margin-left: 70px;
   }
 `
 const Bar2 = styled.div`
@@ -60,38 +57,30 @@ const Bar2 = styled.div`
   width: 20px;
   margin-left: 2px;
   opacity: 0.6;
-  filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  @media (min-width: 420px) {
     //desktop
     width: 25px;
-    margin-left: 40px;
-  }
-  @media (min-width: 1440px) {
-    //desktop
-    width: 25px;
+    margin-left: 5px;
   }
 `
 // 그래프 4개 그리기 끝
 
-const 날짜 = styled.button`
+const Day = styled.button`
   align-items: left;
-  margin-left: 38px;
-  font-size: 15px;
+  margin-left: 55px;
+  font-size: 13px;
   background: white;
   border: none;
   outline: none;
-  margin-bottom: 33%;
-  @media (min-width: 1440px) {
+  margin-bottom: 5%;
+  @media (min-width: 420px) {
     //desktop
     width: 18px;
-    margin-left: 60px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 60px;
+    margin-left: 75px;
   }
 `
 
@@ -104,7 +93,7 @@ function Dustgraph_day({ color, height1, height2, day }) {
           <Bar2 color={color} height2={height2}></Bar2>
         </Box1>
         <Box2>
-          <날짜>{day}</날짜>
+          <Day>{day}</Day>
         </Box2>
       </Wrapper1>
     </div>

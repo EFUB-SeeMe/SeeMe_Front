@@ -7,27 +7,32 @@ const Wrapper1 = styled.div`
   margin-top: 25%;
   width: 100%;
   height: 75%;
+  align-items: center;
 `
+
 
 const Box1 = styled.div`
   // 그래프 박스
   background: white;
-  margin-top: 0px;
+  margin-top: 20%;
   width: 100%;
-  height: 85%;
-  margin-left: 10%;
+  height: 60%;
+  margin-left: 20%;
   margin-bottom: 10%;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-`
+  direction: row;
+ `
+
 const Box2 = styled.div`
   // 날짜 박스
   background: white;
   margin-top: 0px;
+  margin-bottom: 0px;
   width: 100%;
   height: 10%;
-  margin-left: 5%;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
 `
@@ -36,19 +41,16 @@ const Bar1 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height1 || 50}px;
   width: 20px;
-  margin-left: 20px;
+  margin-left: 50px;
   filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
+  @media (min-width: 420px) {
     //desktop
     width: 25px;
-    margin-left: 40px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 40px;
+    margin-left: 70px;
   }
 `
 const Bar2 = styled.div`
@@ -57,53 +59,35 @@ const Bar2 = styled.div`
   width: 20px;
   margin-left: 2px;
   opacity: 0.6;
-  filter: drop-ShadowRoot(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 16px;
   display: flex;
   flex-direction: row;
-  @media (min-width: 1440px) {
+  @media (min-width: 420px) {
     //desktop
     width: 25px;
-    margin-left: 40px;
-  }
-  @media (min-width: 1440px) {
-    //desktop
-    width: 25px;
+    margin-left: 5px;
   }
 `
 // 그래프 4개 그리기 끝
 
-const day = styled.button`
+const Day_bold = styled.button`
   align-items: left;
-  margin-left: 28.5%;
-  font-size: 10px;
-  background: white;
-  border: none;
-  outline: none;
-`
-
-
-const 날짜 = styled.button`
-  align-items: left;
-  margin-left: 38px;
-  font-size: 15px;
+  margin-left: 55px;
   font-weight: bold;
+  font-size: 13px;
   background: white;
   border: none;
   outline: none;
-  margin-bottom: 33%;
-  @media (min-width: 1440px) {
+  margin-bottom: 5%;
+  @media (min-width: 420px) {
     //desktop
     width: 18px;
-    margin-left: 60px;
-  }
-  @media (min-width: 420px) and (max-width: 1440px) {
-    //between
-    width: 18px;
-    margin-left: 60px;
+    margin-left: 75px;
   }
 `
 
-function Dustgraph_today({ color, height1, height2,  day }) {
+function Dustgraph_day({ color, height1, height2, day }) {
   return (
     <div>
       <Wrapper1>
@@ -112,10 +96,10 @@ function Dustgraph_today({ color, height1, height2,  day }) {
           <Bar2 color={color} height2={height2}></Bar2>
         </Box1>
         <Box2>
-          <날짜>{day}</날짜>
+          <Day_bold>{day}</Day_bold>
         </Box2>
       </Wrapper1>
     </div>
   )
 }
-export default Dustgraph_today
+export default Dustgraph_day

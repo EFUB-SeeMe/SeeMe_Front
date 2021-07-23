@@ -18,6 +18,8 @@ import Dustgraph_today from './Dustgraph_today'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
 
+import { micro_dust } from "../../_actions/user_action"
+
 const Background = styled.div`
   background-color: #e9e7ff;
   background-repeat: no-repeat;
@@ -352,7 +354,21 @@ function DustPage() {
                 height1="60"
                 height2="20"
                 day="06.31"
-              /></AlwaysScrollSection>
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                day="07.01"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                day="07.02"
+              />
+              
+              </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
         </Wrapper1>
@@ -401,31 +417,52 @@ function DustPage() {
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
+            <AlwaysScrollSection>
               <Dustgraph_day
                 color="#85BFEF"
-                height1="50"
+                height1="70"
                 height2="30"
-                height3="40"
-                height4="20"
                 day="06.27"
               />
               <Dustgraph_today
                 color="#85BFEF"
-                height1="50"
+                height1="80"
                 height2="30"
-                height3="40"
-                height4="20"
                 day="06.28"
               />
               <Dustgraph_day
                 color="#87EF85"
                 height1="60"
                 height2="20"
-                height3="50"
-                height4="10"
                 day="06.29"
               />
-            </Box2_sub2>
+              <Dustgraph_day
+                color="#87EF85"
+                height1="90"
+                height2="20"
+                day="06.30"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                day="06.31"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                day="07.01"
+              />
+              <Dustgraph_day
+                color="#87EF85"
+                height1="60"
+                height2="20"
+                day="07.02"
+              />
+              
+              </AlwaysScrollSection>
+              </Box2_sub2>
           </Box2>
 
           <Box3>
