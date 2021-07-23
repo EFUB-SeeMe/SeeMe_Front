@@ -142,7 +142,7 @@ const 오늘 = styled.button`
   background: white;
   border: none;
   outline: none;
-  margin-bottom: 10%;
+  height:10px;
   height: 23px;
   @media (min-width: 1440px) {
     //desktop
@@ -215,7 +215,7 @@ function Dustgraph_today({ color, height1, height2, height3, height4, day }) {
         </Box3>
         <Box4>
           {' '}
-          <오늘> 오늘 </오늘>{' '}
+       
         </Box4>
       </Wrapper1>
     </div>
