@@ -88,6 +88,7 @@ function Dustgraph_day({ color, height1, height2, day }) {
   return (
     <div>
       <Wrapper1>
+        
         <Box1>
           <Bar1 color={color} height1={height1}></Bar1>
           <Bar2 color={color} height2={height2}></Bar2>

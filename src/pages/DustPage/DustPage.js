@@ -385,7 +385,7 @@ function DustPage() {
       setDustState({ status: 'pending' })
       const data = response.payload
       setTimeout(() => setDustState({ status: 'resolved', member: data }), 600)
-      console.log(data)
+      console.log(dustState)
     })
   }, [])
   return (
@@ -423,12 +423,14 @@ function DustPage() {
             <Box2_sub2>
             <AlwaysScrollSection>
 
-            <Dustgraph_day
-                color="#85BFEF"
-                height1={dustState?.member?.document?.dust}
-                height2={dustState?.member?.document?.microdust}
-                day={dustState?.member?.document?.date}
-              />
+            {dustState.member?.map((array, i) => (
+                  <Dustgraph_day
+                  height1={array?.dust*3}
+                  height2={array?.microdust*3}
+                  day={array?.date}
+                  />
+                ))}
+
 
             </AlwaysScrollSection>
             </Box2_sub2>
