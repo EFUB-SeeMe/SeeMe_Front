@@ -9,8 +9,16 @@ import cur_location from '../../assets/cur_location.svg'
 import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
 import Ascent from './Ascent'
-import { covidMain,covidNational,covidRegional,latToAdd } from "../../_actions/user_action";
+
 import Circle from "./Circle"
+
+import {
+  covidMain,
+  covidNational,
+  covidRegional,
+  latToAdd,
+} from '../../_actions/user_action'
+
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -64,7 +72,7 @@ const Box2 = styled.div`
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
-    height: 230px;
+    height: 250px;
     // margin-top: 8px;
   }
 
@@ -91,7 +99,7 @@ const Box3 = styled.div`
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
-    height: 210px;
+    height: 230px;
     margin-top: 18px;
   }
 
@@ -154,7 +162,6 @@ const Loc_Icon = styled.button`
 const Wrap2a = styled.div`
   display: flex;
   flex-direction: row;
-  //align-items: center;
   justify-content: center;
   
 `
@@ -162,9 +169,6 @@ const Wrap3 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  //justify-content: center;
-
   @media (max-width: 420px) {
     //iphone
     width: 150px;
@@ -277,7 +281,6 @@ const Wrap5 = styled.div`
 const Wrap6 = styled.div`
   display: flex;
   width: 75%;
-  //background: lavenderblush;
   margin-top: 30px;
   margin-bottom: 20px;
   margin-right: 14px;
@@ -300,7 +303,6 @@ const Wrap6a = styled.div`
   flex-direction: row;
   justify-content: space-around, center;
   width: 75%;
-  //background: lavender;
   margin-right: 14px;
   margin-left: 20px;
   margin-top: 70px;
@@ -411,45 +413,68 @@ const BoldText1 = styled.div`
   }
 `
 function CovidPage() {
-
-  const [mainState,setMainState]=useState({ status: 'idle', member: null});
-  const [nationalState,setNationalState]=useState({ status: 'idle', member: null});
-  const [regionalState,setRegionalState]=useState({ status: 'idle', member: null});
-  const [nameState,setNameState] =useState({status: 'idle', member: null});
-  const dispatch = useDispatch();
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const [nationalState, setNationalState] = useState({
+    status: 'idle',
+    member: null,
+  })
+  const [regionalState, setRegionalState] = useState({
+    status: 'idle',
+    member: null,
+  })
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(covidMain(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setMainState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setMainState({ status: 'resolved', member: data}), 600);
-    });
-  }, []);
+    dispatch(
+      covidMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+    })
+  }, [])
 
   useEffect(() => {
     dispatch(covidNational()).then(response => {
-      setNationalState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setNationalState({ status: 'resolved', member: data}), 600);
- 
-    });
-  }, []);
+      setNationalState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(
+        () => setNationalState({ status: 'resolved', member: data }),
+        600
+      )
+    })
+  }, [])
   useEffect(() => {
-    dispatch(covidRegional(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setRegionalState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setRegionalState({ status: 'resolved', member: data}), 600);   
-    });
-  }, []);
+    dispatch(
+      covidRegional(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setRegionalState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(
+        () => setRegionalState({ status: 'resolved', member: data }),
+        600
+      )
+    })
+  }, [])
   useEffect(() => {
-    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setNameState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
-      console.log(data);
-    });
-  }, []);
-    
-  
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
 
   return (
     <div>
@@ -468,14 +493,20 @@ function CovidPage() {
               <Circle />
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
-                <Text3>{mainState?.member?.coronicTotal+"명"}</Text3>
-                <Ascent text={mainState?.member?.compTotal} num={mainState?.member?.isIncTotal}></Ascent>
+                <Text3>{mainState?.member?.coronicTotal + '명'}</Text3>
+                <Ascent
+                  text={mainState?.member?.compTotal}
+                  num={mainState?.member?.isIncTotal}
+                ></Ascent>
               </Wrap3>
               <Line></Line>
               <Wrap3>
                 <Text2>우리지역 확진자 수</Text2>
-                <Text3>{mainState?.member?.coronicRegion+"명"}</Text3>
-                <Ascent text={mainState?.member?.compRegion} num={mainState?.member?.isIncRegion}></Ascent>
+                <Text3>{mainState?.member?.coronicRegion + '명'}</Text3>
+                <Ascent
+                  text={mainState?.member?.compRegion}
+                  num={mainState?.member?.isIncRegion}
+                ></Ascent>
               </Wrap3>
             </Wrap2a>
           </Wrap1>
@@ -486,19 +517,27 @@ function CovidPage() {
               <Text4>전국 확진자 추이</Text4>
               <Wrap7>
                 <Text5>신규</Text5>
-                <BoldText1>{nationalState?.member?.newCoronic+"명"}</BoldText1>
+                <BoldText1>
+                  {nationalState?.member?.newCoronic + '명'}
+                </BoldText1>
               </Wrap7>
               <Wrap7>
                 <Text5>누적</Text5>
-                <Text5 color={'black'}>{nationalState?.member?.totalCoronic+"명"}</Text5>
+                <Text5 color={'black'}>
+                  {nationalState?.member?.totalCoronic + '명'}
+                </Text5>
               </Wrap7>
             </Wrap5>
             <Wrap6>
               <AlwaysScrollSection>
-                {nationalState.member?.coronicList?.map((corona,i)=>
-                <Graph height={corona.coronicByDay/12} num={corona.coronicByDay}  totalDate={corona.day}
-                />
-                )}
+
+                {nationalState.member?.coronicList?.map((corona, i) => (
+                  <Graph
+                    height={corona.coronicByDay / 10}
+                    num={corona.coronicByDay}
+                    totalDate={corona.day}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Wrap6>
           </Wrap4>
@@ -509,19 +548,27 @@ function CovidPage() {
               <Text4>우리지역 확진자 추이</Text4>
               <Wrap7>
                 <Text5>신규</Text5>
-                <BoldText1>{regionalState?.member?.newCoronic+"명"}</BoldText1>
+                <BoldText1>
+                  {regionalState?.member?.newCoronic + '명'}
+                </BoldText1>
               </Wrap7>
               <Wrap7>
                 <Text5>누적</Text5>
-                <Text5 color={'black'}>{regionalState?.member?.totalCoronic+"명"}</Text5>
+                <Text5 color={'black'}>
+                  {regionalState?.member?.totalCoronic + '명'}
+                </Text5>
               </Wrap7>
             </Wrap5>
             <Wrap6a>
               <AlwaysScrollSection>
-              {regionalState.member?.coronicList?.map((corona,i)=>
-                <Graph_Local height={corona.coronicByDay/5} num={corona.coronicByDay}  totalDate={corona.day}
-                />
-                )}
+
+                {regionalState.member?.coronicList?.map((corona, i) => (
+                  <Graph_Local
+                    height={corona.coronicByDay / 8}
+                    num={corona.coronicByDay}
+                    totalDate={corona.day}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Wrap6a>
           </Wrap4>
