@@ -598,7 +598,9 @@ function DustPage() {
           <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
-              <FaceImage src={face} />
+              <FaceImage
+                src={mainState?.member?.totalInfo?.document?.caiIcon}
+              />
             </Row>
             <Box4_sub1>
               <Row>
