@@ -10,6 +10,7 @@ import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
 import Ascent from './Ascent'
 import { covidMain,covidNational,covidRegional,latToAdd } from "../../_actions/user_action";
+import Circle from "./Circle"
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -155,11 +156,13 @@ const Wrap2a = styled.div`
   flex-direction: row;
   //align-items: center;
   justify-content: center;
+  
 `
 const Wrap3 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   //justify-content: center;
 
   @media (max-width: 420px) {
@@ -174,17 +177,14 @@ const Text2 = styled.div`
   font-family: 'NotoSans';
   font-size: 25px;
   width: 200px;
+  text-align: center;
 
-  @media (min-width: 1055px) and (max-width: 1440px) {
+  @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
-    margin-left: 60px;
-    font-size: 20px;
-    width: 170px;
-  }
-  @media (min-width: 420x) and (max-width: 1055px) {
-    //ipad & ipad pro
+    margin-left: 10px;
     font-size: 17px;
+    width: 170px;
   }
   @media (max-width: 420px) {
     //iphone
@@ -217,20 +217,20 @@ const Line = styled.div`
   width: 0px;
   height: 183.5px;
   border: 1.5px solid #d9d9d9;
-  margin-left: 160px;
-  margin-right: 160px;
+  margin-left: 100px;
+  margin-right: 100px;
 
   @media (min-width: 1024px) and (max-width: 1440px) {
     //between
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 30px;
+    margin-right: 30px;
     height: 150px;
     border: 1px solid #d9d9d9;
   }
   @media (min-width: 420px) and (max-width: 1024px) {
     //ipad pro
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 15px;
     height: 130px;
     border: 1px solid #d9d9d9;
@@ -464,7 +464,8 @@ function CovidPage() {
               </Loc_Icon>
               <Text1>{nameState?.member}</Text1>
             </Wrap2>
-            <Wrap2a>
+            <Wrap2a> 
+              <Circle />
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
                 <Text3>{mainState?.member?.coronicTotal+"명"}</Text3>
@@ -495,7 +496,7 @@ function CovidPage() {
             <Wrap6>
               <AlwaysScrollSection>
                 {nationalState.member?.coronicList?.map((corona,i)=>
-                <Graph height={corona.coronicByDay/10} num={corona.coronicByDay}  totalDate={corona.day}
+                <Graph height={corona.coronicByDay/12} num={corona.coronicByDay}  totalDate={corona.day}
                 />
                 )}
               </AlwaysScrollSection>
@@ -518,7 +519,7 @@ function CovidPage() {
             <Wrap6a>
               <AlwaysScrollSection>
               {regionalState.member?.coronicList?.map((corona,i)=>
-                <Graph_Local height={corona.coronicByDay/8} num={corona.coronicByDay}  totalDate={corona.day}
+                <Graph_Local height={corona.coronicByDay/5} num={corona.coronicByDay}  totalDate={corona.day}
                 />
                 )}
               </AlwaysScrollSection>

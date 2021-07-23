@@ -15,7 +15,7 @@ const StyledAlwaysScrollSection = styled.div`
     width: 1px;
 
     /* 가로 스크롤 높이 */
-    height: 2px;
+    height: 6px;
     border-radius: 3px;
     background: rgba(255, 255, 255, 0.4);
   }

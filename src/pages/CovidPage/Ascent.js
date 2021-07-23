@@ -32,9 +32,9 @@ const Styled = styled.div`
 `
 const Red=styled.div`
 
-border-left: 13px solid transparent;
-border-right: 13px solid transparent;
-border-bottom: 26px solid  #FF6C6C;
+border-left: 11px solid transparent;
+border-right: 11px solid transparent;
+border-bottom: 22px solid  #FF6C6C;
 margin-left: 5px;
 
 @media (max-width: 420px) {
@@ -48,16 +48,16 @@ margin-left: 5px;
 
 const Green=styled.div`
 
-border-left: 13px solid transparent;
-border-right: 13px solid transparent;
-border-bottom: 26px solid  #7CE063;
+border-left: 11px solid transparent;
+border-right: 11px solid transparent;
+border-top: 22px solid  #FEB153;
 margin-left: 5px;
 
 @media (max-width: 420px) {
     //iphone
     border-left: 6px solid transparent;
 border-right: 6px solid transparent;
-border-bottom: 12px solid  #7CE063;
+border-top: 12px solid  #FEB153;
 margin-left: 5px;
   }
 `
