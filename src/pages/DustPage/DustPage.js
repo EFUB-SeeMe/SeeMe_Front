@@ -291,7 +291,7 @@ const FaceImage = styled.img`
   height: 430px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 230px;
+    width: 130px;
     height: 120px;
   }
   @media (max-width: 430px) {
@@ -302,7 +302,7 @@ const FaceImage = styled.img`
   }
   @media (min-width: 1440px) {
     // desktop
-    width: 230px;
+    width: 130px;
     height: 120px;
   }
 `
@@ -476,7 +476,7 @@ function DustPage() {
           <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
-              <FaceImage src={face} />
+              <FaceImage src={mainState?.member?.totalInfo?.document?.caiIcon} />
             </Row>
             <Box4_sub1>
               <Row>
