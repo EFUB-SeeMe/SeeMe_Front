@@ -330,13 +330,13 @@ function DustPage() {
               </Row>
               <Row>
                 <DustImage
-                  src={mainState?.member?.mainInfo?.gradeIcon}
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
                 ></DustImage>
               </Row>
               <Row>
                 {' '}
                 <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  {mainState?.member?.mainInfo?.grade}
+                  {mainState?.member?.mainInfo?.document?.grade}
                 </p>
               </Row>
             </MainBox>
