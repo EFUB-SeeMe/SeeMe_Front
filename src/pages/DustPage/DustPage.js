@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import { latToAdd } from '../../_actions/user_action'
+import { latToAdd, dustMain } from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
 // load image
@@ -265,9 +265,12 @@ const DustImage = styled.img`
     height: 180px;
   }
 `
-DustImage.defaultProps = {
+/*
+  DustImage.defaultProps = {
   src: microdust_good,
 }
+*/
+
 const Text2 = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
   color: ${props => props.color || 'black'};
@@ -282,6 +285,7 @@ const Text2 = styled.div`
 `
 
 function DustPage() {
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
   const dispatch = useDispatch()
   useEffect(() => {
@@ -294,6 +298,19 @@ function DustPage() {
       setNameState({ status: 'pending' })
       const data = response.payload
       setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+    })
+  }, [])
+
+  useEffect(() => {
+    dispatch(
+      dustMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
       console.log(data)
     })
   }, [])
@@ -308,15 +325,19 @@ function DustPage() {
               <Row>
                 <img style={{ height: '35px', width: '22px' }} src={location} />
                 <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  &ensp; {nameState?.member}
+                  &ensp; {nameState?.member}{' '}
                 </p>
               </Row>
               <Row>
-                <DustImage />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.gradeIcon}
+                ></DustImage>
               </Row>
               <Row>
                 {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>좋음</p>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
+                  {mainState?.member?.mainInfo?.grade}
+                </p>
               </Row>
             </MainBox>
             <Dustinfo />
