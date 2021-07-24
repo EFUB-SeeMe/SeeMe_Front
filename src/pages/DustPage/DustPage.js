@@ -15,8 +15,7 @@ import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
 import face from '../../assets/face_bad.svg'
 
-import Dustgraph_day from './Dustgraph_day'
-import Dustgraph_today from './Dustgraph_today'
+import Dustgraph from './Dustgraph'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
 
@@ -424,7 +423,7 @@ function DustPage() {
             <AlwaysScrollSection>
 
             {dustState.member?.map((array, i) => (
-                  <Dustgraph_day
+                  <Dustgraph
                   color="#85BFEF"
                   height1={array?.dust*3}
                   height2={array?.microdust*3}
@@ -508,49 +507,14 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
             <AlwaysScrollSection>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="70"
-                height2="30"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="80"
-                height2="30"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                day="06.29"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="90"
-                height2="20"
-                day="06.30"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                day="06.31"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                day="07.01"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                day="07.02"
-              />
-              
+            {dustState.member?.map((array, i) => (
+                  <Dustgraph
+                  color="#85BFEF"
+                  height1={array?.dust*3}
+                  height2={array?.microdust*3}
+                  day={array?.date}
+                  />
+                ))}
               </AlwaysScrollSection>
               </Box2_sub2>
           </Box2>
