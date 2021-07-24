@@ -288,11 +288,12 @@ const Text2 = styled.div`
 `
 const FaceImage = styled.img`
   width: 350px;
-  height: 430px;
+  height: 350px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 130px;
-    height: 120px;
+    margin-top: 10px;
+    width: 50%;
+    height: 50%;
   }
   @media (max-width: 430px) {
     //iphone
@@ -302,8 +303,9 @@ const FaceImage = styled.img`
   }
   @media (min-width: 1440px) {
     // desktop
-    width: 130px;
-    height: 120px;
+    margin-top: 3px;
+    width: 50%;
+    height: 50%;
   }
 `
 const Box4_sub1 = styled.div`
@@ -316,8 +318,8 @@ const Box4_sub1 = styled.div`
 const Text3 = styled.button`
   align-items: center;
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 30px;
+  margin-right: 0px;
   font-size: 22px;
   font-weight: regular;
   background: white;
@@ -334,12 +336,13 @@ const Text3 = styled.button`
     font-size: 15px;
     width: 90px;
     height: 25px;
+    margin-left: 0px;
   }
   @media (min-width: 1440px) {
     // desktop
     font-size: 20px;
-    margin-left: 40px;
-    margin-right: 20px;
+    width: 100px;
+    height: 30px;
   }
 `
 
@@ -476,7 +479,9 @@ function DustPage() {
           <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
-              <FaceImage src={mainState?.member?.totalInfo?.document?.caiIcon} />
+              <FaceImage
+                src={mainState?.member?.totalInfo?.document?.caiIcon}
+              />
             </Row>
             <Box4_sub1>
               <Row>
@@ -598,7 +603,9 @@ function DustPage() {
           <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
-              <FaceImage src={face} />
+              <FaceImage
+                src={mainState?.member?.totalInfo?.document?.caiIcon}
+              />
             </Row>
             <Box4_sub1>
               <Row>
