@@ -3,18 +3,19 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import { latToAdd } from "../../_actions/user_action";
+import { latToAdd, dustMain, micro_dust} from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
+
 // load image
 import mask from '../../assets/Dust_mask.svg'
 import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
 import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
+import face from '../../assets/face_bad.svg'
 
-import Dustgraph_day from './Dustgraph_day'
-import Dustgraph_today from './Dustgraph_today'
+import Dustgraph from './Dustgraph'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
 
@@ -190,7 +191,7 @@ const Box4 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 350px;
+    height: 380px;
   }
   @media (min-width: 1440px) {
     //desktop
@@ -263,6 +264,11 @@ const DustImage = styled.img`
     height: 180px;
   }
 `
+/*
+  DustImage.defaultProps = {
+  src: microdust_good,
+}
+*/
 
 const Text2 = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
@@ -276,20 +282,111 @@ const Text2 = styled.div`
     font-size: ${props => props.size - 10 || 18}px;
   }
 `
-
+const FaceImage = styled.img`
+  width: 350px;
+  height: 430px;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    width: 230px;
+    height: 120px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    margin-top: 10px;
+    width: 60%;
+    height: 60%;
+  }
+  @media (min-width: 1440px) {
+    // desktop
+    width: 230px;
+    height: 120px;
+  }
+`
+const Box4_sub1 = styled.div`
+  // 통합대기환경지수 박스
+  display: flex;
+  flex-direction: column;
+  align-items: center; // 가로 정렬
+  //align-items: left;
+`
+const Text3 = styled.button`
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 22px;
+  font-weight: regular;
+  background: white;
+  border: none;
+  outline: none;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+  @media (max-width: 430px) {
+    //iphone
+    font-size: 15px;
+    width: 90px;
+    height: 25px;
+  }
+  @media (min-width: 1440px) {
+    // desktop
+    font-size: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+`
 
 function DustPage() {
-  const [nameState,setNameState] =useState({status: 'idle', member: null});
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setNameState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
-      console.log(data);
-    });
-  }, []);
+  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const [dustState, setDustState] = useState({ status: 'idle', member: null })
 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+    })
+  }, [])
+
+  useEffect(() => {
+    dispatch(
+      dustMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
+
+  //microdust
+  useEffect(() => {
+    dispatch(
+      micro_dust(
+        window.localStorage.getItem('dust'),
+        window.localStorage.getItem('microdust'),
+        window.localStorage.getItem('date')
+      )
+    ).then(response => {
+      setDustState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setDustState({ status: 'resolved', member: data }), 600)
+      console.log(dustState)
+    })
+  }, [])
   return (
     <>
       <Header></Header>
@@ -300,69 +397,42 @@ function DustPage() {
               <Row>
                 <img style={{ height: '35px', width: '22px' }} src={location} />
                 <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  &ensp; {nameState?.member}
+                  &ensp; {nameState?.member}{' '}
                 </p>
               </Row>
               <Row>
-                <DustImage src={dust} />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
+                ></DustImage>
               </Row>
               <Row>
                 {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '0px' }}>좋음</p>
+                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
+                  {mainState?.member?.mainInfo?.document?.grade}
+                </p>
               </Row>
             </MainBox>
             <Dustinfo />
           </Box1>
-          <Box2>
-            
-          </Box2>
-
+          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <AlwaysScrollSection>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.29"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.30"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.31"
-              /></AlwaysScrollSection>
+            <AlwaysScrollSection>
+
+            {dustState.member?.map((array, i) => (
+                  <Dustgraph
+                  color="#85BFEF"
+                  height1={array?.dust*3}
+                  height2={array?.microdust*3}
+                  day={array?.date}
+                  />
+                ))}
+
+
+            </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
         </Wrapper1>
@@ -371,6 +441,28 @@ function DustPage() {
             <Dustinfo2 />
           </Box3>
           <Box4>
+            <Text> 통합대기환경지수 </Text>
+            <Row>
+              <FaceImage src={face} />
+            </Row>
+            <Box4_sub1>
+              <Row>
+                <Text3> 아황산가스 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 일산화탄소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 오존 </Text3>
+                <Text3>&nbsp;&ensp;&ensp;&emsp; 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 이산화질소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+            </Box4_sub1>
           </Box4>
         </Wrapper2>
 
@@ -379,7 +471,9 @@ function DustPage() {
           <Box1_mobile>
             <div>
               <Row>
-                <DustImage src={dust} />
+                <DustImage
+                  src={mainState?.member?.mainInfo?.document?.gradeIcon}
+                />
               </Row>
               <Row>
                 <a
@@ -392,56 +486,65 @@ function DustPage() {
                 </a>
               </Row>
               <Row>
-                <Text2 size="60" color="#42A0F0">  23 &emsp; </Text2>
-                <Text2 size="60" color="#42A0F0">  15 </Text2>
+                <Text2 size="60" color="#42A0F0">
+                  {' '}
+                  {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
+                </Text2>
+                <Text2 size="60" color="#42A0F0">
+                  {' '}
+                  {mainState?.member?.mainInfo?.document?.pm25}{' '}
+                </Text2>
               </Row>
               <Row>
-                <img
-                  style={{ marginTop: '5px'}}
-                  src={standard}
-                />
+                <img style={{ marginTop: '5px' }} src={standard} />
               </Row>
             </div>
           </Box1_mobile>
-          <Box2>
-            
-          </Box2>
+          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
             <Box2_sub2>
-              <Dustgraph_day
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.27"
-              />
-              <Dustgraph_today
-                color="#85BFEF"
-                height1="50"
-                height2="30"
-                height3="40"
-                height4="20"
-                day="06.28"
-              />
-              <Dustgraph_day
-                color="#87EF85"
-                height1="60"
-                height2="20"
-                height3="50"
-                height4="10"
-                day="06.29"
-              />
-            </Box2_sub2>
+            <AlwaysScrollSection>
+            {dustState.member?.map((array, i) => (
+                  <Dustgraph
+                  color="#85BFEF"
+                  height1={array?.dust*3}
+                  height2={array?.microdust*3}
+                  day={array?.date}
+                  />
+                ))}
+              </AlwaysScrollSection>
+              </Box2_sub2>
           </Box2>
 
           <Box3>
             <Dustinfo2 />
           </Box3>
           <Box4>
+            <Text> 통합대기환경지수 </Text>
+            <Row>
+              <FaceImage src={face} />
+            </Row>
+            <Box4_sub1>
+              <Row>
+                <Text3> 아황산가스 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 일산화탄소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 오존 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+              <Row>
+                <Text3> 이산화질소 </Text3>
+                <Text3> 000ppm </Text3>
+              </Row>
+            </Box4_sub1>
           </Box4>
         </Wrapper3>
       </Background>
