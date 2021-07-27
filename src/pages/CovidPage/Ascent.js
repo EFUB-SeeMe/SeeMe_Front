@@ -31,9 +31,9 @@ const Styled = styled.div`
   }
 `
 const Red = styled.div`
-  border-left: 13px solid transparent;
-  border-right: 13px solid transparent;
-  border-bottom: 26px solid #ff6c6c;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 22px solid #ff6c6c;
   margin-left: 5px;
 
 
@@ -47,9 +47,9 @@ const Red = styled.div`
 `
 
 const Green = styled.div`
-  border-left: 13px solid transparent;
-  border-right: 13px solid transparent;
-  border-bottom: 26px solid #7ce063;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 22px solid #FEB153;
   margin-left: 5px;
 
 
@@ -64,7 +64,7 @@ const Green = styled.div`
     //iphone
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-bottom: 12px solid #7ce063;
+    border-bottom: 12px solid #FEB153;
     margin-left: 5px;
   }
 `

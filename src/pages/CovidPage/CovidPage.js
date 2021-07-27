@@ -490,7 +490,7 @@ function CovidPage() {
               <Text1>{nameState?.member}</Text1>
             </Wrap2>
             <Wrap2a> 
-              <Circle />
+              <Circle num={1}/>
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
                 <Text3>{mainState?.member?.coronicTotal + '명'}</Text3>
