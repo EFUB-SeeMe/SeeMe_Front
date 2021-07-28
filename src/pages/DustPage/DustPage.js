@@ -69,7 +69,7 @@ const Box1 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-bottom: 10px;
-  margin-top: 0px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   @media (min-width: 430px) and (max-width: 1440px) {
@@ -124,12 +124,12 @@ const Box2 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 200px;
+    height: 250px;
   }
   @media (min-width: 1440px) {
     //desktop
     width: 90%;
-    height: 217px;
+    height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
@@ -158,24 +158,26 @@ const Box3 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-top: 18px;
-  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: center;
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
-    height: 265px;
+    width: 45%;
+    height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
-    height: 360px;
+    width: 45%;
+    height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
     width: 90%;
-    height: 330px;
+    height: 280px;
   }
 `
 const Box4 = styled.div`
@@ -386,6 +388,8 @@ function DustPage() {
       const data = response.payload
       setTimeout(() => setDustState({ status: 'resolved', member: data }), 600)
       console.log(dustState)
+    })
+  }, [])
 
   useEffect(() => {
     dispatch(
@@ -455,7 +459,7 @@ function DustPage() {
             <Box3>
             <Dustinfo2 />
           </Box3>
-          <Box4>
+          <Box3>
             <Text> 통합대기환경지수 </Text>
             <Row>
               <FaceImage
@@ -486,7 +490,7 @@ function DustPage() {
                 </Text3>
               </Row>
             </Box4_sub1>
-          </Box4>
+          </Box3>
 
 
           </Wrapper2>
@@ -584,9 +588,9 @@ function DustPage() {
         
         </Wrapper3>
       </Background>
-      <Footer />
-      </>
+      <Footer/>
+    </>
   )
 }
 
-export default DustPage
+export default DustPage 
