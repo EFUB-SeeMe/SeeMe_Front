@@ -6,3 +6,4 @@ export const LAT_TO_ADD = 'lat_to_add'
 export const DUST_MAIN = 'dust_main'
 export const MICRO_DUST = 'micro_dust'
 export const CAI_MAIN = 'cai_main'
+export const WEATHER_MAIN="weather_main"
