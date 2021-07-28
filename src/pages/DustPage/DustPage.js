@@ -28,6 +28,8 @@ const Background = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 const Wrapper1 = styled.div`
   display: flex;
@@ -125,7 +127,7 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
- 
+
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 80%;
@@ -151,7 +153,7 @@ const Box2_sub1 = styled.div`
 
 const Box2_sub2 = styled.div`
   // 현재위치 박스
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
