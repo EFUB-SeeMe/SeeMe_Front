@@ -15,7 +15,7 @@ import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from '../Location'
 import { latToAdd, weatherMain } from '../../_actions/user_action'
-import { WEATHER_MAIN } from '../../_actions/type'
+
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -198,6 +198,7 @@ function MainPage() {
   const gsLocation = Location()
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -216,10 +217,9 @@ function MainPage() {
   //WEATHER MAIN
   useEffect(() => {
     dispatch(
-      WEATHER_MAIN(
-        window.localStorage.getItem('Rain'),
-        window.localStorage.getItem('weatherMain'),
-        window.localStorage.getItem('date')
+      weatherMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
       )
     ).then(response => {
       setWeatherState({ status: 'pending' })
@@ -247,7 +247,7 @@ function MainPage() {
               <Row>
                 <img
                   style={{ width: '160px', height: '160px' }}
-                  src={mainState?.member?.mainInfo?.document?.Icon}
+                  src={weatherState?.member?.currentInfo?.document?.icon}
                 />
               </Row>
               <Row>
@@ -255,7 +255,12 @@ function MainPage() {
                 <p>흐림</p>
               </Row>
             </MainBox>
-            <MainInfo />
+            <MainInfo  current={weatherState?.member?.currentInfo?.document?.currTemp} 
+            feel="23" 
+            high="30" 
+            low="21" 
+            today=" 뫄뫄" 
+            yesterday="뫄뫄 "/>
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
