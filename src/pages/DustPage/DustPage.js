@@ -78,12 +78,12 @@ const Box1 = styled.div`
   flex-direction: row;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
+    width: 80%;
     height: 220px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
+    width: 80%;
     height: 300px;
   }
 `
@@ -109,11 +109,11 @@ const MainBox = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin-top: 15px;
+  margin-top: 5px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     height: 280px;
-    width: 300px;
+    width: 50%;
   }
 `
 
@@ -127,27 +127,20 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
-  width: 90%;
+ 
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
+    width: 80%;
     height: 250px;
   }
   @media (min-width: 1440px) {
     //desktop
+    width: 80%;
     height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
-
-
-
-
-
-
-
-
-
-
+    width: 80%;
     height: 240px;
   }
 `
@@ -161,23 +154,12 @@ const Box2_sub1 = styled.div`
 
 const Box2_sub2 = styled.div`
   // 현재위치 박스
-  display: flex;
-  flex-direction: row;
-  align-items: center; // 가로 정렬
-  
-  height: 90%;
-  width: 100%;
-
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-    width: 100%;
-    height: 290px;
-  }
-  @media (min-width: 1440px) {
-    //desktop
-    width:100%;
-    height: 300px;
-  }
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //align-items: left;
+  height: 75%;
 `
 
 const Box3 = styled.div`
@@ -193,18 +175,18 @@ const Box3 = styled.div`
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 45%;
+    width: 40%;
     height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 45%;
+    width: 40%;
     height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
     width: 90%;
-    height: 280px;
+    height: 350px;
   }
 `
 const Box4 = styled.div`
@@ -295,6 +277,13 @@ const DustImage = styled.img`
   src: microdust_good,
 }
 */
+const cur_loc = styled.img`
+  width: 22px;
+  height: 35px;
+`
+cur_loc.defaultProps = {
+  src: location,
+}
 
 const Text2 = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
@@ -311,10 +300,11 @@ const Text2 = styled.div`
 const FaceImage = styled.img`
   width: 350px;
   height: 350px;
+
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
-    width: 50%;
+    width: 90%;
     height: 50%;
   }
   @media (max-width: 430px) {
@@ -326,16 +316,18 @@ const FaceImage = styled.img`
   @media (min-width: 1440px) {
     // desktop
     margin-top: 3px;
-    width: 50%;
+    width: 45%;
     height: 50%;
   }
 `
 const Box4_sub1 = styled.div`
   // 통합대기환경지수 박스
   display: flex;
+  height: 190px;
+  width: 90%auto;
   flex-direction: column;
-  align-items: center; // 가로 정렬
-  //align-items: left;
+  justify-content: center;
+  align-content: center; // 가로 정렬
 `
 const Text3 = styled.button`
   align-items: center;
@@ -343,27 +335,27 @@ const Text3 = styled.button`
   margin-left: 30px;
   margin-right: 0px;
   font-size: 22px;
-  font-weight: regular;
+  font-family: 'NotoSans';
   background: white;
   border: none;
   outline: none;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    font-size: 20px;
-    margin-left: 40px;
-    margin-right: 20px;
+    font-size: 17px;
+    width: 120px;
+    margin-right: 10px;
   }
   @media (max-width: 430px) {
     //iphone
     font-size: 15px;
     width: 90px;
     height: 25px;
-    margin-left: 0px;
+    margin-top: 12px;
   }
   @media (min-width: 1440px) {
     // desktop
     font-size: 20px;
-    width: 100px;
+    width: 120px;
     height: 30px;
   }
 `
@@ -439,9 +431,18 @@ function DustPage() {
         <Wrapper1>
           <Box1>
             <MainBox>
-              <Row>
-                <img style={{ height: '35px', width: '22px' }} src={location} />
-                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
+              <Row style={{ alignContent: 'flex-start' }}>
+                <img
+                  style={{ height: '35px', width: '22px', marginLeft: '0px' }}
+                  src={location}
+                />
+                <p
+                  style={{
+                    fontFamily: 'NotoSans',
+                    marginTop: '5px',
+                    size: '32px',
+                  }}
+                >
                   &ensp; {nameState?.member}{' '}
                 </p>
               </Row>
@@ -449,12 +450,6 @@ function DustPage() {
                 <DustImage
                   src={mainState?.member?.mainInfo?.document?.gradeIcon}
                 ></DustImage>
-              </Row>
-              <Row>
-                {' '}
-                <p style={{ fontFamily: 'NotoSans', marginTop: '5px' }}>
-                  {mainState?.member?.mainInfo?.document?.grade}
-                </p>
               </Row>
             </MainBox>
             <Dustinfo />
@@ -476,42 +471,61 @@ function DustPage() {
               </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
-
-
           <Wrapper2>
             <Box3>
-              <Text> 통합대기환경지수 </Text>
-              <Row>
-                <FaceImage
-                  src={mainState?.member?.totalInfo?.document?.caiIcon}
-                />
-              </Row>
-              <Box4_sub1>
-                <Row>
-                  <Text3> 아황산가스 </Text3>
-                  <Text3>
-                    {' '}
-                    {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
-                  </Text3>
+              <Column
+                style={{
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  marginLeft: '10px',
+                }}
+              >
+                <Text style={{ marginLeft: '20px' }}> 통합대기환경지수 </Text>
+                <Row
+                  style={{
+                    width: '90%',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginLeft: '20px',
+                  }}
+                >
+                  <Row>
+                    <FaceImage
+                      src={mainState?.member?.totalInfo?.document?.caiIcon}
+                    />
+                  </Row>
+                  <Box4_sub1
+                    style={{ marginRight: '10px', justifySelf: 'center' }}
+                  >
+                    <Row>
+                      <Text3> 아황산가스 </Text3>
+                      <Text3>
+                        {' '}
+                        {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
+                      </Text3>
+                    </Row>
+                    <Row>
+                      <Text3> 일산화탄소 </Text3>
+                      <Text3>
+                        {mainState?.member?.totalInfo?.document?.co}ppm
+                      </Text3>
+                    </Row>
+                    <Row>
+                      <Text3> 오존 &emsp;&nbsp;&emsp; </Text3>
+                      <Text3>
+                        {mainState?.member?.totalInfo?.document?.o3}ppm{' '}
+                      </Text3>
+                    </Row>
+                    <Row>
+                      <Text3> 이산화질소 </Text3>
+                      <Text3>
+                        {' '}
+                        {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
+                      </Text3>
+                    </Row>
+                  </Box4_sub1>
                 </Row>
-                <Row>
-                  <Text3> 일산화탄소 </Text3>
-                  <Text3>{mainState?.member?.totalInfo?.document?.co}ppm</Text3>
-                </Row>
-                <Row>
-                  <Text3> 오존 &emsp;&nbsp;&emsp; </Text3>
-                  <Text3>
-                    {mainState?.member?.totalInfo?.document?.o3}ppm{' '}
-                  </Text3>
-                </Row>
-                <Row>
-                  <Text3> 이산화질소 </Text3>
-                  <Text3>
-                    {' '}
-                    {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
-                  </Text3>
-                </Row>
-              </Box4_sub1>
+              </Column>
             </Box3>
             <Box3>
               <Dustinfo2 />
@@ -571,40 +585,45 @@ function DustPage() {
               </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
-
-          
-
           <Box3>
-            <Text> 통합대기환경지수 </Text>
-            <Row>
-              <FaceImage
-                src={mainState?.member?.totalInfo?.document?.caiIcon}
-              />
-            </Row>
-            <Box4_sub1>
+            <column style={{ justifyContent: 'center' }}>
+              <Text style={{ marginBottom: '10px' }}> 통합대기환경지수 </Text>
               <Row>
-                <Text3> 아황산가스 </Text3>
-                <Text3>
-                  {' '}
-                  {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
-                </Text3>
+                <FaceImage
+                  style={{ marginTop: '5px' }}
+                  src={mainState?.member?.totalInfo?.document?.caiIcon}
+                />
               </Row>
-              <Row>
-                <Text3> 일산화탄소 </Text3>
-                <Text3> {mainState?.member?.totalInfo?.document?.co}ppm </Text3>
-              </Row>
-              <Row>
-                <Text3> 오존 </Text3>
-                <Text3>{mainState?.member?.totalInfo?.document?.o3}ppm </Text3>
-              </Row>
-              <Row>
-                <Text3> 이산화질소 </Text3>
-                <Text3>
-                  {' '}
-                  {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
-                </Text3>
-              </Row>
-            </Box4_sub1>
+              <Box4_sub1>
+                <Row>
+                  <Text3> 아황산가스 </Text3>
+                  <Text3>
+                    {' '}
+                    {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
+                  </Text3>
+                </Row>
+                <Row>
+                  <Text3> 일산화탄소 </Text3>
+                  <Text3>
+                    {' '}
+                    {mainState?.member?.totalInfo?.document?.co}ppm{' '}
+                  </Text3>
+                </Row>
+                <Row>
+                  <Text3> 오존 </Text3>
+                  <Text3>
+                    {mainState?.member?.totalInfo?.document?.o3}ppm{' '}
+                  </Text3>
+                </Row>
+                <Row>
+                  <Text3> 이산화질소 </Text3>
+                  <Text3>
+                    {' '}
+                    {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
+                  </Text3>
+                </Row>
+              </Box4_sub1>
+            </column>
           </Box3>
 
           <Box3>
