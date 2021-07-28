@@ -26,31 +26,31 @@ const Background = styled.div`
   min-height: 95vh;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `
 const Wrapper1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 55%;
+  width: 100%;
+  @media (max-width: 430px) {
+    //iphone
+    display: none;
+  }
+`
+const Wrapper2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
   @media (max-width: 430px) {
     //iphone
     display: none;
   }
 `
 
-const Wrapper2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 45%;
-  @media (max-width: 430px) {
-    //iphone
-    display: none;
-  }
-`
 const Wrapper3 = styled.div`
   display: flex;
   justify-content: center;
@@ -414,7 +414,6 @@ function DustPage() {
             </MainBox>
             <Dustinfo />
           </Box1>
-          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -435,9 +434,9 @@ function DustPage() {
             </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
-        </Wrapper1>
-        <Wrapper2>
-          <Box3>
+
+          <Wrapper2> 
+            <Box3>
             <Dustinfo2 />
           </Box3>
           <Box4>
@@ -464,7 +463,11 @@ function DustPage() {
               </Row>
             </Box4_sub1>
           </Box4>
-        </Wrapper2>
+
+
+          </Wrapper2>
+          
+        </Wrapper1>
 
         <Wrapper3>
           <LocationText />
@@ -500,7 +503,6 @@ function DustPage() {
               </Row>
             </div>
           </Box1_mobile>
-          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -520,9 +522,6 @@ function DustPage() {
           </Box2>
 
           <Box3>
-            <Dustinfo2 />
-          </Box3>
-          <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
               <FaceImage src={face} />
@@ -545,7 +544,12 @@ function DustPage() {
                 <Text3> 000ppm </Text3>
               </Row>
             </Box4_sub1>
-          </Box4>
+          </Box3>
+
+          <Box3>
+            <Dustinfo2 />
+          </Box3>
+        
         </Wrapper3>
       </Background>
       <Footer />
