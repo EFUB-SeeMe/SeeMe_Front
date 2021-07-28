@@ -6,7 +6,8 @@ import {
   COVID_REGIONAL,
   LAT_TO_ADD,
   DUST_MAIN,
-  MICRO_DUST
+  MICRO_DUST,
+  CAI_MAIN,
 } from './type'
 
 import { USER_SERVER } from '../config'
@@ -56,19 +57,31 @@ export const dustMain = (lat, lon) => {
   const request = axios
     .get(`${USER_SERVER}/microdust/main?lat=${lat}&lon=${lon}`)
     .then(response => response.data)
-    return {
-        type: DUST_MAIN,
-        payload: request,
-      }
-    }
+  return {
+    type: DUST_MAIN,
+    payload: request,
+  }
+}
 
-
-export const micro_dust =(dust, microdust, date) =>{
-    const request=axios.get(`${USER_SERVER}/microdust/day?dust=${dust}&microdust=${microdust}&date=${date}`)
+export const micro_dust = (dust, microdust, date) => {
+  const request = axios
+    .get(
+      `${USER_SERVER}/microdust/day?dust=${dust}&microdust=${microdust}&date=${date}`
+    )
     .then(response => response.data)
-    return{
-        type: MICRO_DUST,
-        payload:request
-    }
-
+  return {
+    type: MICRO_DUST,
+    payload: request,
+  }
+}
+export const cai_main = (so2, co, o3, no2) => {
+  const request = axios
+    .get(
+      `${USER_SERVER}/microdust/main?so2=${so2}&co=${co}&o3=${o3}&no2=${no2}`
+    )
+    .then(response => response.data)
+  return {
+    type: CAI_MAIN,
+    payload: request,
+  }
 }
