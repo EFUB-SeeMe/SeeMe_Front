@@ -54,7 +54,8 @@ const Text=styled.div`
     
 `
 
-function MainInfo({color,height,num,time}) {
+function MainInfo({current,feel,high,low,today,yesterday}) {
+  
     return (
         <Wrapper>
         <Row>
@@ -62,18 +63,18 @@ function MainInfo({color,height,num,time}) {
             <Text>체감온도</Text>
         </Row>
         <Row>
-        <Text size="70">26</Text>
-            <Text size="70">28</Text>
+        <Text size="70">{current}</Text>
+            <Text size="70">{feel}</Text>
         </Row>
         <CenterRow>
-            <Text size="16" color="#EF8787">최고 29℃ &nbsp;&nbsp;</Text>
-            <Text size="16" color="#6CB8F8">최저 20℃ </Text>
+            <Text size="16" color="#EF8787">최고 {high}℃ &nbsp;&nbsp;</Text>
+            <Text size="16" color="#6CB8F8">최저 {low}℃ </Text>
         </CenterRow>
         <Row>
-        <Text size="16" color="#222222">오늘은 오후 6시에 소나기가 내려요 ! </Text>
+        <Text size="16" color="#222222">{today} </Text>
         </Row>
         <Row>
-        <Text size="16" color="#222222">어제보다 2℃ 낮아요  </Text>
+        <Text size="16" color="#222222">{yesterday} </Text>
         </Row>
         </Wrapper>
 
