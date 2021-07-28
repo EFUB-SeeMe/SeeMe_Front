@@ -3,17 +3,18 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import { latToAdd, dustMain, micro_dust } from '../../_actions/user_action'
+import {
+  latToAdd,
+  dustMain,
+  micro_dust,
+  cai_main,
+} from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
 
 // load image
-import mask from '../../assets/Dust_mask.svg'
-import dust from '../../assets/Group 336.svg'
 import location from '../../assets/Dust_location.svg'
-import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
-import face from '../../assets/face_bad.svg'
 
 import Dustgraph from './Dustgraph'
 import Dustinfo from './Dustinfo'
@@ -26,31 +27,31 @@ const Background = styled.div`
   min-height: 95vh;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `
 const Wrapper1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 55%;
+  width: 100%;
+  @media (max-width: 430px) {
+    //iphone
+    display: none;
+  }
+`
+const Wrapper2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
   @media (max-width: 430px) {
     //iphone
     display: none;
   }
 `
 
-const Wrapper2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 45%;
-  @media (max-width: 430px) {
-    //iphone
-    display: none;
-  }
-`
 const Wrapper3 = styled.div`
   display: flex;
   justify-content: center;
@@ -72,7 +73,7 @@ const Box1 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-bottom: 10px;
-  margin-top: 0px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   @media (min-width: 430px) and (max-width: 1440px) {
@@ -127,12 +128,12 @@ const Box2 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
-    height: 200px;
+    height: 250px;
   }
   @media (min-width: 1440px) {
     //desktop
     width: 90%;
-    height: 217px;
+    height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
@@ -161,24 +162,26 @@ const Box3 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-top: 18px;
-  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: center;
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
-    height: 265px;
+    width: 45%;
+    height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
-    height: 360px;
+    width: 45%;
+    height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
     width: 90%;
-    height: 330px;
+    height: 280px;
   }
 `
 const Box4 = styled.div`
@@ -284,11 +287,12 @@ const Text2 = styled.div`
 `
 const FaceImage = styled.img`
   width: 350px;
-  height: 430px;
+  height: 350px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 130px;
-    height: 120px;
+    margin-top: 10px;
+    width: 50%;
+    height: 50%;
   }
   @media (max-width: 430px) {
     //iphone
@@ -298,8 +302,9 @@ const FaceImage = styled.img`
   }
   @media (min-width: 1440px) {
     // desktop
-    width: 130px;
-    height: 120px;
+    margin-top: 3px;
+    width: 50%;
+    height: 50%;
   }
 `
 const Box4_sub1 = styled.div`
@@ -312,8 +317,8 @@ const Box4_sub1 = styled.div`
 const Text3 = styled.button`
   align-items: center;
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 30px;
+  margin-right: 0px;
   font-size: 22px;
   font-weight: regular;
   background: white;
@@ -330,12 +335,13 @@ const Text3 = styled.button`
     font-size: 15px;
     width: 90px;
     height: 25px;
+    margin-left: 0px;
   }
   @media (min-width: 1440px) {
     // desktop
     font-size: 20px;
-    margin-left: 40px;
-    margin-right: 20px;
+    width: 100px;
+    height: 30px;
   }
 `
 
@@ -387,6 +393,22 @@ function DustPage() {
       console.log(dustState)
     })
   }, [])
+
+  useEffect(() => {
+    dispatch(
+      cai_main(
+        window.localStorage.getItem('so2'),
+        window.localStorage.getItem('co'),
+        window.localStorage.getItem('o3'),
+        window.localStorage.getItem('no2')
+      )
+    ).then(response => {
+      setMainState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
   return (
     <>
       <Header></Header>
@@ -414,7 +436,6 @@ function DustPage() {
             </MainBox>
             <Dustinfo />
           </Box1>
-          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -432,44 +453,47 @@ function DustPage() {
               </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
+
+          <Wrapper2>
+            <Box3>
+              <Dustinfo2 />
+            </Box3>
+            <Box3>
+              <Text> 통합대기환경지수 </Text>
+              <Row>
+                <FaceImage
+                  src={mainState?.member?.totalInfo?.document?.caiIcon}
+                />
+              </Row>
+              <Box4_sub1>
+                <Row>
+                  <Text3> 아황산가스 </Text3>
+                  <Text3>
+                    {' '}
+                    {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
+                  </Text3>
+                </Row>
+                <Row>
+                  <Text3> 일산화탄소 </Text3>
+                  <Text3>{mainState?.member?.totalInfo?.document?.co}ppm</Text3>
+                </Row>
+                <Row>
+                  <Text3> 오존 &emsp;&nbsp;&emsp; </Text3>
+                  <Text3>
+                    {mainState?.member?.totalInfo?.document?.o3}ppm{' '}
+                  </Text3>
+                </Row>
+                <Row>
+                  <Text3> 이산화질소 </Text3>
+                  <Text3>
+                    {' '}
+                    {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
+                  </Text3>
+                </Row>
+              </Box4_sub1>
+            </Box3>
+          </Wrapper2>
         </Wrapper1>
-        <Wrapper2>
-          <Box3>
-            <Dustinfo2 />
-          </Box3>
-          <Box4>
-            <Text> 통합대기환경지수 </Text>
-            <Row>
-              <FaceImage
-                src={mainState?.member?.totalInfo?.document?.caiIcon}
-              />
-            </Row>
-            <Box4_sub1>
-              <Row>
-                <Text3> 아황산가스 </Text3>
-                <Text3>
-                  {' '}
-                  {mainState?.member?.totalInfo?.document?.so2}ppm{' '}
-                </Text3>
-              </Row>
-              <Row>
-                <Text3> 일산화탄소 </Text3>
-                <Text3>{mainState?.member?.totalInfo?.document?.co}ppm</Text3>
-              </Row>
-              <Row>
-                <Text3> 오존 &emsp;&nbsp;&emsp; </Text3>
-                <Text3>{mainState?.member?.totalInfo?.document?.o3}ppm </Text3>
-              </Row>
-              <Row>
-                <Text3> 이산화질소 </Text3>
-                <Text3>
-                  {' '}
-                  {mainState?.member?.totalInfo?.document?.no2}ppm{' '}
-                </Text3>
-              </Row>
-            </Box4_sub1>
-          </Box4>
-        </Wrapper2>
 
         <Wrapper3>
           <LocationText />
@@ -505,7 +529,6 @@ function DustPage() {
               </Row>
             </div>
           </Box1_mobile>
-          <Box2></Box2>
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
@@ -525,9 +548,6 @@ function DustPage() {
           </Box2>
 
           <Box3>
-            <Dustinfo2 />
-          </Box3>
-          <Box4>
             <Text> 통합대기환경지수 </Text>
             <Row>
               <FaceImage
@@ -558,7 +578,11 @@ function DustPage() {
                 </Text3>
               </Row>
             </Box4_sub1>
-          </Box4>
+          </Box3>
+
+          <Box3>
+            <Dustinfo2 />
+          </Box3>
         </Wrapper3>
       </Background>
       <Footer />
