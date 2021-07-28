@@ -78,12 +78,12 @@ const Box1 = styled.div`
   flex-direction: row;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
+    width: 80%;
     height: 220px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
+    width: 80%;
     height: 300px;
   }
 `
@@ -125,19 +125,20 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
+ 
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
+    width: 80%;
     height: 250px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
+    width: 80%;
     height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
-    width: 90%;
+    width: 80%;
     height: 240px;
   }
 `
@@ -150,9 +151,10 @@ const Box2_sub1 = styled.div`
 
 const Box2_sub2 = styled.div`
   // 현재위치 박스
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end; // 가로 정렬
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   //align-items: left;
   height: 75%;
 `
@@ -170,12 +172,12 @@ const Box3 = styled.div`
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 45%;
+    width: 40%;
     height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 45%;
+    width: 40%;
     height: 300px;
   }
   @media (max-width: 430px) {
