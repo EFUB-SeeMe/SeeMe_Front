@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
-import { latToAdd, dustMain } from '../../_actions/user_action'
+import { latToAdd, dustMain, micro_dust } from '../../_actions/user_action'
 import { AlwaysScrollSection } from '../MainPage/AlwaysScrollSection'
 import { useState, useEffect, useRef } from 'react'
 
@@ -15,13 +15,9 @@ import blue from '../../assets/Dust_blue.svg'
 import standard from '../../assets/Dust_standard.svg'
 import face from '../../assets/face_bad.svg'
 
-import Dustgraph_day from './Dustgraph_day'
-import Dustgraph_today from './Dustgraph_today'
+import Dustgraph from './Dustgraph'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
-
-import { micro_dust } from '../../_actions/user_action'
-import { cai_main } from '../../_actions/user_action'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -349,6 +345,8 @@ const Text3 = styled.button`
 function DustPage() {
   const [mainState, setMainState] = useState({ status: 'idle', member: null })
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const [dustState, setDustState] = useState({ status: 'idle', member: null })
+
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -377,19 +375,19 @@ function DustPage() {
     })
   }, [])
 
+  //microdust
   useEffect(() => {
     dispatch(
-      cai_main(
-        window.localStorage.getItem('so2'),
-        window.localStorage.getItem('co'),
-        window.localStorage.getItem('o3'),
-        window.localStorage.getItem('no2')
+      micro_dust(
+        window.localStorage.getItem('dust'),
+        window.localStorage.getItem('microdust'),
+        window.localStorage.getItem('date')
       )
     ).then(response => {
-      setMainState({ status: 'pending' })
+      setDustState({ status: 'pending' })
       const data = response.payload
-      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
-      console.log(data)
+      setTimeout(() => setDustState({ status: 'resolved', member: data }), 600)
+      console.log(dustState)
     })
   }, [])
   return (
@@ -426,48 +424,14 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
               <AlwaysScrollSection>
-                <Dustgraph_day
-                  color="#85BFEF"
-                  height1="70"
-                  height2="30"
-                  day="06.27"
-                />
-                <Dustgraph_today
-                  color="#85BFEF"
-                  height1="80"
-                  height2="30"
-                  day="06.28"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="06.29"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="90"
-                  height2="20"
-                  day="06.30"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="06.31"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="07.01"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="07.02"
-                />
+                {dustState.member?.map((array, i) => (
+                  <Dustgraph
+                    color="#85BFEF"
+                    height1={array?.dust * 3}
+                    height2={array?.microdust * 3}
+                    day={array?.date}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
@@ -551,48 +515,14 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
               <AlwaysScrollSection>
-                <Dustgraph_day
-                  color="#85BFEF"
-                  height1="70"
-                  height2="30"
-                  day="06.27"
-                />
-                <Dustgraph_today
-                  color="#85BFEF"
-                  height1="80"
-                  height2="30"
-                  day="06.28"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="06.29"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="90"
-                  height2="20"
-                  day="06.30"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="06.31"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="07.01"
-                />
-                <Dustgraph_day
-                  color="#87EF85"
-                  height1="60"
-                  height2="20"
-                  day="07.02"
-                />
+                {dustState.member?.map((array, i) => (
+                  <Dustgraph
+                    color="#85BFEF"
+                    height1={array?.dust * 3}
+                    height2={array?.microdust * 3}
+                    day={array?.date}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Box2_sub2>
           </Box2>
