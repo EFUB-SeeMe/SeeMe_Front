@@ -456,9 +456,7 @@ function DustPage() {
           </Box2>
 
           <Wrapper2> 
-            <Box3>
-            <Dustinfo2 />
-          </Box3>
+          
           <Box3>
             <Text> 통합대기환경지수 </Text>
             <Row>
@@ -490,6 +488,10 @@ function DustPage() {
                 </Text3>
               </Row>
             </Box4_sub1>
+          </Box3>
+
+          <Box3>
+            <Dustinfo2 />
           </Box3>
 
 
@@ -549,6 +551,8 @@ function DustPage() {
             </Box2_sub2>
           </Box2>
 
+          
+
           <Box3>
             <Text> 통합대기환경지수 </Text>
             <Row>
@@ -585,6 +589,8 @@ function DustPage() {
           <Box3>
             <Dustinfo2/>
           </Box3>
+
+          
         
         </Wrapper3>
       </Background>
