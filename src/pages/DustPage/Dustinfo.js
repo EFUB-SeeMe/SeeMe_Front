@@ -4,6 +4,7 @@ import standard from '../../assets/Dust_standard.svg'
 import { dustMain } from '../../_actions/user_action'
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,44 +53,27 @@ const Text = styled.div`
   }
 `
 const Standard = styled.img`
-  width: 206px;
   height: 35px;
 
   @media (min-width: 1030px) and (max-width: 1440px) {
     //between
-    width: 216px;
-    height: 35px;
+    width: 316px;
   }
   @media (min-width: 430px) and (max-width: 1030px) {
     // ipad
-    width: 156px;
+    width: 256px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 296px;
+    width: 396px;
+    height: 50px;
   }
 `
 Standard.defaultProps = {
   src: standard,
 }
 
-function Dustinfo({ color, height, num, time }) {
-  const [mainState, setMainState] = useState({ status: 'idle', member: null })
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(
-      dustMain(
-        window.localStorage.getItem('lat'),
-        window.localStorage.getItem('lon')
-      )
-    ).then(response => {
-      setMainState({ status: 'pending' })
-      const data = response.payload
-      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
-      console.log(data)
-    })
-  }, [])
-
+function Dustinfo({ finedust, microdust, briefing }) {
   return (
     <Wrapper>
       <Row>
@@ -102,18 +86,18 @@ function Dustinfo({ color, height, num, time }) {
       </Row>
       <Row>
         <Text size="65" color="#42A0F0">
-          {mainState?.member?.mainInfo?.document?.pm10}
+          {finedust}
         </Text>
         <Text size="65" color="#42A0F0">
-          {mainState?.member?.mainInfo?.document?.pm25}
+          {microdust}
         </Text>
       </Row>
       <Row>
-        <Standard></Standard>
+        <Standard />
       </Row>
       <Row>
         <Text size="22" color="#222222">
-          {mainState?.member?.mainInfo?.document?.desc}{' '}
+          {briefing}{' '}
         </Text>
       </Row>
     </Wrapper>
