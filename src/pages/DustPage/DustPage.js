@@ -170,7 +170,7 @@ const Box3 = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
   display: flex;
-  flex-direction: center;
+
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -184,8 +184,10 @@ const Box3 = styled.div`
   }
   @media (max-width: 430px) {
     //iphone
+    flex-direction: column;
+    justify-content: center;
     width: 90%;
-    height: 350px;
+    height: 390px;
   }
 `
 const Box4 = styled.div`
@@ -258,11 +260,11 @@ const Column = styled.div`
 `
 
 const DustImage = styled.img`
-  width: 200px;
+  width: 184px;
   height: 200px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 130px;
+    width: 120px;
     height: 130px;
   }
   @media (max-width: 430px) {
@@ -303,20 +305,20 @@ const FaceImage = styled.img`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
-    width: 190px;
-    height: 50%;
+    width: 100px;
+    height: 150px;
   }
   @media (max-width: 430px) {
     //iphone
     margin-top: 10px;
-    width: 60%;
-    height: 60%;
+    width: 100px;
+    height: 150px;
   }
   @media (min-width: 1440px) {
     // desktop
     margin-top: 3px;
-    width: 300px;
-    height: 50%;
+    width: 110px;
+    height: 160px;
   }
 `
 const Box4_sub1 = styled.div`
@@ -542,6 +544,7 @@ function DustPage() {
             <div>
               <Row>
                 <DustImage
+                  style={{ height: '180px', width: '150px' }}
                   src={mainState?.member?.mainInfo?.document?.gradeIcon}
                 />
               </Row>
