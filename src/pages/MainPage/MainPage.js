@@ -16,7 +16,6 @@ import Clothes from './Clothes'
 import Location from '../Location'
 import { latToAdd, weatherMain } from '../../_actions/user_action'
 
-
 const Background = styled.div`
   background-color: #ecf4ff;
   background-repeat: no-repeat;
@@ -198,7 +197,10 @@ function MainPage() {
   const gsLocation = Location()
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
-  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
+  const [weatherState, setWeatherState] = useState({
+    status: 'idle',
+    member: null,
+  })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -255,12 +257,14 @@ function MainPage() {
                 <p>흐림</p>
               </Row>
             </MainBox>
-            <MainInfo  current={weatherState?.member?.currentInfo?.document?.currTemp} 
-            feel="23" 
-            high="30" 
-            low="21" 
-            today=" 뫄뫄" 
-            yesterday="뫄뫄 "/>
+            <MainInfo
+              current={weatherState?.member?.currentInfo?.document?.currTemp}
+              feel="23"
+              high="30"
+              low="21"
+              today=" 뫄뫄"
+              yesterday="뫄뫄 "
+            />
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
@@ -303,15 +307,20 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState?.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph>
+                  day= {array?.day}
+                  amIcon = {array?.amIcon}
+                  pmIcon = {array?.pmIcon}
+                  hot = {array?.max}
+                  cold = {array?.min}
+                </WeekGraph>
+              ))}
             </Column>
           </Box4>
         </Wrapper2>
@@ -364,15 +373,20 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState?.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph>
+                  day= {array?.day}
+                  amIcon = {array?.amIcon}
+                  pmIcon = {array?.pmIcon}
+                  hot = {array?.max}
+                  cold = {array?.min}
+                </WeekGraph>
+              ))}
             </Column>
           </Box4>
         </Wrapper3>
