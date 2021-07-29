@@ -16,7 +16,6 @@ import Clothes from './Clothes'
 import Location from '../Location'
 import { latToAdd, weatherMain } from '../../_actions/user_action'
 
-
 const Background = styled.div`
   background-color: #ecf4ff;
   background-repeat: no-repeat;
@@ -198,7 +197,10 @@ function MainPage() {
   const gsLocation = Location()
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
-  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
+  const [weatherState, setWeatherState] = useState({
+    status: 'idle',
+    member: null,
+  })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -252,15 +254,17 @@ function MainPage() {
               </Row>
               <Row>
                 {' '}
-                <p>흐림</p>
+                <p>{weatherState?.member?.currentInfo?.document?.iconDesc}</p>
               </Row>
             </MainBox>
-            <MainInfo  current={weatherState?.member?.currentInfo?.document?.currTemp} 
-            feel="23" 
-            high="30" 
-            low="21" 
-            today=" 뫄뫄" 
-            yesterday="뫄뫄 "/>
+            <MainInfo
+              current={weatherState?.member?.currentInfo?.document?.currTemp}
+              feel={weatherState?.member?.currentInfo?.document?.feelTemp}
+              high={weatherState?.member?.minmaxInfo?.document?.max}
+              low={weatherState?.member?.minmaxInfo?.document?.min}
+              today={weatherState?.member?.currentInfo?.document?.comp}
+              yesterday={weatherState?.member?.minmaxInfo?.document?.desc}
+            />
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
