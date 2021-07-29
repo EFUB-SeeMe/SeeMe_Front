@@ -140,7 +140,7 @@ const Box2 = styled.div`
   }
   @media (max-width: 430px) {
     //iphone
-    width: 80%;
+    width: 90%;
     height: 240px;
   }
 `
@@ -174,12 +174,12 @@ const Box3 = styled.div`
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 40%;
+    width: 39.5%;
     height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 40%;
+    width: 39.5%;
     height: 300px;
   }
   @media (max-width: 430px) {
@@ -303,7 +303,7 @@ const FaceImage = styled.img`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
-    width: 90%;
+    width: 190px;
     height: 50%;
   }
   @media (max-width: 430px) {
@@ -315,7 +315,7 @@ const FaceImage = styled.img`
   @media (min-width: 1440px) {
     // desktop
     margin-top: 3px;
-    width: 45%;
+    width: 300px;
     height: 50%;
   }
 `
@@ -340,8 +340,8 @@ const Text3 = styled.button`
   outline: none;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    font-size: 17px;
-    width: 120px;
+    font-size: 15px;
+    width: 90px;
     margin-right: 10px;
   }
   @media (max-width: 430px) {
@@ -451,7 +451,11 @@ function DustPage() {
                 ></DustImage>
               </Row>
             </MainBox>
-            <Dustinfo />
+            <Dustinfo
+              finedust={mainState?.member?.mainInfo?.document?.pm10}
+              microdust={mainState?.member?.mainInfo?.document?.pm25}
+              briefing={mainState?.member?.mainInfo?.document?.desc}
+            />
           </Box1>
           <Box2>
             <Box2_sub1>
