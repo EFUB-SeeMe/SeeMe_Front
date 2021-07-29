@@ -13,8 +13,9 @@ import MainInfo2 from './MainInfo2'
 import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
-import Location from "../Location"
-import { latToAdd } from "../../_actions/user_action";
+import Location from '../Location'
+import { latToAdd, weatherMain } from '../../_actions/user_action'
+
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -84,20 +85,19 @@ const Box1 = styled.div`
   }
 
   @media (min-width: 1440px) {
-  //desktop
-  width:90%;
-  height:300px;
-
-    }
+    //desktop
+    width: 90%;
+    height: 300px;
+  }
   @media (max-width: 430px) {
-      //iphone
-      width:90%;
-      margin-top: 15px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height:250px;
-    }
+    //iphone
+    width: 90%;
+    margin-top: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
 `
 const MainBox = styled.div`
   height: 260px;
@@ -123,13 +123,13 @@ const Column = styled.div`
 `
 
 const Box2 = styled.div`
-display: flex;
-flex-direction: column;
-background: white;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
-margin-bottom: 20px;
-@media (min-width: 430px) and (max-width: 1440px) {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 245px;
@@ -147,14 +147,14 @@ margin-bottom: 20px;
   }
 `
 const Box3 = styled.div`
-background: white;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
-margin-top: 18px;
-margin-bottom: 10px;
-display:flex;
-justify-content:center;
-@media (min-width: 430px) and (max-width: 1440px) {
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 90%;
     height: 300px;
@@ -195,18 +195,42 @@ const Box4 = styled.div`
 `
 
 function MainPage() {
-  const gsLocation =  Location();
-  console.log(`gsLocation: ${JSON.stringify(gsLocation)}`);
-  const [nameState,setNameState] =useState({status: 'idle', member: null});
-  const dispatch = useDispatch();
+  const gsLocation = Location()
+  console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
+  const [nameState, setNameState] = useState({ status: 'idle', member: null })
+  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(latToAdd(window.localStorage.getItem('lat'), window.localStorage.getItem('lon'))).then(response => {
-      setNameState({ status: 'pending' });
-      const data = response.payload;
-      setTimeout(() => setNameState({ status: 'resolved', member: data}), 600);
-      console.log(data);
-    });
-  }, []);
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+      console.log(data)
+    })
+  }, [])
+
+  //WEATHER MAIN
+  useEffect(() => {
+    dispatch(
+      weatherMain(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setWeatherState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(
+        () => setWeatherState({ status: 'resolved', member: data }),
+        600
+      )
+      console.log(weatherState)
+    })
+  }, [])
 
   return (
     <>
@@ -217,17 +241,26 @@ function MainPage() {
             <MainBox>
               <Row>
                 <img style={{ height: '22px', width: '22px' }} src={image} />
+
                 <p style={{ marginTop: '3px' }}>&ensp; {nameState?.member}</p>
               </Row>
               <Row>
-                <img style={{ width: '160px', height: '160px' }} src={Rain} />
+                <img
+                  style={{ width: '160px', height: '160px' }}
+                  src={weatherState?.member?.currentInfo?.document?.icon}
+                />
               </Row>
               <Row>
                 {' '}
                 <p>흐림</p>
               </Row>
             </MainBox>
-            <MainInfo />
+            <MainInfo  current={weatherState?.member?.currentInfo?.document?.currTemp} 
+            feel="23" 
+            high="30" 
+            low="21" 
+            today=" 뫄뫄" 
+            yesterday="뫄뫄 "/>
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
