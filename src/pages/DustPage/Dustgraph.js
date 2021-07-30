@@ -4,25 +4,38 @@ import styled from 'styled-components'
 const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
-  margin-top: 25%;
+  margin-top: 40%;
+  margin-bottom: 0%;
   width: 100%;
-  height: 75%;
+  height:75%;
   align-items: center;
+  justify-content: center;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
 `
 
 const Box1 = styled.div`
   // 그래프 박스
   background: white;
-  margin-top: 20%;
   width: 100%;
-  height: 60%;
-  margin-left: 20%;
-  margin-bottom: 10%;
+  height: 90%;
+  margin-left: 50%;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   direction: row;
- `
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
+  `
 
 const Box1_sub1 = styled.div`
 // 그래프 박스
@@ -32,23 +45,41 @@ margin-left: 20%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
+@media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
 `
 const Box1_sub2 = styled.div`
 // 그래프 박스
 background: white;
 width: 30%;
-margin-right: 20%;
+margin-right: 10%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
+@media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
 `
 
 const Text = styled.div`
 // 그래프 박스
 background: white;
 display: flex;
-margin-left: -1%;
+margin-left:2%;
 font-size: 15px;
+@media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
 `
 
 const Box2 = styled.div`
@@ -58,10 +89,18 @@ const Box2 = styled.div`
   width: 100%;
   height: 10%;
   margin-left: 10%;
+  margin-bottom: 0%;
   display: flex;
   flex-direction: row;
+  @media (min-width: 430px) and (max-width: 1440px) {
+    //between
+  }
+  @media (min-width: 1440px) {
+    //desktop
+  }
 `
-// 그래프 4개 그리기 시작
+
+// 그래프 2개 그리기 시작
 const Bar1 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height1 || 50}px;
@@ -83,6 +122,7 @@ const Bar1 = styled.div`
     margin-left: 100px;
   }
 `
+
 const Bar2 = styled.div`
   background: ${props => props.color || 'black'};
   height: ${props => props.height2 || 50}px;
@@ -99,11 +139,11 @@ const Bar2 = styled.div`
     margin-left: 5px;
   }
 `
-// 그래프 4개 그리기 끝
+// 그래프 2개 그리기 끝
 
 const Day = styled.button`
   align-items: left;
-  margin-left: 33px;
+  margin-left: 44px;
   font-size: 13px;
   background: white;
   border: none;

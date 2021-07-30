@@ -46,7 +46,8 @@ const Text=styled.div`
     font-size:  ${props => props.size || 18}px;
     font-family: 'NotoSans';
     margin-right: 5px;
-    text-align: center;
+    text-align: flex-start;
+    width:600px;
     @media (min-width: 430px) and (max-width: 1440px) {
     //between
     font-size:  ${props => props.size-5 || 18}px;

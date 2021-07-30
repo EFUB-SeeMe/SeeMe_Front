@@ -9,6 +9,9 @@ import {
   MICRO_DUST,
   CAI_MAIN,
   WEATHER_MAIN,
+  LAT_TO_CODE,
+  COVID_NUM,
+  WEATHER_TIME
 } from './type'
 
 import { USER_SERVER } from '../config'
@@ -25,7 +28,7 @@ export const covidMain = (lat, lon) => {
 
 export const covidNational = () => {
   const request = axios
-    .get(`${USER_SERVER}/covid/national`)
+    .get(`${USER_SERVER}/covid/nation`)
     .then(response => response.data)
   return {
     type: COVID_NATIONAL,
@@ -35,7 +38,7 @@ export const covidNational = () => {
 
 export const covidRegional = (lat, lon) => {
   const request = axios
-    .get(`${USER_SERVER}/covid/regional?lat=${lat}&lon=${lon}`)
+    .get(`${USER_SERVER}/covid/region?lat=${lat}&lon=${lon}`)
     .then(response => response.data)
   return {
     type: COVID_REGIONAL,
@@ -49,6 +52,16 @@ export const latToAdd = (lat, lon) => {
     .then(response => response.data)
   return {
     type: LAT_TO_ADD,
+    payload: request,
+  }
+}
+
+export const latToCode = (lat, lon) => {
+  const request = axios
+    .get(`${USER_SERVER}/location/latlon?lat=${lat}&lon=${lon}`)
+    .then(response => response.data)
+  return {
+    type: LAT_TO_CODE,
     payload: request,
   }
 }
@@ -93,6 +106,27 @@ export const weatherMain = (lat, lon) => {
     .then(response => response.data)
   return {
     type: WEATHER_MAIN,
+    payload: request,
+  }
+}
+export const covidNum = (day, code) => {
+  const request = axios.get(`https://apis.openapi.sk.com/safecaster/v1/search/safetyindex/ldongcd/overall?filterDate=${day}&ldongCd=${code}`,{
+    headers: {
+      appKey: 'l7xx1a0daf5b7aff40cdad64beac6423a77e' //the token is a variable which holds the token'
+  }
+  })
+    .then(response => response.data)
+  return {
+    type: COVID_NUM,
+    payload: request,
+  }
+}
+export const weatherTime = (lat, lon) => {
+  const request = axios
+  .get(`${USER_SERVER}/weather/time?lat=${lat}&lon=${lon}`)
+    .then(response => response.data)
+  return {
+    type: WEATHER_TIME,
     payload: request,
   }
 }

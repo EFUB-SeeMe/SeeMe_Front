@@ -74,7 +74,7 @@ Standard.defaultProps = {
 }
 
 function Dustinfo({ finedust, microdust, briefing }) {
-  if(finedust<=30&&microdust<=15){
+
   return (
     <Wrapper>
       <Row>
@@ -104,35 +104,6 @@ function Dustinfo({ finedust, microdust, briefing }) {
     </Wrapper>
   )
   }
-  else if(finedust<=30&&microdust<=35&&microdust>16){
-    return (
-      <Wrapper>
-        <Row>
-          <Text size="18" style={{ marginTop: '15px' }}>
-            미세먼지 농도
-          </Text>
-          <Text size="18" style={{ marginTop: '15px' }}>
-            초미세먼지 농도
-          </Text>
-        </Row>
-        <Row>
-          <Text size="65" color="#42A0F0">
-            {finedust}
-          </Text>
-          <Text size="65" color="#30D966">
-            {microdust}
-          </Text>
-        </Row>
-        <Row>
-          <Standard />
-        </Row>
-        <Row>
-          <Text size="22" color="#222222">
-            {briefing}{' '}
-          </Text>
-        </Row>
-      </Wrapper>
-    )
-    }
-}
+
+
 export default Dustinfo

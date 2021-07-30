@@ -123,6 +123,8 @@ const Box2 = styled.div`
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -148,7 +150,8 @@ const Box2_sub1 = styled.div`
   // 현재위치 박스
   display: flex;
   align-items: left;
-  height: 25%;
+  height: 10%;
+  width: 100%;
 `
 
 const Box2_sub2 = styled.div`
@@ -552,7 +555,7 @@ function DustPage() {
         </Wrapper1>
 
         <Wrapper3>
-          <LocationText />
+        <LocationText text={nameState?.member}/>
           <Box1_mobile>
             <div>
               <Row>
@@ -586,6 +589,7 @@ function DustPage() {
               </Row>
             </div>
           </Box1_mobile>
+
           <Box2>
             <Box2_sub1>
               <Text> 요일별 추이 </Text>

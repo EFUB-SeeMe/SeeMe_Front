@@ -9,6 +9,7 @@ import cur_location from '../../assets/cur_location.svg'
 import Graph from './Graph_Total'
 import Graph_Local from './Graph_Local'
 import Ascent from './Ascent'
+import Circle2 from './Circle2'
 
 import Circle from './Circle'
 
@@ -17,6 +18,7 @@ import {
   covidNational,
   covidRegional,
   latToAdd,
+  covidNum
 } from '../../_actions/user_action'
 
 const Background = styled.div`
@@ -29,6 +31,30 @@ const Background = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
+`
+const Box0 = styled.div`
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  margin-top: 15px;
+
+
+  @media (min-width: 1440px) {
+    // desktop
+    display: none;
+  }
+
+  @media (min-width: 420px) and (max-width: 1440px) {
+    // between
+    display: none;
+  }
+
+  @media (max-width: 420px) {
+    // iphone
+    width: 90%;
+    height: 160px;
+    margin-top: 15px;
+  }
 `
 const Box1 = styled.div`
   background: white;
@@ -163,6 +189,12 @@ const Wrap2a = styled.div`
   flex-direction: row;
   justify-content: center;
 `
+const Column=styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
 const Wrap3 = styled.div`
   display: flex;
   flex-direction: column;
@@ -420,6 +452,7 @@ const BoldText1 = styled.div`
 `
 function CovidPage() {
   const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const [numState, setNumState] = useState({ status: 'idle', member: null })
   const [nationalState, setNationalState] = useState({
     status: 'idle',
     member: null,
@@ -478,7 +511,20 @@ function CovidPage() {
       setNameState({ status: 'pending' })
       const data = response.payload
       setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
-      console.log(data)
+
+    })
+  }, [])
+  useEffect(() => {
+    dispatch(
+      covidNum(
+        window.localStorage.getItem('day'),
+        window.localStorage.getItem('code')
+      )
+    ).then(response => {
+      setNumState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNumState({ status: 'resolved', member: Math.floor(data.data[0].contactDensityPercentile) }), 600)
+      console.log(numState)
     })
   }, [])
 
@@ -486,7 +532,10 @@ function CovidPage() {
     <div>
       <Header></Header>
       <Background>
-        <LocationText />
+        <LocationText text={nameState?.member}/>
+        <Box0>
+        <Circle2 num={numState.member}/>
+        </Box0>
         <Box1>
           <Wrap1>
             <Wrap2>
@@ -495,8 +544,11 @@ function CovidPage() {
               </Loc_Icon>
               <Text1>{nameState?.member}</Text1>
             </Wrap2>
-            <Wrap2a>
-              <Circle num={1} />
+            
+            
+            <Wrap2a> 
+            
+              <Circle num={numState.member}/>
               <Wrap3>
                 <Text2>오늘의 확진자 수</Text2>
                 <Text3>{mainState?.member?.coronicTotal + '명'}</Text3>
