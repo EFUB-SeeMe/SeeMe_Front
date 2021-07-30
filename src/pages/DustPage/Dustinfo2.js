@@ -7,8 +7,8 @@ import { useDispatch } from 'react-redux'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: row;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -54,7 +54,7 @@ const Text = styled.div`
   color: ${props => props.color || 'black'};
   font-size: ${props => props.size || 20}px;
   font-family: 'NotoSans';
-  margin-right: 0px;
+  margin-left:5%;
   text-align: center;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -64,25 +64,31 @@ const Text = styled.div`
     //iphone
     background: 'rgba( 255, 255, 255, 0 )';
     color: ${props => props.color || 'black'};
-    font-size: ${props => props.size || 10}px;
+    font-size: 20px;
     font-family: 'NotoSans';
-    margin-right: 0px;
+    margin-right: 10px;
     text-align: center;
   }
 `
 const MaskImage = styled.img`
-  width: 380px;
-  height: 220px;
-  margin-top: 30px;
+  width: 40%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+  margin-top: 3%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 230px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 200px;
-    height: 150px;
+    height: 200px;
   }
   @media (max-width: 430px) {
     //iphone
-    width: 200x;
-    height: 200px;
+    width: 150x;
+    height: 150px;
   }
 `
 
@@ -105,15 +111,10 @@ function Dustinfo2({ color, height, num, time }) {
 
   return (
     <Wrapper>
-      <Row>
-        <Text size="20">{mainState?.member?.maskInfo?.document?.desc} </Text>
-      </Row>
-      <Row>
         <MaskImage
-          style={{ width: '200px', height: '200px' }}
           src={mainState?.member?.maskInfo?.document?.maskIcon}
         ></MaskImage>
-      </Row>
+        <Text size="30">{mainState?.member?.maskInfo?.document?.desc} </Text>
     </Wrapper>
   )
 }

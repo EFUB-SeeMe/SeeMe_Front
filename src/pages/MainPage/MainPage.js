@@ -14,7 +14,8 @@ import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from '../Location'
-import { latToAdd, weatherMain,latToCode } from '../../_actions/user_action'
+import { latToAdd, weatherMain,latToCode,weatherTime } from '../../_actions/user_action'
+
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -198,10 +199,9 @@ function MainPage() {
   const gsLocation = Location()
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
-  const [weatherState, setWeatherState] = useState({
-    status: 'idle',
-    member: null,
-  })
+  
+  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
+  const [timeState, setTimeState] = useState({ status: 'idle', member: null })
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(
@@ -225,7 +225,7 @@ function MainPage() {
       window.localStorage.setItem('code',data)
     })
   }, [])
-
+  
   //WEATHER MAIN
   useEffect(() => {
     dispatch(
@@ -241,6 +241,24 @@ function MainPage() {
         600
       )
       console.log(weatherState)
+    })
+  }, [])
+
+  //WEATHER TIME
+  useEffect(() => {
+    dispatch(
+      weatherTime(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setTimeState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(
+        () => setTimeState({ status: 'resolved', member: data }),
+        600
+      )
+      console.log(timeState)
     })
   }, [])
 
@@ -276,41 +294,40 @@ function MainPage() {
               yesterday={weatherState?.member?.minmaxInfo?.document?.desc}
             />
           </Box1>
+
+
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
-
             <Row>
               <AlwaysScrollSection>
-                <MainGraph height="80" color="#D9D4FF" num="26" time="18" />
-                <MainGraph height="90" color="#D9D4FF" num="29" time="19" />
-                <MainGraph height="60" color="#D9D4FF" num="23" time="20" />
-                <MainGraph height="50" color="#D9D4FF" num="24" time="21" />
-                <MainGraph height="80" color="#D9D4FF" num="26" time="22" />
-                <MainGraph height="40" color="#D9D4FF" num="21" time="23" />
-                <MainGraph height="80" color="#D9D4FF" num="26" time="0" />
-                <MainGraph height="70" color="#D9D4FF" num="24" time="1" />
-                <MainGraph height="50" color="#D9D4FF" num="23" time="2" />
-                <MainGraph height="40" color="#D9D4FF" num="21" time="3" />
-                <MainGraph height="60" color="#D9D4FF" num="23" time="4" />
+              {timeState.member?.tempInfo?.document?.map((array, i) => (
+                  <MainGraph
+                    color="#D9D4FF"
+                    height={parseInt(array?.temperature.split('.')[0])}
+                    num={array?.temperature}
+                    time={array?.time}
+                    icon={array?.icon}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Row>
           </Box2>
+
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
             <AlwaysScrollSection>
-              <RainGraph height="80" num="30" time="18" />
-              <RainGraph height="80" num="30" time="19" />
-              <RainGraph height="60" num="20" time="20" />
-              <RainGraph height="50" num="10" time="21" />
-              <RainGraph height="50" num="10" time="22" />
-              <RainGraph height="30" num="5" time="23" />
-              <RainGraph height="0" num="0" time="0" />
-              <RainGraph height="0" num="0" time="1" />
-              <RainGraph height="0" num="0" time="2" />
-              <RainGraph height="0" num="0" time="3" />
-              <RainGraph height="0" num="0" time="4" />
-            </AlwaysScrollSection>
+              {timeState.member?.rainInfo?.document?.map((array, i) => (
+                  <RainGraph
+                    color="#D9D4FF"
+                    height={array?.percent }
+                    num={array?.percent}
+                    time={array?.time}
+                    icon={array?.icon}
+                  />
+                ))}
+                </AlwaysScrollSection>
           </Box2>
+
         </Wrapper1>
         <Wrapper2>
           <Box3>
@@ -342,13 +359,14 @@ function MainPage() {
         </Wrapper2>
 
         <Wrapper3>
-          <LocationText />
+          <LocationText text={nameState?.member}/>
           <Box1>
             <img
               style={{ width: '140px', height: '140px', marginTop: '10px' }}
               src={Rain}
             />
-            <MainInfo2 />
+            <MainInfo2 
+            />
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>

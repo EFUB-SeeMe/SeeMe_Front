@@ -38,8 +38,8 @@ function RainGraph({height,num,time}) {
             <Text>{num}</Text>
             
         <Styled  height={height}> </Styled>
-        <img style={{marginRight:"5px"}}src={Rain} />
-        <Text>{time+"시"}</Text>
+        <img style={{marginRight:"5px",width:"27px",height:"35px"}}src={Rain} />
+        <Text>{time}</Text>
         </Wrapper>
 
     )

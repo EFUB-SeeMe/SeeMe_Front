@@ -10,7 +10,8 @@ import {
   CAI_MAIN,
   WEATHER_MAIN,
   LAT_TO_CODE,
-  COVID_NUM
+  COVID_NUM,
+  WEATHER_TIME
 } from './type'
 
 import { USER_SERVER } from '../config'
@@ -117,6 +118,15 @@ export const covidNum = (day, code) => {
     .then(response => response.data)
   return {
     type: COVID_NUM,
+    payload: request,
+  }
+}
+export const weatherTime = (lat, lon) => {
+  const request = axios
+  .get(`${USER_SERVER}/weather/time?lat=${lat}&lon=${lon}`)
+    .then(response => response.data)
+  return {
+    type: WEATHER_TIME,
     payload: request,
   }
 }
