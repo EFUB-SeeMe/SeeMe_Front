@@ -9,6 +9,7 @@ import {
   MICRO_DUST,
   CAI_MAIN,
   WEATHER_MAIN,
+  WEATHER_TIME
 } from './type'
 
 import { USER_SERVER } from '../config'
@@ -93,6 +94,15 @@ export const weatherMain = (lat, lon) => {
     .then(response => response.data)
   return {
     type: WEATHER_MAIN,
+    payload: request,
+  }
+}
+export const weatherTime = (lat, lon) => {
+  const request = axios
+  .get(`${USER_SERVER}/weather/time?lat=${lat}&lon=${lon}`)
+    .then(response => response.data)
+  return {
+    type: WEATHER_TIME,
     payload: request,
   }
 }

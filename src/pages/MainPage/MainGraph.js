@@ -30,14 +30,14 @@ const Text=styled.div`
     
 `
 
-function MainGraph({color,height,num,time}) {
+function MainGraph({color,height,num,time, icon}) {
     return (
         <Wrapper>
-            <Text>{num+"°"}</Text>
+            <Text>{num}</Text>
             
         <Styled color={color} height={height}> </Styled>
-        <img src={Rain} />
-        <Text>{time+"시"}</Text>
+        <img src={icon} />
+        <Text>{time}</Text>
         </Wrapper>
 
     )

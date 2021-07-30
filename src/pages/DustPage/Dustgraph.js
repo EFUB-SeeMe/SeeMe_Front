@@ -5,6 +5,7 @@ const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
   margin-top: 40%;
+  margin-bottom: 0%;
   width: 100%;
   height:75%;
   align-items: center;
@@ -88,7 +89,7 @@ const Box2 = styled.div`
   width: 100%;
   height: 10%;
   margin-left: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 0%;
   display: flex;
   flex-direction: row;
   @media (min-width: 430px) and (max-width: 1440px) {

@@ -93,13 +93,13 @@ const Input = styled.input`
     display: none;
   }
 `
+
 const Button = styled.button`
   margin-top: ${props => props.margin || 19}px;
   height: 31px;
   border: 1px solid rgba(255, 255, 255, 0);
   color: black;
   background: white;
-
   font-family: 'NotoSans';
   outline:none;
   @media (min-width: 430) and (max-width: 1440px) {
@@ -107,7 +107,6 @@ const Button = styled.button`
     width: 70px;
     font-size: 14px;
   }
-
   @media (min-width: 1440px) {
     //desktop
     width: 100px;
@@ -118,6 +117,7 @@ const Button = styled.button`
     display: none;
   }
 `
+
 const SearchButton = styled.button`
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0);
