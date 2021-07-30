@@ -45,7 +45,7 @@ export const covidRegional = (lat, lon) => {
 
 export const latToAdd = (lat, lon) => {
   const request = axios
-    .get(`${USER_SERVER}/location/latLonToUmd?lat=${lat}&lon=${lon}`)
+    .get(`${USER_SERVER}/location/latlon2address?lat=${lat}&lon=${lon}`)
     .then(response => response.data)
   return {
     type: LAT_TO_ADD,
