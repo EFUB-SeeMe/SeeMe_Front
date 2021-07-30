@@ -3,28 +3,24 @@ import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
-  width:200px;
-  height:200px;
-  margin-top: 30px;
-  display: center;
-  margin-right: 40px;
-  @media (max-width: 420px) {
-    //iphone
-    display:none
-  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
   @media (min-width: 844px) and (max-width: 1440px) {
     //between
-     margin-top:15px;
-     margin-right: 50px;
-     width:150px;
+    display:none
 
   }
   @media (min-width: 420px) and (max-width: 843px) {
     // ipad
-    margin-top:15px;
-     margin-right: 0px;
-     width:120px;
-
+    display:none
+  }
+  @media (min-width: 1440px) {
+    //desktop
+    display:none
   }
 
 `
@@ -98,31 +94,31 @@ const FontWrapper=styled.div`
   color:rgba(255,108,108,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-  margin-left: 20px;
+
 `
 const FontWrapper2=styled.div`
   font-size: 20px;
   color:rgba(254,177,83,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-  margin-left: 40px;
+
 `
 const FontWrapper3=styled.div`
   font-size: 20px;
   color:rgba(135,239,133,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-  margin-left: 40px;
+
 `
 const FontWrapper4=styled.div`
   font-size: 20px;
   color:rgba(133,191,239,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-  margin-left: 40px;
+
 `
 
-function Circle({num}) {
+function Circle2({num}) {
     if(num<=100&&num>=91){
     return (
         <Wrapper >
@@ -152,4 +148,4 @@ function Circle({num}) {
     }
 
 }
-export default Circle;
+export default Circle2;

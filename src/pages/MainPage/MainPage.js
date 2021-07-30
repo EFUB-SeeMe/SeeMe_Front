@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
 import MainGraph from './MainGraph'
 import { AlwaysScrollSection } from './AlwaysScrollSection'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import RainGraph from './RainGraph'
 import WeekGraph from './WeekGraph'
 import MainInfo from './MainInfo'
@@ -14,7 +14,7 @@ import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from '../Location'
-import { latToAdd, weatherMain } from '../../_actions/user_action'
+import { latToAdd, weatherMain,latToCode } from '../../_actions/user_action'
 
 
 const Background = styled.div`
@@ -211,6 +211,15 @@ function MainPage() {
       const data = response.payload
       setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
       console.log(data)
+    });
+    dispatch(
+      latToCode(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      const data = response.payload.addressCode
+      window.localStorage.setItem('code',data)
     })
   }, [])
 

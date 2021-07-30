@@ -7,3 +7,5 @@ export const DUST_MAIN = 'dust_main'
 export const MICRO_DUST = 'micro_dust'
 export const CAI_MAIN = 'cai_main'
 export const WEATHER_MAIN="weather_main"
+export const LAT_TO_CODE="lat_to_code"
+export const COVID_NUM="covid_num"

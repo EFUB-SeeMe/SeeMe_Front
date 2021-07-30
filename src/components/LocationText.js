@@ -26,11 +26,11 @@ const Wrapper =styled.div`
   }
     
 `
-function LocationText() {
+function LocationText({text}) {
     return (
         <Wrapper>
         <img style={{marginTop:"12px", marginRight:"5px"}} src={image} />
-        <Styled>성동구 성수1동</Styled>
+        <Styled>{text}</Styled>
         </Wrapper>
     )
 }
