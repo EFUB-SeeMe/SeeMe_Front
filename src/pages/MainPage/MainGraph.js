@@ -35,7 +35,7 @@ function MainGraph({color,height,num,time, icon}) {
         <Wrapper>
             <Text>{num}</Text>
             
-        <Styled color={color} height={height}> </Styled>
+        <Styled color={color} height={(height-20)*6}> </Styled>
         <img style={{width:"40px",height:"40px"}}src={icon} />
         <Text>{time}</Text>
         </Wrapper>

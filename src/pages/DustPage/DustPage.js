@@ -555,7 +555,7 @@ function DustPage() {
         </Wrapper1>
 
         <Wrapper3>
-          <LocationText />
+        <LocationText text={nameState?.member}/>
           <Box1_mobile>
             <div>
               <Row>
