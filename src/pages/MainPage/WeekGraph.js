@@ -59,6 +59,11 @@ const Text = styled.div`
     //desktop
     margin-right: 20px;
   }
+
+  @media (max-width: 430px) {
+    //iphone
+    font-size: 15px;
+  }
 `
 
 const SmallText = styled.div`
