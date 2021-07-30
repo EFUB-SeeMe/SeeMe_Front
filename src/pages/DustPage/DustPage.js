@@ -302,7 +302,13 @@ const FaceImage = styled.img`
   width: 350px;
   height: 350px;
 
-  @media (min-width: 430px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1025px) {
+    //ipad
+    margin-top: 10px;
+    width: 80px;
+    height: 130px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
     width: 100px;
@@ -340,7 +346,14 @@ const Text3 = styled.button`
   background: white;
   border: none;
   outline: none;
-  @media (min-width: 430px) and (max-width: 1440px) {
+
+  @media (min-width: 430px) and (max-width: 1024px) {
+    //ipad
+    font-size: 14px;
+    width: 90px;
+    margin-right: 5px;
+  }
+  @media (min-width: 1025px) and (max-width: 1440px) {
     //between
     font-size: 15px;
     width: 90px;
