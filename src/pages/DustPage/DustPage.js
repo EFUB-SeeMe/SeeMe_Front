@@ -555,7 +555,7 @@ function DustPage() {
         </Wrapper1>
 
         <Wrapper3>
-        <LocationText text={nameState?.member}/>
+          <LocationText text={nameState?.member} />
           <Box1_mobile>
             <div>
               <Row>
@@ -609,14 +609,29 @@ function DustPage() {
           </Box2>
           <Box3>
             <column style={{ justifyContent: 'center' }}>
-              <Text style={{ marginBottom: '10px' }}> 통합대기환경지수 </Text>
+              <Text
+                style={{
+                  marginBottom: '10px',
+                  marginLeft: '12px',
+                  fontSize: '18px',
+                }}
+              >
+                {' '}
+                통합대기환경지수{' '}
+              </Text>
               <Row>
                 <FaceImage
                   style={{ marginTop: '5px' }}
                   src={mainState?.member?.totalInfo?.document?.caiIcon}
                 />
               </Row>
-              <Box4_sub1>
+              <Box4_sub1
+                style={{
+                  marginLeft: '16px',
+                  width: '280px',
+                  alignContent: 'center',
+                }}
+              >
                 <Row>
                   <Text3> 아황산가스 </Text3>
                   <Text3>
