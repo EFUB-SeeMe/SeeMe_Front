@@ -190,6 +190,7 @@ const Box4 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
+    height: 290px;
   }
 `
 
@@ -316,15 +317,26 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p
+              style={{
+                marginLeft: '30px',
+                fontFamily: 'NotoSans',
+                fontSize: '20px',
+              }}
+            >
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
+              ))}
             </Column>
           </Box4>
         </Wrapper2>
@@ -377,15 +389,20 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
+              ))}
             </Column>
           </Box4>
         </Wrapper3>

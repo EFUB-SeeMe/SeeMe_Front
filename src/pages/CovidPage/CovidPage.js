@@ -11,7 +11,7 @@ import Graph_Local from './Graph_Local'
 import Ascent from './Ascent'
 import Circle2 from './Circle2'
 
-import Circle from "./Circle"
+import Circle from './Circle'
 
 import {
   covidMain,
@@ -20,7 +20,6 @@ import {
   latToAdd,
   covidNum
 } from '../../_actions/user_action'
-
 
 const Background = styled.div`
   background-color: #e5e5e5;
@@ -312,20 +311,23 @@ const Wrap5 = styled.div`
 const Wrap6 = styled.div`
   display: flex;
   width: 75%;
-  margin-top: 30px;
+  height: 290px;
+  margin-top: 10px;
   margin-bottom: 20px;
   margin-right: 14px;
   margin-left: 20px;
-
+  //background: lavender;
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 70%;
+    height: 230px;
     justify-content: space-around, center;
-    margin-top: 00px;
+    margin-top: 10px;
   }
   @media (max-width: 420px) {
     //iphone
     width: 90%;
+    height: 240px;
     margin-top: 00px;
   }
 `
@@ -334,18 +336,23 @@ const Wrap6a = styled.div`
   flex-direction: row;
   justify-content: space-around, center;
   width: 75%;
-  margin-right: 14px;
+  height: 250px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
   margin-left: 20px;
-  margin-top: 70px;
-
+  //background: lavender;
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     width: 70%;
     margin-top: 20px;
+    height: 210px;
+    margin-top: 10px;
   }
   @media (max-width: 420px) {
     //iphone
     width: 90%;
+    height: 180px;
     margin-top: 00px;
   }
 `
@@ -581,7 +588,6 @@ function CovidPage() {
             </Wrap5>
             <Wrap6>
               <AlwaysScrollSection>
-
                 {nationalState.member?.coronicList?.map((corona, i) => (
                   <Graph
                     height={corona.coronicByDay / 10}
@@ -612,7 +618,6 @@ function CovidPage() {
             </Wrap5>
             <Wrap6a>
               <AlwaysScrollSection>
-
                 {regionalState.member?.coronicList?.map((corona, i) => (
                   <Graph_Local
                     height={corona.coronicByDay / 8}
