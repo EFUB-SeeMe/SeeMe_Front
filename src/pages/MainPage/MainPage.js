@@ -190,6 +190,7 @@ const Box4 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
+    height: 290px;
   }
 `
 
@@ -312,14 +313,14 @@ function MainPage() {
               이번 주 날씨{' '}
             </p>
             <Column>
-              {weatherState?.member?.weekInfo?.document?.map((array, i) => (
-                <WeekGraph>
-                  day= {array?.day}
-                  amIcon = {array?.amIcon}
-                  pmIcon = {array?.pmIcon}
-                  hot = {array?.max}
-                  cold = {array?.min}
-                </WeekGraph>
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
               ))}
             </Column>
           </Box4>
@@ -378,14 +379,14 @@ function MainPage() {
               이번 주 날씨{' '}
             </p>
             <Column>
-              {weatherState?.member?.weekInfo?.document?.map((array, i) => (
-                <WeekGraph>
-                  day= {array?.day}
-                  amIcon = {array?.amIcon}
-                  pmIcon = {array?.pmIcon}
-                  hot = {array?.max}
-                  cold = {array?.min}
-                </WeekGraph>
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
               ))}
             </Column>
           </Box4>
