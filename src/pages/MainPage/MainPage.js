@@ -290,7 +290,7 @@ function MainPage() {
               {timeState.member?.tempInfo?.document?.map((array, i) => (
                   <MainGraph
                     color="#D9D4FF"
-                    heignt={array?.temperature-"°" * 3}
+                    heignt={array?.temperature.split('.')[0]* 6}
                     num={array?.temperature}
                     time={array?.time}
                     icon={array?.icon}
@@ -304,7 +304,7 @@ function MainPage() {
             <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
             <AlwaysScrollSection>
               {timeState.member?.rainInfo?.document?.map((array, i) => (
-                  <MainGraph
+                  <RainGraph
                     color="#D9D4FF"
                     heignt={array?.percent * 3}
                     num={array?.percent}
