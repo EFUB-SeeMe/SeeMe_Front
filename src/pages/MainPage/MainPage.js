@@ -308,7 +308,13 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+            <p
+              style={{
+                marginLeft: '30px',
+                fontFamily: 'NotoSans',
+                fontSize: '20px',
+              }}
+            >
               {' '}
               이번 주 날씨{' '}
             </p>
