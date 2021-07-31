@@ -9,11 +9,9 @@ export const AlwaysScrollSection = memo(props => {
 const StyledAlwaysScrollSection = styled.div`
   overflow: scroll;
   display: flex;
-
   &::-webkit-scrollbar {
     /* 세로 스크롤 넓이 */
     width: 1px;
-
     /* 가로 스크롤 높이 */
     height: 6px;
     border-radius: 3px;

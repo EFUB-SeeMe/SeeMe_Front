@@ -17,16 +17,13 @@ const Wrapper = styled.div`
      margin-top:15px;
      margin-right: 50px;
      width:150px;
-
   }
   @media (min-width: 420px) and (max-width: 843px) {
     // ipad
     margin-top:15px;
      margin-right: 0px;
      width:120px;
-
   }
-
 `
 
 const ColorCircle=styled.div`
@@ -43,7 +40,6 @@ const ColorCircle=styled.div`
     font-size: 27px;
     color:rgba(255,108,108,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle2=styled.div`
     display:flex;
@@ -59,7 +55,6 @@ const ColorCircle2=styled.div`
     font-size: 27px;
     color:rgba(254,177,83,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle3=styled.div`
     display:flex;
@@ -75,7 +70,6 @@ const ColorCircle3=styled.div`
     font-size: 27px;
     color:rgba(135,239,133,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle4=styled.div`
     display:flex;
@@ -91,7 +85,6 @@ const ColorCircle4=styled.div`
     font-size: 27px;
     color:rgba(133,191,239,1);
     font-family: 'NotoSansBold';
-
 `
 const FontWrapper=styled.div`
   font-size: 20px;

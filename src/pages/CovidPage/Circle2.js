@@ -3,7 +3,6 @@ import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -12,7 +11,6 @@ const Wrapper = styled.div`
   @media (min-width: 844px) and (max-width: 1440px) {
     //between
     display:none
-
   }
   @media (min-width: 420px) and (max-width: 843px) {
     // ipad
@@ -22,7 +20,6 @@ const Wrapper = styled.div`
     //desktop
     display:none
   }
-
 `
 
 const ColorCircle=styled.div`
@@ -39,7 +36,6 @@ const ColorCircle=styled.div`
     font-size: 27px;
     color:rgba(255,108,108,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle2=styled.div`
     display:flex;
@@ -55,7 +51,6 @@ const ColorCircle2=styled.div`
     font-size: 27px;
     color:rgba(254,177,83,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle3=styled.div`
     display:flex;
@@ -71,7 +66,6 @@ const ColorCircle3=styled.div`
     font-size: 27px;
     color:rgba(135,239,133,1);
     font-family: 'NotoSansBold';
-
 `
 const ColorCircle4=styled.div`
     display:flex;
@@ -87,35 +81,30 @@ const ColorCircle4=styled.div`
     font-size: 27px;
     color:rgba(133,191,239,1);
     font-family: 'NotoSansBold';
-
 `
 const FontWrapper=styled.div`
   font-size: 20px;
   color:rgba(255,108,108,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-
 `
 const FontWrapper2=styled.div`
   font-size: 20px;
   color:rgba(254,177,83,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-
 `
 const FontWrapper3=styled.div`
   font-size: 20px;
   color:rgba(135,239,133,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-
 `
 const FontWrapper4=styled.div`
   font-size: 20px;
   color:rgba(133,191,239,1);
   font-family: 'NotoSansBold';
   margin-top: 10px;
-
 `
 
 function Circle2({num}) {

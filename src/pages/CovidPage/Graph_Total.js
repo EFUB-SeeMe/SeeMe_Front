@@ -17,7 +17,6 @@ const Styled = styled.div`
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 16px;
   background: #ff6c6c;
-
   @media (max-width: 420px) {
     //iphone
     height: ${props => props.height || 30}px;

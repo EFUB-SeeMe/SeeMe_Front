@@ -37,18 +37,14 @@ const Box0 = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   margin-top: 15px;
-
-
   @media (min-width: 1440px) {
     // desktop
     display: none;
   }
-
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     display: none;
   }
-
   @media (max-width: 420px) {
     // iphone
     width: 90%;
@@ -62,20 +58,17 @@ const Box1 = styled.div`
   border-radius: 16px;
   margin-top: 15px;
   margin-bottom: 20px;
-
   @media (min-width: 1440px) {
     // desktop
     width: 70%;
     height: 280px;
   }
-
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     //margin-top: 40px;
     width: 70%;
     height: 200px;
   }
-
   @media (max-width: 420px) {
     // iphone
     width: 90%;
@@ -87,20 +80,17 @@ const Box2 = styled.div`
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
-
   @media (min-width: 1440px) {
     // desktop
     width: 70%;
     height: 323px;
   }
-
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
     height: 250px;
     // margin-top: 8px;
   }
-
   @media (max-width: 420px) {
     // iphone
     width: 90%;
@@ -114,20 +104,17 @@ const Box3 = styled.div`
   border-radius: 16px;
   margin-bottom: 20px;
   margin-top: 15px;
-
   @media (min-width: 1440px) {
     // desktop
     width: 70%;
     height: 293px;
   }
-
   @media (min-width: 420px) and (max-width: 1440px) {
     // between
     width: 70%;
     height: 230px;
     margin-top: 18px;
   }
-
   @media (max-width: 420px) {
     // iphone
     width: 90%;
@@ -144,7 +131,6 @@ const Wrap2 = styled.div`
   flex-direction: row;
   align-content: center;
   align-items: center;
-
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     height: 28px;
@@ -164,7 +150,6 @@ const Text1 = styled.a`
   font-weight: normal;
   font-size: 22px;
   line-height: 32px;
-
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 16px;
@@ -178,7 +163,6 @@ const Loc_Icon = styled.button`
   margin-left: 37px;
   margin-top: 21px;
   background: white;
-
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-top: 20px;
@@ -212,7 +196,6 @@ const Text2 = styled.div`
   font-size: 25px;
   width: 200px;
   text-align: center;
-
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
@@ -236,7 +219,6 @@ const Text3 = styled.div`
   font-size: 70px;
   color: #000000;
   margin-left: 20px;
-
   @media (max-width: 420px) {
     //iphone
     font-size: 40px;
@@ -253,7 +235,6 @@ const Line = styled.div`
   border: 1.5px solid #d9d9d9;
   margin-left: 100px;
   margin-right: 100px;
-
   @media (min-width: 1024px) and (max-width: 1440px) {
     //between
     margin-left: 30px;
@@ -284,7 +265,6 @@ const Line = styled.div`
 const Wrap4 = styled.div`
   display: flex;
   flex-direction: row;
-
   @media (max-width: 420px) {
     //iphone
     flex-direction: column;
@@ -295,7 +275,6 @@ const Wrap5 = styled.div`
   flex-direction: column;
   width: 25%;
   height: 200px;
-
   @media (min-width: 420px) and (max-width: 843px) {
     //between
     width: 30%;
@@ -359,7 +338,6 @@ const Wrap6a = styled.div`
 const Wrap7 = styled.div`
   display: flex;
   flex-direction: row;
-
   @media (max-width: 420px) {
     flex-direction: column;
   }
@@ -374,7 +352,6 @@ const Text4 = styled.div`
   margin-top: 25px;
   margin-bottom: 30px;
   margin-left: 40px;
-
   @media (min-width: 843px) and (max-width: 1440px) {
     //between
     font-size: 17px;
@@ -408,7 +385,6 @@ const Text5 = styled.div`
   line-height: 22px;
   margin-left: 40px;
   margin-bottom: 8px;
-
   @media (min-width: 843px) and (max-width: 1440px) {
     //between
     font-size: 14px;
@@ -435,7 +411,6 @@ const BoldText1 = styled.div`
   font-size: 16px;
   line-height: 20px;
   margin-left: 40px;
-
   @media (min-width: 420px) and (max-width: 1440px) {
     //between
     font-size: 14px;
