@@ -28,8 +28,6 @@ const Background = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `
 const Wrapper1 = styled.div`
   display: flex;
@@ -129,7 +127,7 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
-
+ 
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 80%;
@@ -173,24 +171,22 @@ const Box3 = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
   display: flex;
-
+  flex-direction: center;
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 39.5%;
+    width: 40%;
     height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 39.5%;
+    width: 40%;
     height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
-    flex-direction: column;
-    justify-content: center;
     width: 90%;
-    height: 390px;
+    height: 350px;
   }
 `
 const Box4 = styled.div`
@@ -263,11 +259,11 @@ const Column = styled.div`
 `
 
 const DustImage = styled.img`
-  width: 184px;
+  width: 200px;
   height: 200px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 120px;
+    width: 130px;
     height: 130px;
   }
   @media (max-width: 430px) {
@@ -305,29 +301,23 @@ const FaceImage = styled.img`
   width: 350px;
   height: 350px;
 
-  @media (min-width: 430px) and (max-width: 1025px) {
-    //ipad
-    margin-top: 10px;
-    width: 80px;
-    height: 130px;
-  }
-  @media (min-width: 1025px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
     margin-top: 10px;
-    width: 100px;
-    height: 150px;
+    width: 90%;
+    height: 50%;
   }
   @media (max-width: 430px) {
     //iphone
     margin-top: 10px;
-    width: 100px;
-    height: 150px;
+    width: 60%;
+    height: 60%;
   }
   @media (min-width: 1440px) {
     // desktop
     margin-top: 3px;
-    width: 110px;
-    height: 160px;
+    width: 45%;
+    height: 50%;
   }
 `
 const Box4_sub1 = styled.div`
@@ -349,17 +339,10 @@ const Text3 = styled.button`
   background: white;
   border: none;
   outline: none;
-
-  @media (min-width: 430px) and (max-width: 1024px) {
-    //ipad
-    font-size: 14px;
-    width: 90px;
-    margin-right: 5px;
-  }
-  @media (min-width: 1025px) and (max-width: 1440px) {
+  @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    font-size: 15px;
-    width: 90px;
+    font-size: 17px;
+    width: 120px;
     margin-right: 10px;
   }
   @media (max-width: 430px) {
@@ -469,11 +452,7 @@ function DustPage() {
                 ></DustImage>
               </Row>
             </MainBox>
-            <Dustinfo
-              finedust={mainState?.member?.mainInfo?.document?.pm10}
-              microdust={mainState?.member?.mainInfo?.document?.pm25}
-              briefing={mainState?.member?.mainInfo?.document?.desc}
-            />
+            <Dustinfo />
           </Box1>
           <Box2>
             <Box2_sub1>
@@ -565,12 +544,11 @@ function DustPage() {
         </Wrapper1>
 
         <Wrapper3>
-          <LocationText text={nameState?.member} />
+          <LocationText />
           <Box1_mobile>
             <div>
               <Row>
                 <DustImage
-                  style={{ height: '180px', width: '150px' }}
                   src={mainState?.member?.mainInfo?.document?.gradeIcon}
                 />
               </Row>
@@ -585,11 +563,11 @@ function DustPage() {
                 </a>
               </Row>
               <Row>
-                <Text2 size="60">
+                <Text2 size="60" color="#42A0F0">
                   {' '}
                   {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
                 </Text2>
-                <Text2 size="60">
+                <Text2 size="60" color="#42A0F0">
                   {' '}
                   {mainState?.member?.mainInfo?.document?.pm25}{' '}
                 </Text2>
@@ -629,29 +607,14 @@ function DustPage() {
           </Box2>
           <Box3>
             <column style={{ justifyContent: 'center' }}>
-              <Text
-                style={{
-                  marginBottom: '10px',
-                  marginLeft: '12px',
-                  fontSize: '18px',
-                }}
-              >
-                {' '}
-                통합대기환경지수{' '}
-              </Text>
+              <Text style={{ marginBottom: '10px' }}> 통합대기환경지수 </Text>
               <Row>
                 <FaceImage
                   style={{ marginTop: '5px' }}
                   src={mainState?.member?.totalInfo?.document?.caiIcon}
                 />
               </Row>
-              <Box4_sub1
-                style={{
-                  marginLeft: '16px',
-                  width: '280px',
-                  alignContent: 'center',
-                }}
-              >
+              <Box4_sub1>
                 <Row>
                   <Text3> 아황산가스 </Text3>
                   <Text3>
