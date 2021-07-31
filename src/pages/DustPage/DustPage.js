@@ -133,12 +133,12 @@ const Box2 = styled.div`
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 80%;
-    height: 250px;
+    height: 300px;
   }
   @media (min-width: 1440px) {
     //desktop
     width: 80%;
-    height: 300px;
+    height: 370px;
   }
   @media (max-width: 430px) {
     //iphone
