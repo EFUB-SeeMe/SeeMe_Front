@@ -4,18 +4,12 @@ import styled from 'styled-components'
 const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
-  margin-top: 40%;
+  margin-top: 25%;
   margin-bottom: 0%;
   width: 100%;
-  height:75%;
+  height:85%;
   align-items: center;
   justify-content: center;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
 `
 
 const Box1 = styled.div`
@@ -29,12 +23,6 @@ const Box1 = styled.div`
   flex-direction: row;
   align-items: flex-end;
   direction: row;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
   `
 
 const Box1_sub1 = styled.div`
@@ -45,12 +33,6 @@ margin-left: 20%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
 `
 const Box1_sub2 = styled.div`
 // 그래프 박스
@@ -60,12 +42,6 @@ margin-right: 10%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
 `
 
 const Text = styled.div`
@@ -74,12 +50,6 @@ background: white;
 display: flex;
 margin-left:2%;
 font-size: 15px;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
 `
 
 const Box2 = styled.div`
@@ -92,12 +62,6 @@ const Box2 = styled.div`
   margin-bottom: 0%;
   display: flex;
   flex-direction: row;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
 `
 
 // 그래프 2개 그리기 시작
@@ -139,7 +103,7 @@ const Bar2 = styled.div`
     margin-left: 5px;
   }
 `
-// 그래프 2개 그리기 끝
+// 그래프 2개 그리기 
 
 const Day = styled.button`
   align-items: left;
@@ -149,19 +113,21 @@ const Day = styled.button`
   border: none;
   outline: none;
   margin-bottom: 5%;
+  font-weight: ${props => props.bold};
+  
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 18px;
-    margin-left: 50px;
+    margin-left: 70px;
   }
   @media (min-width: 1440px) {
     //desktop
     width: 18px;
-    margin-left: 75px;
+    margin-left: 95px;
   }
 `
 
-function Dustgraph_day({ color, height1, height2, day }) {
+function Dustgraph_day({ color, height1, height2, day, bold }) {
   return (
     <div>
       <Wrapper1>
@@ -177,7 +143,7 @@ function Dustgraph_day({ color, height1, height2, day }) {
           </Box1_sub2>
         </Box1>
         <Box2>
-          <Day>{day}</Day>
+          <Day bold={bold}>{day}</Day>
         </Box2>
       </Wrapper1>
     </div>

@@ -140,12 +140,12 @@ const Box2 = styled.div`
   }
   @media (max-width: 430px) {
     //iphone
-    width: 80%;
+    width: 90%;
     height: 240px;
   }
 `
 const Box2_sub1 = styled.div`
-  // 현재위치 박스
+  // 요일별추이
   display: flex;
   align-items: left;
   height: 10%;
@@ -153,13 +153,13 @@ const Box2_sub1 = styled.div`
 `
 
 const Box2_sub2 = styled.div`
-  // 현재위치 박스
+  // 그래프 박스
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   //align-items: left;
-  height: 75%;
+  height: 90%;
 `
 
 const Box3 = styled.div`
@@ -461,11 +461,21 @@ function DustPage() {
             <Box2_sub2>
               <AlwaysScrollSection>
                 {dustState.member?.map((array, i) => (
+                  i==1 ?
                   <Dustgraph
                     color="#85BFEF"
                     height1={array?.dust * 3}
                     height2={array?.microdust * 3}
                     day={array?.date}
+                    bold="bold"
+                  />
+                  : 
+                  <Dustgraph
+                    color="#85BFEF"
+                    height1={array?.dust * 3}
+                    height2={array?.microdust * 3}
+                    day={array?.date}
+                    bold="normal"
                   />
                 ))}
               </AlwaysScrollSection>
@@ -577,8 +587,8 @@ function DustPage() {
                 {dustState.member?.map((array, i) => (
                   <Dustgraph
                     color="#85BFEF"
-                    height1={array?.dust * 3}
-                    height2={array?.microdust * 3}
+                    height1={array?.dust *2 }
+                    height2={array?.microdust *2}
                     day={array?.date}
                   />
                 ))}

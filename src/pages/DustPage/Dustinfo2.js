@@ -7,8 +7,8 @@ import { useDispatch } from 'react-redux'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: row;
+  flex-direction: column;
+  justify-content: column;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -54,11 +54,10 @@ const Text = styled.div`
   color: ${props => props.color || 'black'};
   font-size: ${props => props.size || 20}px;
   font-family: 'NotoSans';
-  margin-left:5%;
   text-align: center;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    font-size: ${props => props.size - 5 || 20}px;
+    font-size: ${props => props.size - 7 || 20}px;
   }
   @media (max-width: 430px) {
     //iphone
@@ -72,9 +71,6 @@ const Text = styled.div`
 `
 const MaskImage = styled.img`
   width: 40%;
-  margin-left: 10%;
-  margin-bottom: 10%;
-  margin-top: 3%;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -88,7 +84,7 @@ const MaskImage = styled.img`
   @media (max-width: 430px) {
     //iphone
     width: 150x;
-    height: 150px;
+    height: 230px;
   }
 `
 

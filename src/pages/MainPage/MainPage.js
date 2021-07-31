@@ -306,7 +306,7 @@ function MainPage() {
               {timeState.member?.rainInfo?.document?.map((array, i) => (
                   <RainGraph
                     color="#D9D4FF"
-                    heignt={array?.percent * 3}
+                    heignt={30+array?.percent * 10}
                     num={array?.percent}
                     time={array?.time}
                     icon={array?.icon}
@@ -347,34 +347,30 @@ function MainPage() {
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
             <Row>
               <AlwaysScrollSection>
-                <MainGraph height="80" color="#D9D4FF" num="26" time="18" />
-                <MainGraph height="80" color="#D9D4FF" num="29" time="19" />
-                <MainGraph height="60" color="#D9D4FF" num="23" time="20" />
-                <MainGraph height="50" color="#D9D4FF" num="24" time="21" />
-                <MainGraph height="80" color="#D9D4FF" num="26" time="22" />
-                <MainGraph height="40" color="#D9D4FF" num="21" time="23" />
-                <MainGraph height="80" color="#D9D4FF" num="26" time="0" />
-                <MainGraph height="70" color="#D9D4FF" num="24" time="1" />
-                <MainGraph height="50" color="#D9D4FF" num="23" time="2" />
-                <MainGraph height="40" color="#D9D4FF" num="21" time="3" />
-                <MainGraph height="60" color="#D9D4FF" num="23" time="4" />
+              {timeState.member?.tempInfo?.document?.map((array, i) => (
+                  <MainGraph
+                    color="#D9D4FF"
+                    heignt={array?.temperature.split('.')[0]* 6}
+                    num={array?.temperature}
+                    time={array?.time}
+                    icon={array?.icon}
+                  />
+                ))}
               </AlwaysScrollSection>
             </Row>
           </Box2>
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
             <AlwaysScrollSection>
-              <RainGraph height="80" num="30" time="18" />
-              <RainGraph height="80" num="30" time="19" />
-              <RainGraph height="60" num="20" time="20" />
-              <RainGraph height="50" num="10" time="21" />
-              <RainGraph height="50" num="10" time="22" />
-              <RainGraph height="30" num="5" time="23" />
-              <RainGraph height="0" num="0" time="0" />
-              <RainGraph height="0" num="0" time="1" />
-              <RainGraph height="0" num="0" time="2" />
-              <RainGraph height="0" num="0" time="3" />
-              <RainGraph height="0" num="0" time="4" />
+            {timeState.member?.rainInfo?.document?.map((array, i) => (
+                  <RainGraph
+                    color="#D9D4FF"
+                    heignt={30+array?.percent * 10}
+                    num={array?.percent}
+                    time={array?.time}
+                    icon={array?.icon}
+                  />
+                ))}
             </AlwaysScrollSection>
           </Box2>
 
