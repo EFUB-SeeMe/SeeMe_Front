@@ -49,7 +49,7 @@ const Red = styled.div`
 const Green = styled.div`
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
-  border-bottom: 22px solid #FEB153;
+  border-top: 22px solid #FEB153;
   margin-left: 5px;
 
 
@@ -64,7 +64,7 @@ const Green = styled.div`
     //iphone
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-bottom: 12px solid #FEB153;
+    border-top: 12px solid #FEB153;
     margin-left: 5px;
   }
 `
