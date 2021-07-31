@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
 import MainGraph from './MainGraph'
 import { AlwaysScrollSection } from './AlwaysScrollSection'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import RainGraph from './RainGraph'
 import WeekGraph from './WeekGraph'
 import MainInfo from './MainInfo'
@@ -14,8 +14,12 @@ import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from '../Location'
-import { latToAdd, weatherMain, weatherTime } from '../../_actions/user_action'
-
+import {
+  latToAdd,
+  weatherMain,
+  latToCode,
+  weatherTime,
+} from '../../_actions/user_action'
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -191,6 +195,7 @@ const Box4 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
+    height: 290px;
   }
 `
 
@@ -198,7 +203,11 @@ function MainPage() {
   const gsLocation = Location()
   console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
-  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
+
+  const [weatherState, setWeatherState] = useState({
+    status: 'idle',
+    member: null,
+  })
   const [timeState, setTimeState] = useState({ status: 'idle', member: null })
   const dispatch = useDispatch()
   useEffect(() => {
@@ -213,8 +222,17 @@ function MainPage() {
       setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
       console.log(data)
     })
+    dispatch(
+      latToCode(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      const data = response.payload.addressCode
+      window.localStorage.setItem('code', data)
+    })
   }, [])
-  
+
   //WEATHER MAIN
   useEffect(() => {
     dispatch(
@@ -243,10 +261,7 @@ function MainPage() {
     ).then(response => {
       setTimeState({ status: 'pending' })
       const data = response.payload
-      setTimeout(
-        () => setTimeState({ status: 'resolved', member: data }),
-        600
-      )
+      setTimeout(() => setTimeState({ status: 'resolved', member: data }), 600)
       console.log(timeState)
     })
   }, [])
@@ -261,7 +276,9 @@ function MainPage() {
               <Row>
                 <img style={{ height: '22px', width: '22px' }} src={image} />
 
-                <p style={{ marginTop: '3px' }}>&ensp; {nameState?.member}</p>
+                <p style={{ marginTop: '3px', fontFamily: 'NotoSans' }}>
+                  &ensp; {nameState?.member}
+                </p>
               </Row>
               <Row>
                 <img
@@ -271,26 +288,29 @@ function MainPage() {
               </Row>
               <Row>
                 {' '}
-                <p>흐림</p>
+                <p>{weatherState?.member?.currentInfo?.document?.iconDesc}</p>
               </Row>
             </MainBox>
-            <MainInfo  current={weatherState?.member?.currentInfo?.document?.currTemp} 
-            feel="23" 
-            high="30" 
-            low="21" 
-            today=" 뫄뫄" 
-            yesterday="뫄뫄 "/>
+            <MainInfo
+              current={weatherState?.member?.currentInfo?.document?.currTemp}
+              feel={weatherState?.member?.currentInfo?.document?.feelTemp}
+              high={weatherState?.member?.minmaxInfo?.document?.max}
+              low={weatherState?.member?.minmaxInfo?.document?.min}
+              today={weatherState?.member?.currentInfo?.document?.comp}
+              yesterday={weatherState?.member?.minmaxInfo?.document?.desc}
+            />
           </Box1>
 
-
           <Box2>
-            <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              시간대별 기온
+            </p>
             <Row>
               <AlwaysScrollSection>
-              {timeState.member?.tempInfo?.document?.map((array, i) => (
+                {timeState.member?.tempInfo?.document?.map((array, i) => (
                   <MainGraph
                     color="#D9D4FF"
-                    heignt={array?.temperature.split('.')[0]* 6}
+                    height={parseInt(array?.temperature.split('.')[0])}
                     num={array?.temperature}
                     time={array?.time}
                     icon={array?.icon}
@@ -301,7 +321,9 @@ function MainPage() {
           </Box2>
 
           <Box2>
-            <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              시간대별 강수량
+            </p>
             <AlwaysScrollSection>
               {timeState.member?.rainInfo?.document?.map((array, i) => (
                   <RainGraph
@@ -314,28 +336,38 @@ function MainPage() {
                 ))}
                 </AlwaysScrollSection>
           </Box2>
-
         </Wrapper1>
         <Wrapper2>
           <Box3>
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p
+              style={{
+                marginLeft: '30px',
+                fontFamily: 'NotoSans',
+                fontSize: '20px',
+              }}
+            >
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
+              ))}
             </Column>
           </Box4>
         </Wrapper2>
 
         <Wrapper3>
-          <LocationText />
+          <LocationText text={nameState?.member} />
           <Box1>
             <img
               style={{ width: '140px', height: '140px', marginTop: '10px' }}
@@ -344,7 +376,9 @@ function MainPage() {
             <MainInfo2 />
           </Box1>
           <Box2>
-            <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              시간대별 기온
+            </p>
             <Row>
               <AlwaysScrollSection>
               {timeState.member?.tempInfo?.document?.map((array, i) => (
@@ -360,7 +394,9 @@ function MainPage() {
             </Row>
           </Box2>
           <Box2>
-            <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              시간대별 강수량
+            </p>
             <AlwaysScrollSection>
             {timeState.member?.rainInfo?.document?.map((array, i) => (
                   <RainGraph
@@ -378,15 +414,20 @@ function MainPage() {
             <Clothes />
           </Box3>
           <Box4>
-            <p style={{ marginLeft: '3%' }}> 이번 주 날씨 </p>
+            <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
+              {' '}
+              이번 주 날씨{' '}
+            </p>
             <Column>
-              <WeekGraph day="06월 28일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 29일(월)" hot="29" cold="21" />
-              <WeekGraph day="06월 30일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 01일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 02일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 03일(월)" hot="29" cold="21" />
-              <WeekGraph day="07월 04일(월)" hot="29" cold="21" />
+              {weatherState.member?.weekInfo?.document?.map((array, i) => (
+                <WeekGraph
+                  day={array?.day}
+                  amIcon={array?.amIcon}
+                  pmIcon={array?.pmIcon}
+                  hot={array?.max}
+                  cold={array?.min}
+                />
+              ))}
             </Column>
           </Box4>
         </Wrapper3>

@@ -4,6 +4,7 @@ import standard from '../../assets/Dust_standard.svg'
 import { dustMain } from '../../_actions/user_action'
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,71 +53,554 @@ const Text = styled.div`
   }
 `
 const Standard = styled.img`
-  width: 206px;
   height: 35px;
 
   @media (min-width: 1030px) and (max-width: 1440px) {
     //between
-    width: 216px;
-    height: 35px;
+    width: 316px;
   }
   @media (min-width: 430px) and (max-width: 1030px) {
     // ipad
-    width: 156px;
+    width: 256px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 296px;
+    width: 396px;
+    height: 50px;
   }
 `
 Standard.defaultProps = {
   src: standard,
 }
 
-function Dustinfo({ color, height, num, time }) {
-  const [mainState, setMainState] = useState({ status: 'idle', member: null })
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(
-      dustMain(
-        window.localStorage.getItem('lat'),
-        window.localStorage.getItem('lon')
-      )
-    ).then(response => {
-      setMainState({ status: 'pending' })
-      const data = response.payload
-      setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
-      console.log(data)
-    })
-  }, [])
+function Dustinfo({ finedust, microdust, briefing }) {
+  if (finedust <= 30 && microdust <= 15) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#42A0F0">
+            {finedust}
+          </Text>
+          <Text size="65" color="#42A0F0">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust <= 30 && microdust <= 35 && microdust >= 16) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#85BFEF">
+            {finedust}
+          </Text>
+          <Text size="65" color="#87EF85">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust <= 30 && microdust <= 75 && microdust >= 36) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#85BFEF">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FE9517">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust <= 30 && microdust >= 76) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#85BFEF">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FF6C6C">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  }
+  //
+  else if (finedust <= 80 && finedust >= 31 && microdust <= 15) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#87EF85">
+            {finedust}
+          </Text>
+          <Text size="65" color="#85BFEF">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (
+    finedust <= 80 &&
+    finedust >= 31 &&
+    microdust <= 35 &&
+    microdust >= 16
+  ) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#87EF85">
+            {finedust}
+          </Text>
+          <Text size="65" color="#87EF85">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (
+    finedust <= 80 &&
+    finedust >= 31 &&
+    microdust >= 36 &&
+    microdust <= 75
+  ) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#87EF85">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FE9517">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust >= 31 && finedust <= 80 && microdust >= 76) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#87EF85">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FF6C6C">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  }
+  // finedust 나쁨
+  else if (
+    finedust >= 81 &&
+    finedust <= 150 &&
+    microdust >= 0 &&
+    microdust <= 15
+  ) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FE9517">
+            {finedust}
+          </Text>
+          <Text size="65" color="#85BFEF">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (
+    finedust >= 81 &&
+    finedust <= 150 &&
+    microdust >= 16 &&
+    microdust <= 35
+  ) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FE9517">
+            {finedust}
+          </Text>
+          <Text size="65" color="#87EF85">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (
+    finedust >= 81 &&
+    finedust <= 150 &&
+    microdust >= 36 &&
+    microdust <= 75
+  ) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FE9517">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FE9517">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust >= 81 && finedust <= 150 && microdust >= 76) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FE9517">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FF6C6C">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  }
 
-  return (
-    <Wrapper>
-      <Row>
-        <Text size="18" style={{ marginTop: '15px' }}>
-          미세먼지 농도
-        </Text>
-        <Text size="18" style={{ marginTop: '15px' }}>
-          초미세먼지 농도
-        </Text>
-      </Row>
-      <Row>
-        <Text size="65" color="#42A0F0">
-          {mainState?.member?.mainInfo?.document?.pm10}
-        </Text>
-        <Text size="65" color="#42A0F0">
-          {mainState?.member?.mainInfo?.document?.pm25}
-        </Text>
-      </Row>
-      <Row>
-        <Standard></Standard>
-      </Row>
-      <Row>
-        <Text size="22" color="#222222">
-          {mainState?.member?.mainInfo?.document?.desc}{' '}
-        </Text>
-      </Row>
-    </Wrapper>
-  )
+  //
+  else if (finedust >= 151 && microdust >= 0 && microdust <= 15) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FF6C6C">
+            {finedust}
+          </Text>
+          <Text size="65" color="#85BFEF">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust >= 151 && microdust >= 16 && microdust <= 35) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FF6C6C">
+            {finedust}
+          </Text>
+          <Text size="65" color="#87EF85">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust >= 151 && microdust >= 36 && microdust <= 75) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FF6C6C">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FE9517">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  } else if (finedust >= 151 && microdust >= 76) {
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#FF6C6C">
+            {finedust}
+          </Text>
+          <Text size="65" color="#FF6C6C">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  }
+  else{
+    return (
+      <Wrapper>
+        <Row>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            미세먼지 농도
+          </Text>
+          <Text size="18" style={{ marginTop: '15px' }}>
+            초미세먼지 농도
+          </Text>
+        </Row>
+        <Row>
+          <Text size="65" color="#ffffff">
+            {finedust}
+          </Text>
+          <Text size="65" color="#ffffff">
+            {microdust}
+          </Text>
+        </Row>
+        <Row>
+          <Standard />
+        </Row>
+        <Row>
+          <Text size="22" color="#222222">
+            {briefing}{' '}
+          </Text>
+        </Row>
+      </Wrapper>
+    )
+  }
 }
+
 export default Dustinfo
