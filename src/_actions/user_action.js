@@ -11,7 +11,8 @@ import {
   WEATHER_MAIN,
   LAT_TO_CODE,
   COVID_NUM,
-  WEATHER_TIME
+  WEATHER_TIME,
+  UMD_TO_LAT
 } from './type'
 
 import { USER_SERVER } from '../config'
@@ -52,6 +53,16 @@ export const latToAdd = (lat, lon) => {
     .then(response => response.data)
   return {
     type: LAT_TO_ADD,
+    payload: request,
+  }
+}
+
+export const umdToLat = (umd) => {
+  const request = axios
+    .get(`${USER_SERVER}/location/umd?umd=${umd}`)
+    .then(response => response.data)
+  return {
+    type: UMD_TO_LAT,
     payload: request,
   }
 }
