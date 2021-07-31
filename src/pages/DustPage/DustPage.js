@@ -575,11 +575,11 @@ function DustPage() {
                 </a>
               </Row>
               <Row>
-                <Text2 size="60" color="#42A0F0">
+                <Text2 size="60">
                   {' '}
                   {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
                 </Text2>
-                <Text2 size="60" color="#42A0F0">
+                <Text2 size="60">
                   {' '}
                   {mainState?.member?.mainInfo?.document?.pm25}{' '}
                 </Text2>
