@@ -326,15 +326,15 @@ function MainPage() {
             </p>
             <AlwaysScrollSection>
               {timeState.member?.rainInfo?.document?.map((array, i) => (
-                  <RainGraph
-                    color="#D9D4FF"
-                    heignt={30+array?.percent * 10}
-                    num={array?.percent}
-                    time={array?.time}
-                    icon={array?.icon}
-                  />
-                ))}
-                </AlwaysScrollSection>
+                <RainGraph
+                  color="#D9D4FF"
+                  height={array?.percent}
+                  num={array?.percent}
+                  time={array?.time}
+                  icon={array?.icon}
+                />
+              ))}
+            </AlwaysScrollSection>
           </Box2>
         </Wrapper1>
         <Wrapper2>
@@ -371,9 +371,14 @@ function MainPage() {
           <Box1>
             <img
               style={{ width: '140px', height: '140px', marginTop: '10px' }}
-              src={Rain}
+              src={weatherState?.member?.currentInfo?.document?.icon}
             />
-            <MainInfo2 />
+            <MainInfo2
+              current={weatherState?.member?.currentInfo?.document?.currTemp}
+              feel={weatherState?.member?.currentInfo?.document?.feelTemp}
+              high={weatherState?.member?.minmaxInfo?.document?.max}
+              low={weatherState?.member?.minmaxInfo?.document?.min}
+            />
           </Box1>
           <Box2>
             <p style={{ marginLeft: '3%', fontFamily: 'NotoSans' }}>
