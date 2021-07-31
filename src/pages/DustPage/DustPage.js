@@ -584,12 +584,22 @@ function DustPage() {
             </Box2_sub1>
             <Box2_sub2>
               <AlwaysScrollSection>
-                {dustState.member?.map((array, i) => (
+              {dustState.member?.map((array, i) => (
+                  i==1 ?
                   <Dustgraph
                     color="#85BFEF"
-                    height1={array?.dust *2 }
-                    height2={array?.microdust *2}
+                    height1={array?.dust * 2}
+                    height2={array?.microdust * 2}
                     day={array?.date}
+                    bold="bold"
+                  />
+                  : 
+                  <Dustgraph
+                    color="#85BFEF"
+                    height1={array?.dust * 2}
+                    height2={array?.microdust * 2}
+                    day={array?.date}
+                    bold="normal"
                   />
                 ))}
               </AlwaysScrollSection>
