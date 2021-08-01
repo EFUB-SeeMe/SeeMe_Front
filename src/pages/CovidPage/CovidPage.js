@@ -451,7 +451,12 @@ const BoldText1 = styled.div`
   }
 `
 function CovidPage() {
-  const [mainState, setMainState] = useState({ status: 'idle', member: null })
+  const [mainState, setMainState] = useState({ status: 'idle', member: {
+    "compRegion": 0,
+    "compTotal": 0,
+    "coronicRegion": 0,
+    "coronicTotal": 0
+  } })
   const [numState, setNumState] = useState({ status: 'idle', member: null })
   const [nationalState, setNationalState] = useState({
     status: 'idle',
@@ -471,9 +476,11 @@ function CovidPage() {
       )
     ).then(response => {
       setMainState({ status: 'pending' })
-      const data = response.payload
+      const data = response.payload;
+      console.log(data);
       setTimeout(() => setMainState({ status: 'resolved', member: data }), 600)
     })
+    
   }, [])
 
   useEffect(() => {

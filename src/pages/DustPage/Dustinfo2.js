@@ -49,8 +49,8 @@ const MaskImage = styled.img`
   }
   @media (max-width: 430px) {
     //iphone
-    width: 100x;
-    height: 150px;
+    width: 70x;
+    height: 160px;
   }
 `
 

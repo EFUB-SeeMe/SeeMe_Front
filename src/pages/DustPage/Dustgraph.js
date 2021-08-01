@@ -6,11 +6,10 @@ const Wrapper1 = styled.div`
   flex-direction: column; // 세로정렬
   margin-top: 40%;
   margin-bottom: 0%;
-  width: 100%;
+  width: 90%;
   height:75%;
   align-items: center;
   justify-content: center;
-  
   
 `
 
@@ -59,7 +58,8 @@ const Text = styled.div`
 background: white;
 display: flex;
 margin-left:2%;
-font-size: 15px;
+font-size: 13px;
+font-family: 'NotoSans';
 
 `
 
@@ -120,11 +120,12 @@ const Bar2 = styled.div`
 const Day = styled.text`
   align-items: center;
   margin-left: 44px;
-  font-size: 13px;
+  font-size: 15px;
   background: white;
   border: none;
   outline: none;
   margin-bottom: 5%;
+  font-family: 'NotoSans';
 
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -153,9 +154,9 @@ function Dustgraph_day({ color, height1, height2, day }) {
             <Bar2 color={color} height2={height2}></Bar2>
           </Box1_sub2>
         </Box1>
-        <Box2>
+    
           <Day>{day}</Day>
-        </Box2>
+
       </Wrapper1>
     </div>
   )

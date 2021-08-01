@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 66px;
   justify-content: space-between;
-
+  background: white;
   margin-top: 3px;
 `
 

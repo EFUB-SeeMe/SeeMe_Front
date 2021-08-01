@@ -101,6 +101,8 @@ const Button = styled.button`
 `
 
 const Image=styled.img`
+  width:100px;
+    height:100px;
 @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width:70px;
