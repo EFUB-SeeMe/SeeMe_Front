@@ -523,8 +523,10 @@ function CovidPage() {
     ).then(response => {
       setNumState({ status: 'pending' })
       const data = response.payload
+      
       setTimeout(() => setNumState({ status: 'resolved', member: Math.floor(data.data[0].contactDensityPercentile) }), 600)
       console.log(numState)
+      console.log(data)
     })
   }, [])
 

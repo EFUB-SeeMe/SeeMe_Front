@@ -215,6 +215,15 @@ function MainPage() {
       const data = response.payload
       setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
     })
+    dispatch(
+      latToCode(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      const data = response.payload.addressCode
+      window.localStorage.setItem('code',data)
+    })
   }, [])
   
   //WEATHER MAIN
@@ -273,7 +282,7 @@ function MainPage() {
               </Row>
               <Row>
                 {' '}
-                <p>{weatherState?.member?.currentInfo?.document?.iconDesc}</p>
+                <p style={{fontFamily:"NotoSans"}}>{weatherState?.member?.currentInfo?.document?.iconDesc}</p>
               </Row>
             </MainBox>
             <MainInfo
@@ -349,10 +358,10 @@ function MainPage() {
         </Wrapper2>
 
         <Wrapper3>
-          <LocationText text={window.localStorage.getItem('address')}/>
+          <LocationText text={nameState?.member}/>
           <Box1>
             <img
-              style={{ width: '140px', height: '140px', marginTop: '10px' }}
+              style={{ width: '180px', height: '180px', marginTop: '10px' }}
               src={Rain}
             />
            <MainInfo2
@@ -370,7 +379,7 @@ function MainPage() {
               {timeState.member?.tempInfo?.document?.map((array, i) => (
                   <MainGraph
                     color="#D9D4FF"
-                    heignt={array?.temperature.split('.')[0]* 6}
+                    height={parseInt(array?.temperature.split('.')[0]-15)*3}
                     num={array?.temperature}
                     time={array?.time}
                     icon={array?.icon}

@@ -359,7 +359,7 @@ const Text3 = styled.button`
   @media (max-width: 430px) {
     //iphone
     font-size: 15px;
-    width: 90px;
+    width: 110px;
     height: 25px;
     margin-top: 12px;
   }
