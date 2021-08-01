@@ -10,12 +10,8 @@ const Wrapper1 = styled.div`
   height:75%;
   align-items: center;
   justify-content: center;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
+  
+  
 `
 
 const Box1 = styled.div`
@@ -45,12 +41,7 @@ margin-left: 20%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
+
 `
 const Box1_sub2 = styled.div`
 // 그래프 박스
@@ -60,12 +51,7 @@ margin-right: 10%;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
+
 `
 
 const Text = styled.div`
@@ -74,12 +60,7 @@ background: white;
 display: flex;
 margin-left:2%;
 font-size: 15px;
-@media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
+
 `
 
 const Box2 = styled.div`
@@ -92,12 +73,7 @@ const Box2 = styled.div`
   margin-bottom: 0%;
   display: flex;
   flex-direction: row;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-  }
-  @media (min-width: 1440px) {
-    //desktop
-  }
+
 `
 
 // 그래프 2개 그리기 시작
@@ -141,14 +117,15 @@ const Bar2 = styled.div`
 `
 // 그래프 2개 그리기 끝
 
-const Day = styled.button`
-  align-items: left;
+const Day = styled.text`
+  align-items: center;
   margin-left: 44px;
   font-size: 13px;
   background: white;
   border: none;
   outline: none;
   margin-bottom: 5%;
+
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 18px;

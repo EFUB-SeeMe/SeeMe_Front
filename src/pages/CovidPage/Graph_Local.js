@@ -8,6 +8,11 @@ const Wrapper = styled.div`
   align-items: center;
   margin-right: 40px;
   margin-left: 40px;
+  @media (max-width: 420px) {
+    //iphone
+    margin-right: 20px;
+  margin-left: 20px;
+  }
 `
 const Styled = styled.div`
   background: ${props => props.color || 'black'};

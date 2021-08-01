@@ -7,48 +7,14 @@ import { useDispatch } from 'react-redux'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 28px;
+  margin-top: 10px;
 `
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1px;
-  width: 100%;
-  @media (min-width: 430px) and (max-width: 1440px) {
-    //between
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-  }
-  @media (max-width: 430px) {
-    //iphone
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-  }
-`
-const CenterRow = styled.div`
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 10px;
-`
-const Styled = styled.div`
-  background: ${props => props.color || 'black'};
-  height: ${props => props.height || 50}px;
-  width: 20px;
-  margin-bottom: 5px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 16px;
-`
+
 const Text = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
   color: ${props => props.color || 'black'};
@@ -64,22 +30,18 @@ const Text = styled.div`
     //iphone
     background: 'rgba( 255, 255, 255, 0 )';
     color: ${props => props.color || 'black'};
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'NotoSans';
     margin-right: 10px;
     text-align: center;
   }
 `
 const MaskImage = styled.img`
-  width: 40%;
-  margin-left: 10%;
-  margin-bottom: 10%;
-  margin-top: 3%;
-  height: 100%;
+
   align-items: center;
   justify-content: center;
-  width: 230px;
-  height: 230px;
+  width: 200px;
+  height: 200px;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
     width: 200px;
@@ -87,7 +49,7 @@ const MaskImage = styled.img`
   }
   @media (max-width: 430px) {
     //iphone
-    width: 150x;
+    width: 100x;
     height: 150px;
   }
 `
@@ -114,7 +76,7 @@ function Dustinfo2({ color, height, num, time }) {
         <MaskImage
           src={mainState?.member?.maskInfo?.document?.maskIcon}
         ></MaskImage>
-        <Text size="30">{mainState?.member?.maskInfo?.document?.desc} </Text>
+        <Text size="20">{mainState?.member?.maskInfo?.document?.desc} </Text>
     </Wrapper>
   )
 }

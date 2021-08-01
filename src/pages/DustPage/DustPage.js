@@ -129,6 +129,7 @@ const Box2 = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
+  display:flex;
 
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -143,14 +144,14 @@ const Box2 = styled.div`
   @media (max-width: 430px) {
     //iphone
     width: 90%;
-    height: 240px;
+    height: 340px;
   }
 `
 const Box2_sub1 = styled.div`
   // 현재위치 박스
   display: flex;
   align-items: left;
-  height: 10%;
+
   width: 100%;
 `
 
@@ -173,7 +174,6 @@ const Box3 = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
   display: flex;
-
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
@@ -197,40 +197,33 @@ const Box4 = styled.div`
   background: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-top: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
   overflow: hidden;
   @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    width: 90%;
-    height: 380px;
+    width: 39.5%;
+    height: 290px;
   }
   @media (min-width: 1440px) {
     //desktop
-    width: 90%;
-    height: 400px;
+    width: 39.5%;
+    height: 300px;
   }
   @media (max-width: 430px) {
     //iphone
+    flex-direction: column;
+    justify-content: center;
     width: 90%;
-    height: 350px;
+    height: 250px;
   }
 `
 
-const 농도수치 = styled.button`
-  align-items: center;
-  margin-top: 10px;
-  font-size: 65px;
-  width: 50%;
-  background: none;
-  border: none;
-  outline: none;
-  @media (max-width: 430px) {
-    //iphone
-    color: #42a0f0;
-    display: center;
-  }
-`
+
+
 
 const Text = styled.button`
   align-items: left;
@@ -479,7 +472,7 @@ function DustPage() {
             <Box2_sub1>
               <Text> 요일별 추이 </Text>
             </Box2_sub1>
-            <Box2_sub2>
+           
               <AlwaysScrollSection>
                 {dustState.member?.map((array, i) => (
                   <Dustgraph
@@ -490,7 +483,7 @@ function DustPage() {
                   />
                 ))}
               </AlwaysScrollSection>
-            </Box2_sub2>
+            
           </Box2>
           <Wrapper2>
             <Box3>
@@ -548,9 +541,9 @@ function DustPage() {
                 </Row>
               </Column>
             </Box3>
-            <Box3>
+            <Box4>
               <Dustinfo2 />
-            </Box3>
+            </Box4>
           </Wrapper2>
         </Wrapper1>
 
@@ -591,10 +584,19 @@ function DustPage() {
           </Box1_mobile>
 
           <Box2>
-            <Box2_sub1>
-              <Text> 요일별 추이 </Text>
+          <Box2_sub1>
+          <Text
+                style={{
+                  marginBottom: '10px',
+                  marginLeft: '12px',
+                  fontSize: '18px',
+                }}
+              >
+                {' '}
+                요일별 추이{' '}
+              </Text>
             </Box2_sub1>
-            <Box2_sub2>
+            <Box2_sub1>
               <AlwaysScrollSection>
                 {dustState.member?.map((array, i) => (
                   <Dustgraph
@@ -605,7 +607,7 @@ function DustPage() {
                   />
                 ))}
               </AlwaysScrollSection>
-            </Box2_sub2>
+              </Box2_sub1>
           </Box2>
           <Box3>
             <column style={{ justifyContent: 'center' }}>
@@ -663,9 +665,21 @@ function DustPage() {
             </column>
           </Box3>
 
-          <Box3>
+          <Box4>
+          <Box2_sub1>
+          <Text
+                style={{
+                  marginBottom: '10px',
+                  marginLeft: '12px',
+                  fontSize: '18px',
+                }}
+              >
+                {' '}
+                마스크 추천{' '}
+              </Text>
+            </Box2_sub1>
             <Dustinfo2 />
-          </Box3>
+          </Box4>
         </Wrapper3>
       </Background>
       <Footer />
