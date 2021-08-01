@@ -198,10 +198,22 @@ const Box4 = styled.div`
 function MainPage() {
   
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
+
   const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
   const [timeState, setTimeState] = useState({ status: 'idle', member: null })
   const dispatch=useDispatch();
-
+  useEffect(() => {
+    dispatch(
+      latToAdd(
+        window.localStorage.getItem('lat'),
+        window.localStorage.getItem('lon')
+      )
+    ).then(response => {
+      setNameState({ status: 'pending' })
+      const data = response.payload
+      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
+    })
+  }, [])
   
   //WEATHER MAIN
   useEffect(() => {
@@ -249,7 +261,7 @@ function MainPage() {
               <Row>
                 <img style={{ height: '22px', width: '22px' }} src={image} />
 
-                <p style={{ marginTop: '3px' }}>&ensp; {window.localStorage.getItem('address')}</p>
+                <p style={{ marginTop: '3px' }}>&ensp; {nameState?.member}</p>
               </Row>
               <Row>
                 <img
