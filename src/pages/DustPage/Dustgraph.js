@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column; // 세로정렬
-  margin-top: 25%;
+  margin-top: 15%;
   margin-bottom: 0%;
   width: 100%;
   height:85%;
@@ -127,7 +127,7 @@ const Day = styled.button`
   }
 `
 
-function Dustgraph_day({ color, height1, height2, day, bold }) {
+function Dustgraph({ color, height1, height2, day, bold }) {
   return (
     <div>
       <Wrapper1>
@@ -149,4 +149,4 @@ function Dustgraph_day({ color, height1, height2, day, bold }) {
     </div>
   )
 }
-export default Dustgraph_day
+export default Dustgraph
