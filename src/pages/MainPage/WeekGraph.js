@@ -48,7 +48,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
   background: 'rgba( 255, 255, 255, 0 )';
   color: ${props => props.color || 'black'};
-  font-size: 20px;
+  font-size: 17px;
   font-family: 'NotoSans';
   margin-top: 10px;
   width: 120px;
@@ -58,6 +58,11 @@ const Text = styled.div`
   @media (min-width: 1440px) {
     //desktop
     margin-right: 20px;
+  }
+
+  @media (max-width: 430px) {
+    //iphone
+    font-size: 15px;
   }
 `
 

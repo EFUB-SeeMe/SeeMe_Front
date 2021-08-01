@@ -14,12 +14,8 @@ import image from '../../assets/location.svg'
 import Rain from '../../assets/Rain.svg'
 import Clothes from './Clothes'
 import Location from '../Location'
-import {
-  latToAdd,
-  weatherMain,
-  latToCode,
-  weatherTime,
-} from '../../_actions/user_action'
+import { latToAdd, weatherMain,latToCode,weatherTime } from '../../_actions/user_action'
+
 
 const Background = styled.div`
   background-color: #ecf4ff;
@@ -200,39 +196,13 @@ const Box4 = styled.div`
 `
 
 function MainPage() {
-  const gsLocation = Location()
-  console.log(`gsLocation: ${JSON.stringify(gsLocation)}`)
+  
   const [nameState, setNameState] = useState({ status: 'idle', member: null })
-
-  const [weatherState, setWeatherState] = useState({
-    status: 'idle',
-    member: null,
-  })
+  const [weatherState, setWeatherState] = useState({ status: 'idle', member: null })
   const [timeState, setTimeState] = useState({ status: 'idle', member: null })
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(
-      latToAdd(
-        window.localStorage.getItem('lat'),
-        window.localStorage.getItem('lon')
-      )
-    ).then(response => {
-      setNameState({ status: 'pending' })
-      const data = response.payload
-      setTimeout(() => setNameState({ status: 'resolved', member: data }), 600)
-      console.log(data)
-    })
-    dispatch(
-      latToCode(
-        window.localStorage.getItem('lat'),
-        window.localStorage.getItem('lon')
-      )
-    ).then(response => {
-      const data = response.payload.addressCode
-      window.localStorage.setItem('code', data)
-    })
-  }, [])
+  const dispatch=useDispatch();
 
+  
   //WEATHER MAIN
   useEffect(() => {
     dispatch(
@@ -261,7 +231,10 @@ function MainPage() {
     ).then(response => {
       setTimeState({ status: 'pending' })
       const data = response.payload
-      setTimeout(() => setTimeState({ status: 'resolved', member: data }), 600)
+      setTimeout(
+        () => setTimeState({ status: 'resolved', member: data }),
+        600
+      )
       console.log(timeState)
     })
   }, [])
@@ -276,7 +249,7 @@ function MainPage() {
               <Row>
                 <img style={{ height: '22px', width: '22px' }} src={image} />
 
-                <p style={{ marginTop: '3px' }}>&ensp; {nameState?.member}</p>
+                <p style={{ marginTop: '3px' }}>&ensp; {window.localStorage.getItem('address')}</p>
               </Row>
               <Row>
                 <img
@@ -299,11 +272,12 @@ function MainPage() {
             />
           </Box1>
 
+
           <Box2>
             <p style={{ marginLeft: '3%' }}>시간대별 기온</p>
             <Row>
               <AlwaysScrollSection>
-                {timeState.member?.tempInfo?.document?.map((array, i) => (
+              {timeState.member?.tempInfo?.document?.map((array, i) => (
                   <MainGraph
                     color="#D9D4FF"
                     height={parseInt(array?.temperature.split('.')[0])}
@@ -320,16 +294,17 @@ function MainPage() {
             <p style={{ marginLeft: '3%' }}>시간대별 강수량</p>
             <AlwaysScrollSection>
               {timeState.member?.rainInfo?.document?.map((array, i) => (
-                <RainGraph
-                  color="#D9D4FF"
-                  height={array?.percent}
-                  num={array?.percent}
-                  time={array?.time}
-                  icon={array?.icon}
-                />
-              ))}
-            </AlwaysScrollSection>
+                  <RainGraph
+                    color="#D9D4FF"
+                    height={array?.percent }
+                    num={array?.percent}
+                    time={array?.time}
+                    icon={array?.icon}
+                  />
+                ))}
+                </AlwaysScrollSection>
           </Box2>
+
         </Wrapper1>
         <Wrapper2>
           <Box3>
@@ -361,17 +336,13 @@ function MainPage() {
         </Wrapper2>
 
         <Wrapper3>
-          <LocationText text={nameState?.member} />
+          <LocationText text={window.localStorage.getItem('address')}/>
           <Box1>
             <img
               style={{ width: '140px', height: '140px', marginTop: '10px' }}
-              src={weatherState?.member?.currentInfo?.document?.icon}
+              src={Rain}
             />
-            <MainInfo2
-              current={weatherState?.member?.currentInfo?.document?.currTemp}
-              feel={weatherState?.member?.currentInfo?.document?.feelTemp}
-              high={weatherState?.member?.minmaxInfo?.document?.max}
-              low={weatherState?.member?.minmaxInfo?.document?.min}
+            <MainInfo2 
             />
           </Box1>
           <Box2>
