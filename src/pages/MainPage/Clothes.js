@@ -20,21 +20,21 @@ const Wrapper=styled.div`
 const Text=styled.div`
     background: "rgba( 255, 255, 255, 0 )";
     color:black;
-    font-size:  ${props => props.size || 16}px;
+    font-size:  ${props => props.size || 13}px;
     font-family: 'NotoSans';
 
     margin-top: 10px;
-    margin-right: 60px;
+
 
    @media (min-width: 430px) and (max-width: 1440px) {
     //between
-    margin-left: 20px;
-    font-size:  ${props => props.size-3 || 16}px;
+
+    font-size:  ${props => props.size-3 || 10}px;
   }
   @media (max-width: 430px) {
     //iphone
     margin-top: 0px;
-    font-size:  ${props => props.size-3 || 16}px;
+    font-size:  ${props => props.size-3 || 10}px;
   }
 `
 const BoldText=styled.div`
@@ -112,17 +112,16 @@ const Image=styled.img`
     height:60px;
   }
 `
+const ColumnWrapper=styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`
 
 function Clothes({color,height,num,time}) {
   const dispatch=useDispatch();
   const [weatherState,setWeatherState]=useState();
-  const [myState, setMyState] = useState({
-    "image1":"",
-    "image2":"",
-    "image3":"",
-    "image4":""
-
-});
+  const [myState, setMyState] = useState();
 useEffect(() => {
   dispatch(
     weatherMain(
@@ -131,13 +130,29 @@ useEffect(() => {
     )
   ).then(response => {
     setWeatherState({ status: 'pending' })
-    const data = response.payload.ootdInfo.document
+    const data = response.payload.ootdInfo.document;
+    console.log(data)
     setTimeout(
       () => setWeatherState({ status: 'resolved', member: data }),
       600
-    )
+    );
+
+    setTimeout(
+      () => setMyState({
+        "image1":weatherState?.member?.age10.item1,
+        "image2":weatherState?.member?.age10.item2,
+        "image3":weatherState?.member?.age10.item3,
+        "image4":weatherState?.member?.age10.item4,
+        "text1":weatherState?.member?.age10.item1Desc,
+        "text2":weatherState?.member?.age10.item2Desc,
+        "text3":weatherState?.member?.age10.item3Desc,
+        "text4":weatherState?.member?.age10.item4Desc
+    }),
+      600
+    );
   })
 }, [])
+
     
     
     const getData = async () => {
@@ -146,7 +161,11 @@ useEffect(() => {
                 "image1":weatherState?.member?.age10.item1,
                 "image2":weatherState?.member?.age10.item2,
                 "image3":weatherState?.member?.age10.item3,
-                "image4":weatherState?.member?.age10.item4
+                "image4":weatherState?.member?.age10.item4,
+                "text1":weatherState?.member?.age10.item1Desc,
+                "text2":weatherState?.member?.age10.item2Desc,
+                "text3":weatherState?.member?.age10.item3Desc,
+                "text4":weatherState?.member?.age10.item4Desc
             });
             console.log(myState);
           }catch (e) {
@@ -160,7 +179,11 @@ useEffect(() => {
             "image1":weatherState?.member?.age20.item1,
             "image2":weatherState?.member?.age20.item2,
             "image3":weatherState?.member?.age20.item3,
-            "image4":weatherState?.member?.age20.item4
+            "image4":weatherState?.member?.age20.item4,
+            "text1":weatherState?.member?.age20.item1Desc,
+                "text2":weatherState?.member?.age20.item2Desc,
+                "text3":weatherState?.member?.age20.item3Desc,
+                "text4":weatherState?.member?.age20.item4Desc
         });
             console.log(myState);
           }catch (e) {
@@ -174,7 +197,11 @@ useEffect(() => {
             "image1":weatherState?.member?.age30.item1,
             "image2":weatherState?.member?.age30.item2,
             "image3":weatherState?.member?.age30.item3,
-            "image4":weatherState?.member?.age30.item4
+            "image4":weatherState?.member?.age30.item4,
+            "text1":weatherState?.member?.age30.item1Desc,
+                "text2":weatherState?.member?.age30.item2Desc,
+                "text3":weatherState?.member?.age30.item3Desc,
+                "text4":weatherState?.member?.age30.item4Desc
         });
             console.log(myState);
           }catch (e) {
@@ -188,7 +215,11 @@ useEffect(() => {
             "image1":weatherState?.member?.age40.item1,
             "image2":weatherState?.member?.age40.item2,
             "image3":weatherState?.member?.age40.item3,
-            "image4":weatherState?.member?.age40.item4
+            "image4":weatherState?.member?.age40.item4,
+            "text1":weatherState?.member?.age40.item1Desc,
+                "text2":weatherState?.member?.age40.item2Desc,
+                "text3":weatherState?.member?.age40.item3Desc,
+                "text4":weatherState?.member?.age40.item4Desc
         });
             console.log(myState);
           }catch (e) {
@@ -202,7 +233,11 @@ useEffect(() => {
             "image1":weatherState?.member?.age50.item1,
             "image2":weatherState?.member?.age50.item2,
             "image3":weatherState?.member?.age50.item3,
-            "image4":weatherState?.member?.age50.item4
+            "image4":weatherState?.member?.age50.item4,
+            "text1":weatherState?.member?.age50.item1Desc,
+                "text2":weatherState?.member?.age50.item2Desc,
+                "text3":weatherState?.member?.age50.item3Desc,
+                "text4":weatherState?.member?.age50.item4Desc
         });
             console.log(myState);
           }catch (e) {
@@ -222,14 +257,26 @@ useEffect(() => {
             <Button onClick={getData5} > 50대 </Button>
             </Row>
             <Row>
-            <Image style={{marginRight:"10px"}}src={myState.image1} />
-            <Image style={{marginRight:"10px"}} src={myState.image2} />
-            <Image style={{marginRight:"10px"}} src={myState.image3} />
-            <Image style={{marginRight:"10px"}} src={myState.image4} />
-            </Row>   <StartRow>
-            <Text size="16">{"오늘은 비가 오니 샌들을 신는게 어떨까요?"}</Text></StartRow>   
+              <ColumnWrapper>
+            <Image style={{marginRight:"10px"}}src={myState?.image1} />
+            <Text>{myState?.text1}</Text>
+            </ColumnWrapper>
+            <ColumnWrapper>
+            <Image style={{marginRight:"10px"}} src={myState?.image2} />
+            <Text>{myState?.text2}</Text>
+            </ColumnWrapper>
+            <ColumnWrapper>
+            <Image style={{marginRight:"10px"}} src={myState?.image3} />
+            <Text>{myState?.text3}</Text>
+            </ColumnWrapper>
+            <ColumnWrapper>
+            <Image style={{marginRight:"10px"}} src={myState?.image4} />
+            <Text>{myState?.text4}</Text>
+            </ColumnWrapper>
+            </Row>   
         </Wrapper>
 
     )
 }
 export default Clothes;
+
