@@ -19,6 +19,7 @@ import standard from '../../assets/Dust_standard.svg'
 import Dustgraph from './Dustgraph'
 import Dustinfo from './Dustinfo'
 import Dustinfo2 from './Dustinfo2'
+import DustInfo_mobile from './DustInfo_mobile'
 
 const Background = styled.div`
   background-color: #e9e7ff;
@@ -574,16 +575,11 @@ function DustPage() {
                   미세먼지&emsp;&emsp;&emsp;&emsp;&emsp;초미세먼지
                 </a>
               </Row>
-              <Row>
-                <Text2 size="60">
-                  {' '}
-                  {mainState?.member?.mainInfo?.document?.pm10} &emsp;{' '}
-                </Text2>
-                <Text2 size="60">
-                  {' '}
-                  {mainState?.member?.mainInfo?.document?.pm25}{' '}
-                </Text2>
-              </Row>
+              <DustInfo_mobile
+                finedust={mainState?.member?.mainInfo?.document?.pm10}
+                microdust={mainState?.member?.mainInfo?.document?.pm25}
+              />
+
               <Row>
                 <img style={{ marginTop: '5px' }} src={standard} />
               </Row>
