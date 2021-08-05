@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 import LocationText from '../../components/LocationText'
 import MainGraph from './MainGraph'
 import { AlwaysScrollSection } from './AlwaysScrollSection'
@@ -426,7 +425,6 @@ function MainPage() {
           </Box4>
         </Wrapper3>
       </Background>
-      <Footer />
     </>
   )
 }

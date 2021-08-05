@@ -155,11 +155,6 @@ function Header() {
   return (
     <Wrapper>
       <MyIcon></MyIcon>
-      <Button onClick={() => history.push(`/`)}> 날씨 </Button>
-      <Line />
-      <Button onClick={() => history.push(`/dust`)}> 미세먼지 </Button>
-      <Line />
-      <Button onClick={() => history.push(`/covid`)}> 코로나 </Button>
       <Input></Input>
       <SearchButton>
         {' '}
