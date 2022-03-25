@@ -1,11 +1,11 @@
-# Figma
+# 📌 Figma
 
 ![image](https://user-images.githubusercontent.com/65931227/160164401-2239fb5e-1fb9-46d2-b21c-9e9c975fdf15.png)
 ![image](https://user-images.githubusercontent.com/65931227/160164464-906e8b11-a3ea-4820-8ce3-77719d308829.png)
 ![image](https://user-images.githubusercontent.com/65931227/160164513-16eb3fdb-fa77-425d-a5cf-bb3b87a498cd.png)
 
 
-# 프로젝트 폴더 구조 설명
+# 📌 프로젝트 폴더 구조
 
 ### SeeMe_Front/src/assets
 -> SeeMe 개발에 필요한 svg 파일들 저장
@@ -19,7 +19,7 @@
 ### SeeMe_Front/src/pages
 -> SeeMe의 페이지들 저장
 
-# 선택한 기술 스택 및 라이브러리
+# 📌 기술 스택 및 라이브러리
 
 ### Styled-components
 -> 가독성 있는 코드를 위해 사용
@@ -30,7 +30,7 @@
 ### google-maps-react
 -> 지역에 따른 미세먼지 농도 지도를 위해 사용
 
-# 팀원 소개와 역할 분담
+# 📌 
 
 ### 정아연
 -> MainPage(기온과 날씨를 알려주고 코디를 추천해줌) 개발
