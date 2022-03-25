@@ -1,3 +1,10 @@
+# Figma
+
+![image](https://user-images.githubusercontent.com/65931227/160164401-2239fb5e-1fb9-46d2-b21c-9e9c975fdf15.png)
+![image](https://user-images.githubusercontent.com/65931227/160164464-906e8b11-a3ea-4820-8ce3-77719d308829.png)
+![image](https://user-images.githubusercontent.com/65931227/160164513-16eb3fdb-fa77-425d-a5cf-bb3b87a498cd.png)
+
+
 # 프로젝트 폴더 구조 설명
 
 ### SeeMe_Front/src/assets
