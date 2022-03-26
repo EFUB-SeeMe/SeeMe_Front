@@ -8,16 +8,16 @@
 # 📌 프로젝트 폴더 구조
 
 ### SeeMe_Front/src/assets
--> SeeMe 개발에 필요한 svg 파일들 저장
+: SeeMe 개발에 필요한 svg 파일들 저장
 
 ### SeeMe_Front/src/components
--> Footer, Header 등 필요한 컴포넌트 저장
+: Footer, Header 등 필요한 컴포넌트 저장
 
 ### SeeMe_Front/src/fonts
--> SeeMe에서 사용중인 폰트 저장 ( NotoSans )
+: SeeMe에서 사용중인 폰트 저장 ( NotoSans )
 
 ### SeeMe_Front/src/pages
--> SeeMe의 페이지들 저장
+: SeeMe의 페이지들 저장
 
 # 📌 기술 스택 및 라이브러리
 
